@@ -51,7 +51,7 @@ export default function Footer() {
               <Stack direction="row" spacing={1.2} alignItems="center">
                 <Box
                   component="img"
-                  src="/logo.svg"
+                  src="/logo.png"
                   alt="Thaksa Logo"
                   sx={{
                     width: 38,

@@ -280,7 +280,7 @@ export default function HeroSection() {
               >
                 <Box
                   component="img"
-                  src="/logo.svg"
+                  src="/logo.png"
                   alt="THAKSA Academy Logo"
                   sx={{
                     width: { xs: 120, sm: 150 },
@@ -409,7 +409,7 @@ export default function HeroSection() {
               />
               <Box
                 component="img"
-                src="/logo.svg"
+                src="/logo.png"
                 alt="THAKSA Academy Logo"
                 sx={{
                   width: { md: 280, lg: 340 },

@@ -57,17 +57,30 @@ export default function DashboardLayout() {
 
   const drawerContent = (
     <Box sx={{ p: 2 }}>
-      <Typography
-        sx={{
-          mb: 2.5,
-          fontSize: "1.35rem",
-          fontWeight: 900,
-          color: "#0f172a",
-          fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-        }}
-      >
-        Thaksa
-      </Typography>
+      <Stack direction="row" spacing={1.1} alignItems="center" sx={{ mb: 2.5 }}>
+        <Box
+          component="img"
+          src="/logo.png"
+          alt="Thaksa Logo"
+          sx={{
+            width: 34,
+            height: 34,
+            borderRadius: 1.2,
+            objectFit: "cover",
+            border: "1px solid rgba(15,23,42,0.12)",
+          }}
+        />
+        <Typography
+          sx={{
+            fontSize: "1.35rem",
+            fontWeight: 900,
+            color: "#0f172a",
+            fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+          }}
+        >
+          Thaksa
+        </Typography>
+      </Stack>
 
       <List sx={{ p: 0 }}>
         {navItems.map((item) => {

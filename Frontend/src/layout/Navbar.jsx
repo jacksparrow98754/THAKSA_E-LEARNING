@@ -129,7 +129,7 @@ export default function Navbar() {
           >
             <Box
               component="img"
-              src="/logo.svg"
+              src="/logo.png"
               alt="Thaksa Logo"
               sx={{
                 width: { xs: 34, md: 40 },
@@ -272,7 +272,7 @@ export default function Navbar() {
             <Stack direction="row" spacing={1.1} alignItems="center">
               <Box
                 component="img"
-                src="/logo.svg"
+                src="/logo.png"
                 alt="Thaksa Logo"
                 sx={{
                   width: 34,

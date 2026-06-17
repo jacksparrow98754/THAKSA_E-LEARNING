@@ -445,7 +445,7 @@ function MissionSection() {
                     >
                         <Box
                             component="img"
-                            src="/thaksa-icon.svg"
+                            src="/logo.png"
                             alt="THAKSA Academy Logo"
                             sx={{
                                 width: "100%",
