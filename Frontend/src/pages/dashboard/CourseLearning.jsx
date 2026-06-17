@@ -502,7 +502,7 @@ function SessionTable({ rows, markingSession, onMarkAttendance }) {
   );
 }
 
-function CourseSummary({ modules, sessions, onSelectLesson }) {
+function CourseSummary({ modules, sessions, progressPercent, currentLesson, onSelectLesson }) {
   const totalModules = modules.length;
   const totalLessons = modules.reduce((sum, m) => sum + (m.lessons?.length || 0), 0);
 

@@ -13,7 +13,6 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import brandLogo from "/logo.svg";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
@@ -130,8 +129,8 @@ export default function Navbar() {
           >
             <Box
               component="img"
-              src={brandLogo}
-              alt="ThaksaAi Logo"
+              src="/logo.svg"
+              alt="Thaksa Logo"
               sx={{
                 width: { xs: 34, md: 40 },
                 height: { xs: 34, md: 40 },
@@ -149,7 +148,7 @@ export default function Navbar() {
                 color: "#0f172a",
               }}
             >
-              ThaksaAi
+              Thaksa
             </Typography>
           </Box>
 
@@ -273,8 +272,8 @@ export default function Navbar() {
             <Stack direction="row" spacing={1.1} alignItems="center">
               <Box
                 component="img"
-                src={brandLogo}
-                alt="ThaksaAi Logo"
+                src="/logo.svg"
+                alt="Thaksa Logo"
                 sx={{
                   width: 34,
                   height: 34,
@@ -291,7 +290,7 @@ export default function Navbar() {
                   fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 }}
               >
-                ThaksaAi
+                Thaksa
               </Typography>
             </Stack>
             <IconButton

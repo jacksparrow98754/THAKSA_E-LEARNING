@@ -26,8 +26,6 @@ import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
-import logo from "/thaksa-icon.svg"
-
 // ───────────────────────────────────────────────
 // Utility hook: fade-in when element enters viewport
 // ───────────────────────────────────────────────
@@ -109,7 +107,7 @@ const workshopDetails = [
     {
         icon: EmojiEventsRoundedIcon,
         title: "Certificate of Participation",
-        desc: "Every participant receives an industry-recognized certificate co-branded with Thaksa Ai Career Planet upon completion.",
+        desc: "Every participant receives an industry-recognized certificate co-branded with THAKSA Academy upon completion.",
         color: "#d97706",
         bg: "rgba(217,119,6,0.08)",
     },
@@ -143,7 +141,7 @@ function WorkshopDetailsSection() {
                         Conducted <Box component="span" sx={{ color: "#0891b2" }}>Offline</Box>, Built for Impact
                     </Typography>
                     <Typography sx={{ color: "#475569", maxWidth: 580, lineHeight: 1.75, mb: { xs: 5, md: 7 } }}>
-                        Every ThaksaAi workshop is a live, in-person experience at your campus — interactive, practical, and packed with industry insights that no online course can replicate.
+                        Every THAKSA workshop is a live, in-person experience at your campus — interactive, practical, and packed with industry insights that no online course can replicate.
                     </Typography>
                 </RevealBox>
 
@@ -231,7 +229,7 @@ function TrustedCollegesSection() {
                         </Box>
                     </Typography>
                     <Typography sx={{ color: "#475569", maxWidth: 520, mx: "auto", lineHeight: 1.7 }}>
-                        ThaksaAi workshops have been conducted at premier engineering colleges across Hyderabad & Telangana, impacting thousands of students.
+                        THAKSA workshops have been conducted at premier engineering colleges across Hyderabad & Telangana, impacting thousands of students.
                     </Typography>
                 </RevealBox>
 
@@ -309,7 +307,7 @@ const testimonials = [
         role: "Final Year CSE Student",
         college: "VCE, Warangal",
         rating: 5,
-        text: "The ThaksaAi workshop on Full Stack Development was absolutely mind-blowing! The hands-on sessions helped me build a real project in just 2 days. The mentors were incredibly approachable and explained everything clearly. Highly recommend to every engineering student!",
+        text: "The THAKSA workshop on Full Stack Development was absolutely mind-blowing! The hands-on sessions helped me build a real project in just 2 days. The mentors were incredibly approachable and explained everything clearly. Highly recommend to every engineering student!",
         avatar: "AM",
         color: "#6366f1",
     },
@@ -318,7 +316,7 @@ const testimonials = [
         role: "HOD – Computer Science Department",
         college: "VNR VJIET, Hyderabad",
         rating: 5,
-        text: "I have collaborated with several training organizations over the years, but ThaksaAi stands out for their professionalism and curriculum quality. Students who attended their workshops showed remarkable improvement in practical skills. We look forward to future collaborations.",
+        text: "I have collaborated with several training organizations over the years, but THAKSA stands out for their professionalism and curriculum quality. Students who attended their workshops showed remarkable improvement in practical skills. We look forward to future collaborations.",
         avatar: "AB",
         color: "#0f766e",
     },
@@ -327,7 +325,7 @@ const testimonials = [
         role: "B.Tech 3rd Year – ECE",
         college: "JNTU Hyderabad",
         rating: 5,
-        text: "I came in with zero Python knowledge and left with a Machine Learning project in hand! The trainers are insanely talented and patient. The certificate also helped me get my first internship. ThaksaAi is the real deal!",
+        text: "I came in with zero Python knowledge and left with a Machine Learning project in hand! The trainers are insanely talented and patient. The certificate also helped me get my first internship. THAKSA is the real deal!",
         avatar: "MM",
         color: "#d97706",
     },
@@ -336,7 +334,7 @@ const testimonials = [
         role: "Associate Professor",
         college: "Osmania University",
         rating: 5,
-        text: "Our college organized a DevOps workshop with ThaksaAi for 200+ students. The logistics were seamless, the content was industry-relevant, and student feedback was overwhelmingly positive. ThaksaAi truly delivers on their promises.",
+        text: "Our college organized a DevOps workshop with THAKSA for 200+ students. The logistics were seamless, the content was industry-relevant, and student feedback was overwhelmingly positive. THAKSA truly delivers on their promises.",
         avatar: "ZB",
         color: "#0891b2",
     },
@@ -353,7 +351,7 @@ function TestimonialsSection() {
                         <Box component="span" sx={{ color: "#d97706" }}>Love Us</Box>
                     </Typography>
                     <Typography sx={{ color: "#475569", maxWidth: 500, mx: "auto", lineHeight: 1.7 }}>
-                        Thousands of students and faculty members have experienced ThaksaAi workshops. Here's what they have to say.
+                        Thousands of students and faculty members have experienced THAKSA workshops. Here's what they have to say.
                     </Typography>
                 </RevealBox>
 
@@ -406,7 +404,7 @@ function TestimonialsSection() {
 }
 
 // ───────────────────────────────────────────────
-// SECTION 5 — ThaksaAi LOGO & MISSION
+// SECTION 5 — THAKSA LOGO & MISSION
 // ───────────────────────────────────────────────
 function MissionSection() {
     return (
@@ -447,8 +445,8 @@ function MissionSection() {
                     >
                         <Box
                             component="img"
-                            src={logo}
-                            alt="Thaksa Ai Career Planet Logo"
+                            src="/thaksa-icon.svg"
+                            alt="THAKSA Academy Logo"
                             sx={{
                                 width: "100%",
                                 height: "100%",
@@ -468,7 +466,7 @@ function MissionSection() {
                             mb: 1,
                         }}
                     >
-                        ThaksaAi
+                        THAKSA
                     </Typography>
                     <Typography
                         sx={{
@@ -502,7 +500,7 @@ function MissionSection() {
                     </Typography>
 
                     <Typography sx={{ color: "rgba(255,255,255,0.55)", fontSize: "1rem", maxWidth: 580, mx: "auto", lineHeight: 1.8 }}>
-                        At ThaksaAi, we believe every student deserves the opportunity to work on real problems, guided by real experts, in a real environment. Our mission is to democratize industry-grade education for engineering students across India.
+                        At THAKSA, we believe every student deserves the opportunity to work on real problems, guided by real experts, in a real environment. Our mission is to democratize industry-grade education for engineering students across India.
                     </Typography>
 
                     <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="center" sx={{ mt: 5 }}>
@@ -534,31 +532,31 @@ function MissionSection() {
 // ───────────────────────────────────────────────
 const faqs = [
     {
-        q: "How can my college organize a ThaksaAi workshop?",
+        q: "How can my college organize a THAKSA workshop?",
         a: "It's simple! Reach out via WhatsApp or email with your college details, preferred dates, and expected student count. Our team will get back to you within 24 hours to discuss the workshop format and logistics.",
     },
     {
         q: "Are the workshops conducted online or offline?",
-        a: "All ThaksaAi workshops are conducted in offline (in-person) mode at your college campus. We believe hands-on learning requires real interaction, and our offline format ensures maximum engagement and impact.",
+        a: "All THAKSA workshops are conducted in offline (in-person) mode at your college campus. We believe hands-on learning requires real interaction, and our offline format ensures maximum engagement and impact.",
     },
     {
         q: "What is the minimum batch size for a workshop?",
         a: "We typically conduct workshops for groups of 30–300+ students. We can customize the format and content based on your batch size and the specific requirements of your department.",
     },
     {
-        q: "What topics/domains does ThaksaAi cover?",
+        q: "What topics/domains does THAKSA cover?",
         a: "We offer workshops in Full Stack Development, Software Testing & QA, AWS DevOps, Machine Learning & AI, Python, UI/UX Design, Cybersecurity, and more. We also offer custom workshops tailored to your curriculum.",
     },
     {
         q: "Will students receive certificates?",
-        a: "Yes! Every participant who completes the workshop receives a Certificate of Participation co-branded with Thaksa Ai Career Planet. Certificates are issued digitally and can also be provided in printed format.",
+        a: "Yes! Every participant who completes the workshop receives a Certificate of Participation co-branded with THAKSA Academy. Certificates are issued digitally and can also be provided in printed format.",
     },
     {
         q: "What is the cost of conducting a workshop?",
         a: "Workshop pricing depends on the duration (1-day, 2-day, or 3-day), the topic, and the number of students. Please contact us for a customized quote — we offer very competitive pricing tailored to educational institutions.",
     },
     {
-        q: "Can students join individually if their college hasn't partnered with ThaksaAi?",
+        q: "Can students join individually if their college hasn't partnered with THAKSA?",
         a: "Yes! Individual students can register for our open workshops. Check our training & placement page for upcoming individual cohort programs, or contact us directly to get notified of the next batch.",
     },
 ];
@@ -675,10 +673,10 @@ function ContactSection() {
                                         <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.9rem" }}>Email Us</Typography>
                                         <Typography
                                             component="a"
-                                            href="mailto:thaksaai@gmail.com"
+                                            href="mailto:thaksa.academy@gmail.com"
                                             sx={{ color: "#0891b2", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
                                         >
-                                            thaksaai@gmail.com
+                                            thaksa.academy@gmail.com
                                         </Typography>
                                     </Box>
                                 </Stack>
@@ -739,7 +737,7 @@ function ContactSection() {
                                 </Typography>
                                 <Box
                                     component="a"
-                                    href="https://wa.me/919908597337?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20organizing%20a%20workshop%20at%20our%20college."
+                                    href="https://wa.me/919908597337?text=Hi%20THAKSA%2C%20I'm%20interested%20in%20organizing%20a%20workshop%20at%20our%20college."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     sx={{
@@ -833,7 +831,7 @@ function WhatsAppFloat() {
                 )}
                 <IconButton
                     component="a"
-                    href="https://wa.me/919908597337?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20your%20workshops!"
+                    href="https://wa.me/919908597337?text=Hi%20THAKSA%2C%20I'm%20interested%20in%20your%20workshops!"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
@@ -882,7 +880,7 @@ function PageHero() {
                         mb: 1.5,
                     }}
                 >
-                    ThaksaAi Workshops
+                    THAKSA Workshops
                 </Typography>
                 <Typography sx={{ color: "#475569", fontSize: { xs: "1rem", md: "1.1rem" }, lineHeight: 1.75, maxWidth: 560, mx: "auto" }}>
                     Immersive, offline workshop experiences delivered at your college campus by industry professionals. Built to make students genuinely job-ready.
