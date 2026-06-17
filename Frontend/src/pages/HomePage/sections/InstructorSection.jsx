@@ -190,10 +190,7 @@ export default function InstructorSection() {
                     CEO AND fOUNDER
                   </Typography>
                   <Typography sx={{ color: "#475569", lineHeight: 1.75, fontSize: "1.1rem" }}>
-                    Tharun is a passionate educator and tech entrepreneur with over 5 years of
-                    experience bridging academia and industry. His vision sparked THAKSA Academy to
-                    transform how students learn practical skills through immersive, industry-led
-                    workshops.
+                    Believing that the future belongs to those who continuously learn and adapt, the foundation of Thaksa AI Career Planet is built on empowering individuals through technology and practical innovation. Combining expertise in Cloud Engineering, DevSecOps, Artificial Intelligence, and modern software practices, the goal is to create transformative learning experiences that prepare students for real industry challenges. By fostering curiosity, problem-solving, and hands-on skill development, the mission is to shape the next generation of technology leaders and innovators.
                   </Typography>
                   <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
                     {["Educator", "Technologist", "Mentor"].map((tag) => (
@@ -292,13 +289,10 @@ export default function InstructorSection() {
                       letterSpacing: "0.06em",
                     }}
                   >
-                    CTO - CHIEF TECHNICAL OFFICER
+                    BDA - BUSINESS DEVELOPMENT ASSOCIATE
                   </Typography>
                   <Typography sx={{ color: "#475569", lineHeight: 1.75, fontSize: "0.95rem" }}>
-                    Sadvisha leads the technical direction of THAKSA Academy, building scalable
-                    learning infrastructure and curating workshop curricula that stay ahead of
-                    industry trends. Her deep expertise in software architecture empowers students
-                    with cutting-edge skills.
+                   Believing that every opportunity begins with a meaningful connection, the focus is on building strong relationships that support learning, growth, and career development. Through collaboration with students, academic institutions, and industry partners, efforts are directed toward creating an environment where learners can access valuable resources, guidance, and opportunities that help them succeed in their professional journey.
                   </Typography>
                   <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
                     {["Full-Stack", "AI/ML", "Systems"].map((tag) => (
