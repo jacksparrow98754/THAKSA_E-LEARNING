@@ -190,7 +190,7 @@ export default function InstructorSection() {
                     CEO AND fOUNDER
                   </Typography>
                   <Typography sx={{ color: "#475569", lineHeight: 1.75, fontSize: "1.1rem" }}>
-                    Believing that the future belongs to those who continuously learn and adapt, the foundation of Thaksa AI Career Planet is built on empowering individuals through technology and practical innovation. Combining expertise in Cloud Engineering, DevSecOps, Artificial Intelligence, and modern software practices, the goal is to create transformative learning experiences that prepare students for real industry challenges. By fostering curiosity, problem-solving, and hands-on skill development, the mission is to shape the next generation of technology leaders and innovators.
+Believing that the future belongs to those who continuously learn and adapt, the foundation of Thaksa Ai Career Planet is built on empowering individuals through technology and practical innovation. Combining expertise in Cloud Engineering, DevSecOps, Artificial Intelligence, and modern software practices, the goal is to create transformative learning experiences that prepare students for real industry challenges. By fostering curiosity, problem-solving, and hands-on skill development, the mission is to shape the next generation of technology leaders and innovators.
                   </Typography>
                   <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
                     {["Educator", "Technologist", "Mentor"].map((tag) => (
@@ -292,7 +292,7 @@ export default function InstructorSection() {
                     BDA - BUSINESS DEVELOPMENT ASSOCIATE
                   </Typography>
                   <Typography sx={{ color: "#475569", lineHeight: 1.75, fontSize: "0.95rem" }}>
-                   Believing that every opportunity begins with a meaningful connection, the focus is on building strong relationships that support learning, growth, and career development. Through collaboration with students, academic institutions, and industry partners, efforts are directed toward creating an environment where learners can access valuable resources, guidance, and opportunities that help them succeed in their professional journey.
+Believing that every opportunity begins with a meaningful connection, the focus is on building strong relationships that support learning, growth, and career development. Through collaboration with students, academic institutions, and industry partners, efforts are directed toward creating an environment where learners can access valuable resources, guidance, and opportunities that help them succeed in their professional journey.
                   </Typography>
                   <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
                     {[].map((tag) => (

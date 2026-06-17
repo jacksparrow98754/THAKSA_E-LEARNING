@@ -280,8 +280,8 @@ export default function HeroSection() {
               >
                 <Box
                   component="img"
-                  src="/logo.svg"
-                  alt="THAKSA Academy Logo"
+                  src={new URL("./logo.jpeg", import.meta.url).href}
+                  alt="Thaksa Ai Career Planet Logo"
                   sx={{
                     width: { xs: 120, sm: 150 },
                     height: { xs: 120, sm: 150 },
@@ -409,8 +409,8 @@ export default function HeroSection() {
               />
               <Box
                 component="img"
-                src="/logo.svg"
-                alt="THAKSA Academy Logo"
+                src={new URL("./logo.jpeg", import.meta.url).href}
+                alt="Thaksa Ai Career Planet Logo"
                 sx={{
                   width: { md: 280, lg: 340 },
                   height: { md: 280, lg: 340 },

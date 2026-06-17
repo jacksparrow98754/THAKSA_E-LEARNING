@@ -26,7 +26,7 @@ import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
-import logo from "/thaksa-icon.svg"
+import logo from "../HomePage/sections/ThaksaAi.jpeg"
 
 // ───────────────────────────────────────────────
 // Utility hook: fade-in when element enters viewport
