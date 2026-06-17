@@ -54,23 +54,11 @@ export default function Footer() {
                   src="/logo.png"
                   alt="Thaksa Logo"
                   sx={{
-                    width: 38,
+                    width: 140,
                     height: 38,
-                    borderRadius: 1.5,
-                    objectFit: "cover",
-                    border: "1px solid rgba(15,23,42,0.12)",
+                    objectFit: "contain",
                   }}
                 />
-                <Typography
-                  sx={{
-                    fontWeight: 900,
-                    color: "#0f172a",
-                    fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                    fontSize: "1.12rem",
-                  }}
-                >
-                  Thaksa E-Learning
-                </Typography>
               </Stack>
               <Typography sx={{ color: "#475569", lineHeight: 1.75, maxWidth: 360 }}>
                 Practical, mentor-led learning programs designed to help students build industry-relevant

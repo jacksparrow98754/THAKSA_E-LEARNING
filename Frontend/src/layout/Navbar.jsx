@@ -132,24 +132,11 @@ export default function Navbar() {
               src="/logo.png"
               alt="Thaksa Logo"
               sx={{
-                width: { xs: 34, md: 40 },
+                width: { xs: 140, md: 160 },
                 height: { xs: 34, md: 40 },
-                borderRadius: 1.5,
-                objectFit: "cover",
-                border: "1px solid rgba(15,23,42,0.12)",
+                objectFit: "contain",
               }}
             />
-            <Typography
-              sx={{
-                fontWeight: 900,
-                fontSize: { xs: "1.2rem", md: "1.35rem" },
-                letterSpacing: "-0.02em",
-                fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                color: "#0f172a",
-              }}
-            >
-              Thaksa
-            </Typography>
           </Box>
 
           <Stack
@@ -275,23 +262,11 @@ export default function Navbar() {
                 src="/logo.png"
                 alt="Thaksa Logo"
                 sx={{
-                  width: 34,
+                  width: 140,
                   height: 34,
-                  borderRadius: 1.2,
-                  objectFit: "cover",
-                  border: "1px solid rgba(15,23,42,0.12)",
+                  objectFit: "contain",
                 }}
               />
-              <Typography
-                sx={{
-                  fontWeight: 900,
-                  fontSize: "1.25rem",
-                  color: "#0f172a",
-                  fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                }}
-              >
-                Thaksa
-              </Typography>
             </Stack>
             <IconButton
               onClick={() => setMobileOpen(false)}

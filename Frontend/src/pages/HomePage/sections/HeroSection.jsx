@@ -283,8 +283,8 @@ export default function HeroSection() {
                   src="/logo.png"
                   alt="THAKSA Academy Logo"
                   sx={{
-                    width: { xs: 120, sm: 150 },
-                    height: { xs: 120, sm: 150 },
+                    width: { xs: 200, sm: 240 },
+                    height: "auto",
                     objectFit: "contain",
                     borderRadius: 4,
                     boxShadow: "0 12px 40px rgba(99,102,241,0.18), 0 4px 16px rgba(15,23,42,0.08)",
@@ -412,14 +412,16 @@ export default function HeroSection() {
                 src="/logo.png"
                 alt="THAKSA Academy Logo"
                 sx={{
-                  width: { md: 280, lg: 340 },
-                  height: { md: 280, lg: 340 },
+                  width: { md: 360, lg: 420 },
+                  height: "auto",
                   objectFit: "contain",
                   borderRadius: 6,
                   boxShadow: "0 24px 64px rgba(99,102,241,0.2), 0 8px 32px rgba(15,23,42,0.1)",
                   border: "2px solid rgba(99,102,241,0.18)",
                   background: "#fff",
                   position: "relative",
+                  px: 2,
+                  py: 3,
                 }}
               />
             </Box>

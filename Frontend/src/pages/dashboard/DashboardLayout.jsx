@@ -63,11 +63,12 @@ export default function DashboardLayout() {
           src="/logo.png"
           alt="Thaksa Logo"
           sx={{
-            width: 34,
+            width: 62,
             height: 34,
             borderRadius: 1.2,
-            objectFit: "cover",
+            objectFit: "contain",
             border: "1px solid rgba(15,23,42,0.12)",
+            background: "#fff",
           }}
         />
         <Typography
