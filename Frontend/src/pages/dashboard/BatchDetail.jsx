@@ -45,7 +45,7 @@ export default function BatchDetail() {
                 } else {
                     setError("Batch not found");
                 }
-            } catch (err) {
+            } catch {
                 if (active) setError("Failed to load batch details");
             } finally {
                 if (active) setLoading(false);

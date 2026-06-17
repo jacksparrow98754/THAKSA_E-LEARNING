@@ -1,4 +1,4 @@
-# THAKSA E-Learning — Frontend
+# ThaksaAi E-Learning — Frontend
 
 <div align="center">
   <h3>🎓 A modern, full-featured e-learning platform built with React + Vite + Material UI</h3>
@@ -187,4 +187,4 @@ The backend API server runs separately. See [`../Backend/README.md`](../Backend/
 
 ## 📄 License
 
-© 2025 THAKSA Academy. All rights reserved.
+© 2025 Thaksa Ai Career Planet. All rights reserved.

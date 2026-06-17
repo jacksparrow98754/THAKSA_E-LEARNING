@@ -133,7 +133,7 @@ export default function ContactPage() {
                     <Stack direction="row" spacing={1.2} alignItems="center">
                       <EmailRoundedIcon sx={{ color: "#1d4ed8", fontSize: 20 }} />
                       <Typography sx={{ color: "#334155" }}>
-                        <strong>Email:</strong> thaksa.academy@gmail.com
+                        <strong>Email:</strong> thaksaai@gmail.com
                       </Typography>
                     </Stack>
                     <Stack direction="row" spacing={1.2} alignItems="center">
@@ -176,7 +176,7 @@ export default function ContactPage() {
                   </Typography>
                   <Button
                     component="a"
-                    href="https://wa.me/919052515284?text=Hi%20THAKSA%2C%20I%20need%20training%20guidance."
+                    href="https://wa.me/919052515284?text=Hi%20ThaksaAi%2C%20I%20need%20training%20guidance."
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="contained"

@@ -2,17 +2,17 @@ import { Box, Grid, Paper, Rating, Typography } from "@mui/material";
 
 const testimonials = [
   {
-    name: "xyz",
+    name: "K.Rahul",
     role: "Frontend Developer",
     quote: "The batch workflow made me consistent. I shipped projects that helped me land interviews.",
   },
   {
-    name: "Abc.",
+    name: "Sheikh Zubair",
     role: "Software Engineer Intern",
     quote: "Mentor feedback was practical and direct. It improved my API and system design thinking.",
   },
   {
-    name: "Def",
+    name: "Mohammed Azhar",
     role: "CS Student",
     quote: "The structure feels professional, not random tutorials. Every week had a measurable outcome.",
   },

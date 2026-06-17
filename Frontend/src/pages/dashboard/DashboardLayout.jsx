@@ -66,7 +66,7 @@ export default function DashboardLayout() {
           fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
         }}
       >
-        Thaksa
+        ThaksaAi
       </Typography>
 
       <List sx={{ p: 0 }}>
