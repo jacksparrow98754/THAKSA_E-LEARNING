@@ -295,7 +295,7 @@ export default function InstructorSection() {
                    Believing that every opportunity begins with a meaningful connection, the focus is on building strong relationships that support learning, growth, and career development. Through collaboration with students, academic institutions, and industry partners, efforts are directed toward creating an environment where learners can access valuable resources, guidance, and opportunities that help them succeed in their professional journey.
                   </Typography>
                   <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
-                    {["Full-Stack", "AI/ML", "Systems"].map((tag) => (
+                    {[].map((tag) => (
                       <Chip
                         key={tag}
                         label={tag}
