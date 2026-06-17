@@ -53,7 +53,7 @@ export default function Footer() {
                 <Box
                   component="img"
                   src={logo}
-                  alt="Thaksa Logo"
+                  alt="ThaksaAi Logo"
                   sx={{
                     width: 38,
                     height: 38,
@@ -70,7 +70,7 @@ export default function Footer() {
                     fontSize: "1.12rem",
                   }}
                 >
-                  Thaksa E-Learning
+                  ThaksaAi E-Learning
                 </Typography>
               </Stack>
               <Typography sx={{ color: "#475569", lineHeight: 1.75, maxWidth: 360 }}>
@@ -102,7 +102,7 @@ export default function Footer() {
             <Stack spacing={1.2}>
               <Typography sx={{ fontWeight: 800, color: "#0f172a" }}>Contact</Typography>
               <Typography sx={{ color: "#64748b", fontSize: "0.95rem" }}>
-                thaksa.academy@gmail.com
+                thaksaai@gmail.com
               </Typography>
               <Typography sx={{ color: "#64748b", fontSize: "0.95rem" }}>
                 +91 90525 15284
@@ -127,7 +127,7 @@ export default function Footer() {
           }}
         >
           <Typography sx={{ color: "#64748b", fontSize: "0.9rem" }}>
-            Copyright {new Date().getFullYear()} Thaksa. All rights reserved.
+            Copyright {new Date().getFullYear()} ThaksaAi. All rights reserved.
           </Typography>
           <Typography sx={{ color: "#94a3b8", fontSize: "0.86rem" }}>
             Built for skill-first careers

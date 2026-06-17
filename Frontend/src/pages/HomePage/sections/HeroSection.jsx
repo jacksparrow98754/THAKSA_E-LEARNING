@@ -281,7 +281,7 @@ export default function HeroSection() {
                 <Box
                   component="img"
                   src={new URL("./logo.jpeg", import.meta.url).href}
-                  alt="THAKSA Academy Logo"
+                  alt="Thaksa Ai Career Planet Logo"
                   sx={{
                     width: { xs: 120, sm: 150 },
                     height: { xs: 120, sm: 150 },
@@ -314,7 +314,7 @@ export default function HeroSection() {
             >
               <SchoolRoundedIcon sx={{ fontSize: 18, color: "#6366f1" }} />
               <Typography sx={{ fontWeight: 700, fontSize: "0.82rem", color: "#6366f1" }}>
-                THAKSA Academy — Empowering Future Professionals
+                Thaksa Ai Career Planet — Empowering Future Professionals
               </Typography>
             </Box>
 
@@ -377,7 +377,7 @@ export default function HeroSection() {
                 transition: "all 0.6s ease 0.3s",
               }}
             >
-              THAKSA Academy bridges the gap between academia and industry with immersive offline
+              Thaksa Ai Career Planet bridges the gap between academia and industry with immersive offline
               workshops, structured placement programs, and expert-guided final year projects — all
               designed to make you job-ready from day one.
             </Typography>
@@ -410,7 +410,7 @@ export default function HeroSection() {
               <Box
                 component="img"
                 src={new URL("./logo.jpeg", import.meta.url).href}
-                alt="THAKSA Academy Logo"
+                alt="Thaksa Ai Career Planet Logo"
                 sx={{
                   width: { md: 280, lg: 340 },
                   height: { md: 280, lg: 340 },
