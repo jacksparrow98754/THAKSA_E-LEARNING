@@ -249,7 +249,7 @@ export default function InstructorSection() {
                     />
                   </Box>
                   <Chip
-                    label="CTO"
+                    label="BDA"
                     size="small"
                     sx={{
                       position: "absolute",
