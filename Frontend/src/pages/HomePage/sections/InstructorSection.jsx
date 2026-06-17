@@ -237,7 +237,7 @@ export default function InstructorSection() {
                     <Box
                       component="img"
                       src={sadvishaImg}
-                      alt="Sadvisha Reddy - CTO"
+                      alt="P.Sadvisha - BDA"
                       sx={{
                         width: "100%",
                         height: "100%",
@@ -277,7 +277,7 @@ export default function InstructorSection() {
                       fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                     }}
                   >
-                    Sadvisha Reddy
+                   P.Sadvisha
                   </Typography>
                   <Typography
                     sx={{
