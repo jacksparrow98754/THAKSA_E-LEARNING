@@ -131,7 +131,7 @@ export default function Navbar() {
             <Box
               component="img"
               src={brandLogo}
-              alt="Thaksa Logo"
+              alt="ThaksaAi Logo"
               sx={{
                 width: { xs: 34, md: 40 },
                 height: { xs: 34, md: 40 },
@@ -149,7 +149,7 @@ export default function Navbar() {
                 color: "#0f172a",
               }}
             >
-              Thaksa
+              ThaksaAi
             </Typography>
           </Box>
 
@@ -274,7 +274,7 @@ export default function Navbar() {
               <Box
                 component="img"
                 src={brandLogo}
-                alt="Thaksa Logo"
+                alt="ThaksaAi Logo"
                 sx={{
                   width: 34,
                   height: 34,
@@ -291,7 +291,7 @@ export default function Navbar() {
                   fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 }}
               >
-                Thaksa
+                ThaksaAi
               </Typography>
             </Stack>
             <IconButton
