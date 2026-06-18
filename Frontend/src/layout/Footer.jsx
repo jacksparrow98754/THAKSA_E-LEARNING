@@ -70,7 +70,7 @@ export default function Footer() {
                     fontSize: "1.12rem",
                   }}
                 >
-                  ThaksaAi E-Learning
+                  ThaksaAi
                 </Typography>
               </Stack>
               <Typography sx={{ color: "#475569", lineHeight: 1.75, maxWidth: 360 }}>
