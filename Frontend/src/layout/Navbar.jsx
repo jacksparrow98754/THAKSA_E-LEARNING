@@ -158,7 +158,7 @@ export default function Navbar() {
             <Typography
               sx={{
                 fontWeight: 800,
-                fontSize: { xs: "1.3rem", md: "1.45rem" },
+                fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.45rem" },
                 letterSpacing: "-0.03em",
                 fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 color: "#0f172a",
@@ -311,7 +311,7 @@ export default function Navbar() {
           }
         }}
       >
-        <Box sx={{ p: 3, height: "100%", display: "flex", flexDirection: "column" }}>
+        <Box sx={{ p: { xs: 2, sm: 3 }, height: "100%", display: "flex", flexDirection: "column" }}>
           <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
             <Box
               component={RouterLink}
@@ -339,7 +339,7 @@ export default function Navbar() {
               <Typography
                 sx={{
                   fontWeight: 800,
-                  fontSize: "1.3rem",
+                  fontSize: { xs: "1.1rem", sm: "1.3rem" },
                   color: "#0f172a",
                   fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 }}
