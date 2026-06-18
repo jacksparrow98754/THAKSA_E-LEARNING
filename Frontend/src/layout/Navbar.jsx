@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Link as RouterLink, useNavigate, useLocation } from "react-router-dom";
 import {
   AppBar,
@@ -8,7 +8,6 @@ import {
   Divider,
   Drawer,
   IconButton,
-  Slide,
   Stack,
   Toolbar,
   Typography,
@@ -58,6 +57,15 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const user = useMemo(() => {
     try {
@@ -109,23 +117,29 @@ export default function Navbar() {
         position={isFixedNav ? "fixed" : "static"}
         elevation={0}
         sx={{
-          bgcolor: "rgba(255,255,255,0.92)",
-          backdropFilter: "blur(8px)",
-          borderBottom: "1px solid rgba(15,23,42,0.08)",
-          boxShadow: "0 2px 12px rgba(15, 23, 42, 0.06)",
+          bgcolor: scrolled || !isFixedNav ? "rgba(255, 255, 255, 0.85)" : "rgba(255, 255, 255, 0.98)",
+          backdropFilter: scrolled || !isFixedNav ? "blur(12px) saturate(180%)" : "none",
+          borderBottom: "1px solid",
+          borderColor: scrolled || !isFixedNav ? "rgba(15, 23, 42, 0.08)" : "transparent",
+          boxShadow: scrolled ? "0 4px 20px -2px rgba(15, 23, 42, 0.05)" : "none",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          zIndex: 1100,
         }}
       >
       <Container maxWidth="lg">
-        <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 72 } }}>
+        <Toolbar disableGutters sx={{ minHeight: { xs: 70, md: 80 }, transition: "min-height 0.3s ease" }}>
           <Box
             component={RouterLink}
             to="/"
             sx={{
               display: "inline-flex",
               alignItems: "center",
-              gap: 1.1,
+              gap: 1.5,
               textDecoration: "none",
               color: "#0f172a",
+              "&:hover img": {
+                transform: "scale(1.05)",
+              }
             }}
           >
             <Box
@@ -133,20 +147,24 @@ export default function Navbar() {
               src={brandLogo}
               alt="ThaksaAi Logo"
               sx={{
-                width: { xs: 34, md: 40 },
-                height: { xs: 34, md: 40 },
-                borderRadius: 1.5,
+                width: { xs: 36, md: 42 },
+                height: { xs: 36, md: 42 },
+                borderRadius: "12px",
                 objectFit: "cover",
-                border: "1px solid rgba(15,23,42,0.12)",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                transition: "transform 0.3s ease",
               }}
             />
             <Typography
               sx={{
-                fontWeight: 900,
-                fontSize: { xs: "1.2rem", md: "1.35rem" },
-                letterSpacing: "-0.02em",
+                fontWeight: 800,
+                fontSize: { xs: "1.3rem", md: "1.45rem" },
+                letterSpacing: "-0.03em",
                 fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 color: "#0f172a",
+                background: "linear-gradient(90deg, #0f172a 0%, #334155 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
               }}
             >
               ThaksaAi
@@ -155,8 +173,8 @@ export default function Navbar() {
 
           <Stack
             direction="row"
-            spacing={2.5}
-            sx={{ ml: 5, display: { xs: "none", md: "flex" }, flexGrow: 1 }}
+            spacing={1}
+            sx={{ ml: 6, display: { xs: "none", md: "flex" }, flexGrow: 1 }}
           >
             {navItems.map((item) => (
               <Button
@@ -164,31 +182,19 @@ export default function Navbar() {
                 component={RouterLink}
                 to={item.to}
                 color="inherit"
+                disableRipple
                 sx={{
-                  color: isActive(item.to) ? "#1d4ed8" : "#334155",
-                  fontWeight: 600,
-                  fontSize: "1rem",
+                  color: isActive(item.to) ? "#0f172a" : "#64748b",
+                  fontWeight: isActive(item.to) ? 700 : 600,
+                  fontSize: "0.95rem",
                   textTransform: "none",
-                  position: "relative",
-                  overflow: "hidden",
-                  transition: "transform 0.2s ease",
+                  px: 2,
+                  py: 1,
+                  borderRadius: "8px",
+                  transition: "all 0.2s ease",
                   "&:hover": {
-                    transform: "scaleY(1.05)",
-                    bgcolor: "transparent",
-                  },
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: 6,
-                    left: 8,
-                    width: isActive(item.to) ? "calc(100% - 16px)" : 0,
-                    height: "2px",
-                    bgcolor: "#2563eb",
-                    borderRadius: 1,
-                    transition: "width 0.3s ease",
-                  },
-                  "&:hover::after": {
-                    width: "calc(100% - 16px)",
+                    color: "#0f172a",
+                    bgcolor: "rgba(15, 23, 42, 0.04)",
                   },
                 }}
               >
@@ -199,7 +205,7 @@ export default function Navbar() {
 
           <Stack
             direction="row"
-            spacing={1.2}
+            spacing={1.5}
             sx={{ ml: "auto", display: { xs: "none", md: isAuth || isTrainingContext ? "flex" : "none" } }}
           >
             {!isAuth ? (
@@ -207,7 +213,15 @@ export default function Navbar() {
                 <Button
                   component={RouterLink}
                   to="/login"
-                  sx={{ color: "#1d4ed8", fontWeight: 700, fontSize: "1rem", textTransform: "none" }}
+                  disableRipple
+                  sx={{
+                    color: "#0f172a",
+                    fontWeight: 600,
+                    fontSize: "0.95rem",
+                    textTransform: "none",
+                    px: 2.5,
+                    "&:hover": { bgcolor: "rgba(15,23,42,0.04)", borderRadius: "8px" }
+                  }}
                 >
                   Login
                 </Button>
@@ -215,9 +229,26 @@ export default function Navbar() {
                   component={RouterLink}
                   to="/signup"
                   variant="contained"
-                  sx={{ bgcolor: "#2563eb", fontSize: "1rem", textTransform: "none", "&:hover": { bgcolor: "#1d4ed8" } }}
+                  disableElevation
+                  sx={{
+                    bgcolor: "#0f172a",
+                    color: "white",
+                    fontWeight: 600,
+                    fontSize: "0.95rem",
+                    textTransform: "none",
+                    borderRadius: "8px",
+                    px: 3,
+                    py: 1,
+                    boxShadow: "0 4px 14px 0 rgba(15,23,42,0.15)",
+                    transition: "all 0.2s ease",
+                    "&:hover": {
+                      bgcolor: "#1e293b",
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 6px 20px rgba(15,23,42,0.2)"
+                    }
+                  }}
                 >
-                  Get Started
+                  Start Learning
                 </Button>
               </>
             ) : (
@@ -225,7 +256,13 @@ export default function Navbar() {
                 <Button
                   component={RouterLink}
                   to={dashboardPath}
-                  sx={{ color: "#1d4ed8", fontWeight: 700, fontSize: "1rem", textTransform: "none" }}
+                  sx={{
+                    color: "#0f172a",
+                    fontWeight: 600,
+                    fontSize: "0.95rem",
+                    textTransform: "none",
+                    "&:hover": { bgcolor: "rgba(15,23,42,0.04)", borderRadius: "8px" }
+                  }}
                 >
                   Dashboard
                 </Button>
@@ -233,7 +270,12 @@ export default function Navbar() {
                   onClick={handleLogout}
                   color="error"
                   variant="text"
-                  sx={{ fontSize: "1rem", textTransform: "none" }}
+                  sx={{
+                    fontSize: "0.95rem",
+                    fontWeight: 600,
+                    textTransform: "none",
+                    "&:hover": { bgcolor: "rgba(239,68,68,0.04)", borderRadius: "8px" }
+                  }}
                 >
                   Logout
                 </Button>
@@ -247,8 +289,7 @@ export default function Navbar() {
             sx={{
               ml: "auto",
               display: { xs: "inline-flex", md: "none" },
-              width: 44,
-              height: 44,
+              color: "#0f172a"
             }}
           >
             <MenuRoundedIcon />
@@ -260,51 +301,64 @@ export default function Navbar() {
         anchor="right"
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        SlideProps={{ direction: "left" }}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: { xs: "85vw", sm: 320 },
-            maxWidth: 360,
-          },
+        SlideProps={{ direction: "left", timeout: 300 }}
+        PaperProps={{
+          sx: {
+            width: { xs: "100%", sm: 380 },
+            borderLeft: "1px solid rgba(15,23,42,0.08)",
+            bgcolor: "rgba(255,255,255,0.98)",
+            backdropFilter: "blur(16px)",
+          }
         }}
       >
-        <Box sx={{ p: 2.5, height: "100%", display: "flex", flexDirection: "column" }}>
-          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1 }}>
-            <Stack direction="row" spacing={1.1} alignItems="center">
+        <Box sx={{ p: 3, height: "100%", display: "flex", flexDirection: "column" }}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
+            <Box
+              component={RouterLink}
+              to="/"
+              onClick={() => setMobileOpen(false)}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                textDecoration: "none",
+              }}
+            >
               <Box
                 component="img"
                 src={brandLogo}
                 alt="ThaksaAi Logo"
                 sx={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 1.2,
+                  width: 36,
+                  height: 36,
+                  borderRadius: "10px",
                   objectFit: "cover",
-                  border: "1px solid rgba(15,23,42,0.12)",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.08)"
                 }}
               />
               <Typography
                 sx={{
-                  fontWeight: 900,
-                  fontSize: "1.25rem",
+                  fontWeight: 800,
+                  fontSize: "1.3rem",
                   color: "#0f172a",
                   fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 }}
               >
                 ThaksaAi
               </Typography>
-            </Stack>
+            </Box>
             <IconButton
               onClick={() => setMobileOpen(false)}
-              sx={{ width: 44, height: 44 }}
+              sx={{
+                bgcolor: "rgba(15,23,42,0.04)",
+                "&:hover": { bgcolor: "rgba(15,23,42,0.08)" }
+              }}
             >
               <CloseRoundedIcon />
             </IconButton>
           </Stack>
 
-          <Divider sx={{ mb: 1.5 }} />
-
-          <Stack spacing={0.5} sx={{ flexGrow: 1 }}>
+          <Stack spacing={1} sx={{ flexGrow: 1 }}>
             {navItems.map((item) => {
               const active = isActive(item.to);
               return (
@@ -315,35 +369,19 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   sx={{
                     justifyContent: "flex-start",
-                    color: active ? "#1d4ed8" : "#334155",
-                    bgcolor: active ? "rgba(37,99,235,0.08)" : "transparent",
-                    fontWeight: 700,
-                    fontSize: "1.05rem",
+                    color: active ? "#0f172a" : "#475569",
+                    bgcolor: active ? "rgba(15,23,42,0.04)" : "transparent",
+                    fontWeight: active ? 700 : 500,
+                    fontSize: "1.1rem",
                     textTransform: "none",
-                    py: 1.4,
-                    px: 2,
-                    borderRadius: 2,
-                    minHeight: 48,
-                    position: "relative",
-                    overflow: "hidden",
-                    transition: "transform 0.2s ease",
+                    py: 1.5,
+                    px: 2.5,
+                    borderRadius: "12px",
+                    transition: "all 0.2s ease",
                     "&:hover": {
-                      transform: "scaleY(1.05)",
-                      bgcolor: active ? "rgba(37,99,235,0.12)" : "rgba(15,23,42,0.04)",
-                    },
-                    "&::after": {
-                      content: '""',
-                      position: "absolute",
-                      bottom: 6,
-                      left: 16,
-                      width: active ? "calc(100% - 32px)" : 0,
-                      height: "2px",
-                      bgcolor: "#2563eb",
-                      borderRadius: 1,
-                      transition: "width 0.3s ease",
-                    },
-                    "&:hover::after": {
-                      width: "calc(100% - 32px)",
+                      bgcolor: "rgba(15,23,42,0.06)",
+                      color: "#0f172a",
+                      transform: "translateX(4px)"
                     },
                   }}
                 >
@@ -353,95 +391,99 @@ export default function Navbar() {
             })}
           </Stack>
 
-          <Divider sx={{ my: 1.5 }} />
-
-          <Stack spacing={1} sx={{ display: isAuth || isTrainingContext ? "flex" : "none" }}>
-            {!isAuth ? (
-              <>
-                <Button
-                  component={RouterLink}
-                  to="/login"
-                  onClick={() => setMobileOpen(false)}
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    fontSize: "1rem",
-                    textTransform: "none",
-                    py: 1.2,
-                    borderRadius: 2.5,
-                    fontWeight: 700,
-                    minHeight: 48,
-                  }}
-                >
-                  Login
-                </Button>
-                <Button
-                  component={RouterLink}
-                  to="/signup"
-                  variant="contained"
-                  fullWidth
-                  onClick={() => setMobileOpen(false)}
-                  sx={{
-                    fontSize: "1rem",
-                    textTransform: "none",
-                    py: 1.2,
-                    borderRadius: 2.5,
-                    fontWeight: 700,
-                    bgcolor: "#2563eb",
-                    minHeight: 48,
-                    "&:hover": { bgcolor: "#1d4ed8" },
-                  }}
-                >
-                  Get Started
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button
-                  component={RouterLink}
-                  to={dashboardPath}
-                  onClick={() => setMobileOpen(false)}
-                  variant="contained"
-                  fullWidth
-                  sx={{
-                    fontSize: "1rem",
-                    textTransform: "none",
-                    py: 1.2,
-                    borderRadius: 2.5,
-                    fontWeight: 700,
-                    bgcolor: "#2563eb",
-                    minHeight: 48,
-                    "&:hover": { bgcolor: "#1d4ed8" },
-                  }}
-                >
-                  Dashboard
-                </Button>
-                <Button
-                  color="error"
-                  variant="outlined"
-                  fullWidth
-                  onClick={() => {
-                    setMobileOpen(false);
-                    handleLogout();
-                  }}
-                  sx={{
-                    fontSize: "1rem",
-                    textTransform: "none",
-                    py: 1.2,
-                    borderRadius: 2.5,
-                    fontWeight: 700,
-                    minHeight: 48,
-                  }}
-                >
-                  Logout
-                </Button>
-              </>
-            )}
-          </Stack>
+          <Box sx={{ mt: 'auto', pt: 4 }}>
+            <Stack spacing={2} sx={{ display: isAuth || isTrainingContext ? "flex" : "none" }}>
+              {!isAuth ? (
+                <>
+                  <Button
+                    component={RouterLink}
+                    to="/login"
+                    onClick={() => setMobileOpen(false)}
+                    fullWidth
+                    sx={{
+                      color: "#0f172a",
+                      bgcolor: "rgba(15,23,42,0.04)",
+                      fontSize: "1.05rem",
+                      textTransform: "none",
+                      py: 1.5,
+                      borderRadius: "12px",
+                      fontWeight: 600,
+                      "&:hover": { bgcolor: "rgba(15,23,42,0.08)" },
+                    }}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/signup"
+                    variant="contained"
+                    fullWidth
+                    disableElevation
+                    onClick={() => setMobileOpen(false)}
+                    sx={{
+                      bgcolor: "#0f172a",
+                      color: "white",
+                      fontSize: "1.05rem",
+                      textTransform: "none",
+                      py: 1.5,
+                      borderRadius: "12px",
+                      fontWeight: 600,
+                      boxShadow: "0 4px 14px 0 rgba(15,23,42,0.15)",
+                      "&:hover": { bgcolor: "#1e293b" },
+                    }}
+                  >
+                    Start Learning
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    component={RouterLink}
+                    to={dashboardPath}
+                    onClick={() => setMobileOpen(false)}
+                    variant="contained"
+                    fullWidth
+                    disableElevation
+                    sx={{
+                      bgcolor: "#0f172a",
+                      color: "white",
+                      fontSize: "1.05rem",
+                      textTransform: "none",
+                      py: 1.5,
+                      borderRadius: "12px",
+                      fontWeight: 600,
+                      "&:hover": { bgcolor: "#1e293b" },
+                    }}
+                  >
+                    Dashboard
+                  </Button>
+                  <Button
+                    color="error"
+                    fullWidth
+                    onClick={() => {
+                      setMobileOpen(false);
+                      handleLogout();
+                    }}
+                    sx={{
+                      bgcolor: "rgba(239,68,68,0.04)",
+                      fontSize: "1.05rem",
+                      textTransform: "none",
+                      py: 1.5,
+                      borderRadius: "12px",
+                      fontWeight: 600,
+                      "&:hover": { bgcolor: "rgba(239,68,68,0.08)" }
+                    }}
+                  >
+                    Logout
+                  </Button>
+                </>
+              )}
+            </Stack>
+          </Box>
         </Box>
       </Drawer>
     </AppBar>
-      {isFixedNav && <Toolbar sx={{ minHeight: { xs: 64, md: 72 } }} />}
+      {isFixedNav && <Toolbar sx={{ minHeight: { xs: 70, md: 80 } }} />}
     </>
   );
 }
