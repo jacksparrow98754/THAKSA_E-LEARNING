@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Link, Stack, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import logo from "/logo.svg";
+import logo from "/logo.png";
 
 const quickLinks = [
   { label: "Home", to: "/" },
