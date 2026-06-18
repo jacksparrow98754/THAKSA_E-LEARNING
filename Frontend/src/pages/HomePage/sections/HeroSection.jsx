@@ -486,9 +486,10 @@ export default function HeroSection() {
                   aspectRatio: "4/5",
                   transformStyle: "preserve-3d",
                   transform: "rotateY(-5deg) rotateX(2deg)",
-                  transition: "transform 0.5s ease",
+                  transition: "transform 0.6s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.6s ease",
                   "&:hover": {
-                    transform: "rotateY(0deg) rotateX(0deg)",
+                    transform: "rotateY(0deg) rotateX(0deg) scale(1.02)",
+                    boxShadow: "0 32px 80px rgba(99,102,241,0.25), 0 0 0 1px rgba(255,255,255,0.6) inset",
                   }
                 }}
               >
@@ -507,6 +508,7 @@ export default function HeroSection() {
                   muted
                   loop
                   playsInline
+                  poster="/logo.png"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -520,16 +522,40 @@ export default function HeroSection() {
                   Your browser does not support the video tag.
                 </video>
 
-                {/* Floating overlay gradient */}
+                {/* Floating overlay gradient & content */}
                 <Box
                   sx={{
                     position: "absolute",
                     inset: 0,
-                    background: "linear-gradient(to top, rgba(15,23,42,0.8) 0%, transparent 40%)",
+                    background: "linear-gradient(to top, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.6) 40%, transparent 100%)",
                     zIndex: 2,
-                    pointerEvents: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                    p: { xs: 2.5, sm: 3 },
                   }}
-                />
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 1,
+                      mb: 2,
+                    }}
+                  >
+                    <Chip size="small" label="AI Learning" sx={{ bgcolor: "rgba(99,102,241,0.2)", color: "#c7d2fe", border: "1px solid rgba(99,102,241,0.3)", fontWeight: 600, backdropFilter: "blur(4px)" }} />
+                    <Chip size="small" label="Workshops" sx={{ bgcolor: "rgba(168,85,247,0.2)", color: "#e9d5ff", border: "1px solid rgba(168,85,247,0.3)", fontWeight: 600, backdropFilter: "blur(4px)" }} />
+                    <Chip size="small" label="Projects" sx={{ bgcolor: "rgba(236,72,153,0.2)", color: "#fbcfe8", border: "1px solid rgba(236,72,153,0.3)", fontWeight: 600, backdropFilter: "blur(4px)" }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: "#fff", fontWeight: 800, lineHeight: 1.2, mb: 1, textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
+                    Transform Your Potential
+                  </Typography>
+                  <Typography sx={{ color: "#cbd5e1", fontSize: "0.85rem", fontWeight: 500, lineHeight: 1.5, display: "flex", alignItems: "center", gap: 1 }}>
+                    <span>Industry Mentorship</span>
+                    <Box component="span" sx={{ width: 4, height: 4, borderRadius: "50%", bgcolor: "#64748b" }} />
+                    <span>Career Outcomes</span>
+                  </Typography>
+                </Box>
               </Box>
 
               {/* Floating Social Proof Card */}
