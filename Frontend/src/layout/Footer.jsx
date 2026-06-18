@@ -29,7 +29,7 @@ function FooterLink({ label, to }) {
       to={to}
       underline="none"
       sx={{
-        color: "#64748b",
+        color: "#475569",
         fontSize: "0.95rem",
         fontWeight: 500,
         transition: "all 0.2s ease",
@@ -47,7 +47,7 @@ function FooterLink({ label, to }) {
 
 function ContactItem({ icon, text, href }) {
   const content = (
-    <Stack direction="row" spacing={1.5} alignItems="center" sx={{ color: "#64748b" }}>
+    <Stack direction="row" spacing={1.5} alignItems="center" sx={{ color: "#475569" }}>
       <Box sx={{
         display: 'flex',
         alignItems: 'center',
@@ -130,6 +130,9 @@ export default function Footer() {
                     letterSpacing: "-0.03em",
                     fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                     color: "#0f172a",
+                    background: "linear-gradient(90deg, #0f172a 0%, #334155 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
                   }}
                 >
                   ThaksaAi
@@ -143,6 +146,7 @@ export default function Footer() {
                 {[LinkedInIcon, TwitterIcon, InstagramIcon].map((Icon, idx) => (
                   <IconButton
                     key={idx}
+                    aria-label={`Visit ThaksaAi on ${['LinkedIn', 'Twitter', 'Instagram'][idx]}`}
                     sx={{
                       bgcolor: "white",
                       border: "1px solid rgba(15,23,42,0.08)",
@@ -220,7 +224,7 @@ export default function Footer() {
             gap: 2,
           }}
         >
-          <Typography sx={{ color: "#64748b", fontSize: "0.9rem", fontWeight: 500 }}>
+          <Typography sx={{ color: "#475569", fontSize: "0.9rem", fontWeight: 500 }}>
             © {new Date().getFullYear()} ThaksaAi. All rights reserved.
           </Typography>
           <Stack direction="row" spacing={3}>

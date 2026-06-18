@@ -173,7 +173,7 @@ export default function Navbar() {
 
           <Stack
             direction="row"
-            spacing={1}
+            spacing={2}
             sx={{ ml: 6, display: { xs: "none", md: "flex" }, flexGrow: 1 }}
           >
             {navItems.map((item) => (
@@ -184,7 +184,7 @@ export default function Navbar() {
                 color="inherit"
                 disableRipple
                 sx={{
-                  color: isActive(item.to) ? "#0f172a" : "#64748b",
+                  color: isActive(item.to) ? "#2563eb" : "#475569",
                   fontWeight: isActive(item.to) ? 700 : 600,
                   fontSize: "0.95rem",
                   textTransform: "none",
@@ -193,8 +193,8 @@ export default function Navbar() {
                   borderRadius: "8px",
                   transition: "all 0.2s ease",
                   "&:hover": {
-                    color: "#0f172a",
-                    bgcolor: "rgba(15, 23, 42, 0.04)",
+                    color: "#1d4ed8",
+                    bgcolor: "rgba(37, 99, 235, 0.04)",
                   },
                 }}
               >
@@ -231,7 +231,7 @@ export default function Navbar() {
                   variant="contained"
                   disableElevation
                   sx={{
-                    bgcolor: "#0f172a",
+                    background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
                     color: "white",
                     fontWeight: 600,
                     fontSize: "0.95rem",
@@ -239,12 +239,12 @@ export default function Navbar() {
                     borderRadius: "8px",
                     px: 3,
                     py: 1,
-                    boxShadow: "0 4px 14px 0 rgba(15,23,42,0.15)",
+                    boxShadow: "0 4px 14px 0 rgba(37,99,235,0.25)",
                     transition: "all 0.2s ease",
                     "&:hover": {
-                      bgcolor: "#1e293b",
+                      background: "linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)",
                       transform: "translateY(-1px)",
-                      boxShadow: "0 6px 20px rgba(15,23,42,0.2)"
+                      boxShadow: "0 6px 20px rgba(37,99,235,0.35)"
                     }
                   }}
                 >
@@ -285,6 +285,7 @@ export default function Navbar() {
 
           <IconButton
             edge="end"
+            aria-label="Open mobile menu"
             onClick={() => setMobileOpen(true)}
             sx={{
               ml: "auto",
@@ -348,6 +349,7 @@ export default function Navbar() {
               </Typography>
             </Box>
             <IconButton
+              aria-label="Close mobile menu"
               onClick={() => setMobileOpen(false)}
               sx={{
                 bgcolor: "rgba(15,23,42,0.04)",
@@ -421,15 +423,17 @@ export default function Navbar() {
                     disableElevation
                     onClick={() => setMobileOpen(false)}
                     sx={{
-                      bgcolor: "#0f172a",
+                      background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
                       color: "white",
                       fontSize: "1.05rem",
                       textTransform: "none",
                       py: 1.5,
                       borderRadius: "12px",
                       fontWeight: 600,
-                      boxShadow: "0 4px 14px 0 rgba(15,23,42,0.15)",
-                      "&:hover": { bgcolor: "#1e293b" },
+                      boxShadow: "0 4px 14px 0 rgba(37,99,235,0.25)",
+                      "&:hover": {
+                        background: "linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)",
+                      },
                     }}
                   >
                     Start Learning
