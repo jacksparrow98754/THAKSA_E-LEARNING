@@ -139,13 +139,13 @@ export default function ContactPage() {
                     <Stack direction="row" spacing={1.2} alignItems="center">
                       <PhoneRoundedIcon sx={{ color: "#0f766e", fontSize: 20 }} />
                       <Typography sx={{ color: "#334155" }}>
-                        <strong>Phone:</strong> +91 90525 15284
+                        <strong>Phone:</strong> +91 94948 08669
                       </Typography>
                     </Stack>
                     <Stack direction="row" spacing={1.2} alignItems="center">
                       <WhatsAppIcon sx={{ color: "#25D366", fontSize: 20 }} />
                       <Typography sx={{ color: "#334155" }}>
-                        <strong>WhatsApp:</strong> +91 90525 15284
+                        <strong>WhatsApp:</strong> +91 94948 08669
                       </Typography>
                     </Stack>
                     <Stack direction="row" spacing={1.2} alignItems="center">
@@ -176,7 +176,7 @@ export default function ContactPage() {
                   </Typography>
                   <Button
                     component="a"
-                    href="https://wa.me/919052515284?text=Hi%20ThaksaAi%2C%20I%20need%20training%20guidance."
+                    href="https://wa.me/919494808669?text=Hi%20ThaksaAi%2C%20I%20need%20training%20guidance."
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="contained"

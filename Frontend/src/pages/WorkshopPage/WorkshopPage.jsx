@@ -641,12 +641,12 @@ function ContactSection() {
                                         <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.9rem" }}>WhatsApp Us</Typography>
                                         <Typography
                                             component="a"
-                                            href="https://wa.me/919052515284"
+                                            href="https://wa.me/919494808669"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             sx={{ color: "#25D366", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
                                         >
-                                            +91 90525 15284
+                                            +91 94948 08669
                                         </Typography>
                                     </Box>
                                 </Stack>
@@ -659,10 +659,10 @@ function ContactSection() {
                                         <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.9rem" }}>Call Us</Typography>
                                         <Typography
                                             component="a"
-                                            href="tel:+919052515284"
+                                            href="tel:+919494808669"
                                             sx={{ color: "#6366f1", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
                                         >
-                                            +91 90525 15284
+                                            +91 94948 08669
                                         </Typography>
                                     </Box>
                                 </Stack>

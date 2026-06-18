@@ -105,7 +105,7 @@ export default function Footer() {
                 thaksaai@gmail.com
               </Typography>
               <Typography sx={{ color: "#64748b", fontSize: "0.95rem" }}>
-                +91 90525 15284
+                +91 94948 08669
               </Typography>
               <Typography sx={{ color: "#64748b", fontSize: "0.95rem" }}>
                 Hyderabad, Telangana, India
