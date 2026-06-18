@@ -1,4 +1,4 @@
-import { Box, Card, Chip, Container, Grid, Stack, Typography, useMediaQuery, useTheme, Button } from "@mui/material";
+import { Box, Card, Chip, Container, Grid, Stack, Typography, Button } from "@mui/material";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import WorkspacePremiumRoundedIcon from "@mui/icons-material/WorkspacePremiumRounded";
 import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
@@ -224,8 +224,6 @@ function AnimatedCard({ module, index }) {
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80);
@@ -237,7 +235,7 @@ export default function HeroSection() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        pt: { xs: 7, sm: 9, md: 14 },
+        pt: { xs: 5, sm: 7, md: 10 },
         pb: { xs: 6, sm: 8, md: 12 },
         borderBottom: "1px solid rgba(15,23,42,0.08)",
       }}
@@ -269,36 +267,7 @@ export default function HeroSection() {
         {/* ── Top row: text content + logo ── */}
         <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 8, md: 10 } }}>
           {/* TEXT COLUMN */}
-          <Grid size={{ xs: 12, md: 7 }} sx={{ position: "relative", zIndex: 2, textAlign: { xs: "center", md: "left" } }}>
-            {/* Mobile logo & text intro */}
-            {isMobile && (
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  mb: 4,
-                  opacity: mounted ? 1 : 0,
-                  transform: mounted ? "scale(1)" : "scale(0.85)",
-                  transition: "all 0.6s ease",
-                }}
-              >
-                <Box
-                  component="img"
-                  src="/logo.png"
-                  alt="Thaksa Ai Career Planet Logo"
-                  sx={{
-                    width: 140,
-                    height: 140,
-                    objectFit: "contain",
-                    borderRadius: 5,
-                    boxShadow: "0 12px 40px rgba(99,102,241,0.18), 0 4px 16px rgba(15,23,42,0.08)",
-                    border: "2px solid rgba(99,102,241,0.15)",
-                    background: "#fff",
-                  }}
-                />
-              </Box>
-            )}
-
+          <Grid size={{ xs: 12, md: 7 }} sx={{ position: "relative", zIndex: 2 }}>
             {/* Badge */}
             <Box
               sx={{
@@ -370,7 +339,7 @@ export default function HeroSection() {
               sx={{
                 fontSize: { xs: "1.05rem", md: "1.2rem" },
                 color: "#475569",
-                maxWidth: 600, mx: { xs: "auto", md: 0 },
+                maxWidth: 600,
                 lineHeight: 1.7,
                 mb: 4,
                 opacity: mounted ? 1 : 0,
@@ -480,8 +449,7 @@ export default function HeroSection() {
               sx={{
                 position: "relative",
                 width: "100%",
-                maxWidth: { xs: 320, sm: 400, md: 500 },
-                mx: "auto",
+                maxWidth: 500,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "scale(1) translateY(0)" : "scale(0.95) translateY(30px)",
                 transition: "all 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.2s",
