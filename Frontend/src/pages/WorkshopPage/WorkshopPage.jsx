@@ -641,12 +641,12 @@ function ContactSection() {
                                         <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.9rem" }}>WhatsApp Us</Typography>
                                         <Typography
                                             component="a"
-                                            href="https://wa.me/919052515284"
+                                            href="https://wa.me/919494808669"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             sx={{ color: "#25D366", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
                                         >
-                                            +91 90525 15284
+                                            +91 94948 08669
                                         </Typography>
                                     </Box>
                                 </Stack>
@@ -659,10 +659,10 @@ function ContactSection() {
                                         <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.9rem" }}>Call Us</Typography>
                                         <Typography
                                             component="a"
-                                            href="tel:+919052515284"
+                                            href="tel:+919494808669"
                                             sx={{ color: "#6366f1", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
                                         >
-                                            +91 90525 15284
+                                            +91 94948 08669
                                         </Typography>
                                     </Box>
                                 </Stack>
@@ -739,7 +739,7 @@ function ContactSection() {
                                 </Typography>
                                 <Box
                                     component="a"
-                                    href="https://wa.me/919908597337?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20organizing%20a%20workshop%20at%20our%20college."
+                                    href="https://wa.me/919494808669?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20organizing%20a%20workshop%20at%20our%20college."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     sx={{
@@ -763,7 +763,7 @@ function ContactSection() {
                                     Chat on WhatsApp
                                 </Box>
                                 <Typography sx={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8rem", mt: 2.5 }}>
-                                    +91 99085 97337 · Mon–Sat, 9 AM–7 PM IST
+                                    +91 94948 08669 · Mon–Sat, 9 AM–7 PM IST
                                 </Typography>
                             </Box>
                         </RevealBox>
@@ -800,7 +800,7 @@ function WhatsAppFloat() {
             {/* Call button */}
             <IconButton
                 component="a"
-                href="tel:+919908597337"
+                href="tel:+919494808669"
                 sx={{
                     width: 50,
                     height: 50,
@@ -833,7 +833,7 @@ function WhatsAppFloat() {
                 )}
                 <IconButton
                     component="a"
-                    href="https://wa.me/919908597337?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20your%20workshops!"
+                    href="https://wa.me/919494808669?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20your%20workshops!"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
