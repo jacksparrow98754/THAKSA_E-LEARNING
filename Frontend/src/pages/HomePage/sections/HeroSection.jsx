@@ -280,7 +280,7 @@ export default function HeroSection() {
               >
                 <Box
                   component="img"
-                  src="/logo.png"
+                  src="/new-logo.png"
                   alt="Thaksa Ai Career Planet Logo"
                   sx={{
                     width: { xs: 120, sm: 150 },
@@ -409,7 +409,7 @@ export default function HeroSection() {
               />
               <Box
                 component="img"
-                src="/logo.png"
+                src="/new-logo.png"
                 alt="Thaksa Ai Career Planet Logo"
                 sx={{
                   width: { md: 280, lg: 340 },
