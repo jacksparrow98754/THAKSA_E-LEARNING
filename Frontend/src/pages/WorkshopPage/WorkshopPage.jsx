@@ -480,7 +480,7 @@ function MissionSection() {
                             mb: 4,
                         }}
                     >
-                        IT Consultancy
+                        Carrer Planet
                     </Typography>
 
                     <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 4 }} />
