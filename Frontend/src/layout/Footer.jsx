@@ -98,7 +98,7 @@ export default function Footer() {
       }} />
 
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 }, position: "relative", zIndex: 1 }}>
-        <Grid container spacing={{ xs: 6, md: 4 }}>
+        <Grid container spacing={{ xs: 4, md: 4 }}>
           <Grid size={{ xs: 12, md: 4 }}>
             <Stack spacing={3}>
               <Box
@@ -164,7 +164,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 6, md: 2.5 }}>
-            <Stack spacing={2.5}>
+            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
               <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "1.05rem" }}>Platform</Typography>
               <Stack spacing={1.5}>
                 {quickLinks.map((link) => (
@@ -175,7 +175,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 6, md: 2.5 }}>
-            <Stack spacing={2.5}>
+            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
               <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "1.05rem" }}>Programs</Typography>
               <Stack spacing={1.5}>
                 {programs.map((link) => (
@@ -186,7 +186,7 @@ export default function Footer() {
           </Grid>
 
           <Grid size={{ xs: 12, md: 3 }}>
-            <Stack spacing={2.5}>
+            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
               <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "1.05rem" }}>Get in Touch</Typography>
               <Stack spacing={2}>
                 <ContactItem

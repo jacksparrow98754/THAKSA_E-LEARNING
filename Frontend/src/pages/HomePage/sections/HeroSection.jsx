@@ -328,7 +328,7 @@ export default function HeroSection() {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "2.75rem", sm: "3.5rem", md: "4.5rem" },
+                fontSize: { xs: "2.25rem", sm: "3.5rem", md: "4.5rem" },
                 fontWeight: 900,
                 lineHeight: 1.1,
                 letterSpacing: "-0.04em",
@@ -460,7 +460,7 @@ export default function HeroSection() {
                   { text: "Career Guidance", icon: <HandshakeRoundedIcon sx={{ fontSize: 18 }} /> },
                   { text: "Placement Support", icon: <BusinessCenterRoundedIcon sx={{ fontSize: 18 }} /> }
                 ].map((item, idx) => (
-                  <Grid size={{ xs: 6, sm: 3 }} key={idx}>
+                  <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx}>
                     <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "#334155" }}>
                       <Box sx={{ display: "flex", color: "#6366f1" }}>{item.icon}</Box>
                       <Typography sx={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.2 }}>{item.text}</Typography>
@@ -659,6 +659,7 @@ export default function HeroSection() {
               WebkitOverflowScrolling: "touch",
               scrollbarWidth: "thin",
               "&::-webkit-scrollbar": {
+                display: { xs: "none", md: "block" },
                 height: 8,
               },
               "&::-webkit-scrollbar-track": {
