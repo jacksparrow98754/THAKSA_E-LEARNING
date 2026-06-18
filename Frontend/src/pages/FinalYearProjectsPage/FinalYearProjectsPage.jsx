@@ -60,10 +60,10 @@ const testimonials = [
 function WhatsAppFloat() {
     return (
         <Box sx={{ position: "fixed", bottom: { xs: 20, md: 28 }, right: { xs: 18, md: 28 }, zIndex: 9999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1.5 }}>
-            <IconButton component="a" href="tel:+919908597337" sx={{ width: 50, height: 50, bgcolor: "#6366f1", color: "#fff", boxShadow: "0 8px 24px rgba(99,102,241,0.45)", "&:hover": { bgcolor: "#4f46e5", transform: "scale(1.12)" }, transition: "transform 0.2s" }}>
+            <IconButton component="a" href="tel:+919494808669" sx={{ width: 50, height: 50, bgcolor: "#6366f1", color: "#fff", boxShadow: "0 8px 24px rgba(99,102,241,0.45)", "&:hover": { bgcolor: "#4f46e5", transform: "scale(1.12)" }, transition: "transform 0.2s" }}>
                 <PhoneRoundedIcon sx={{ fontSize: 22 }} />
             </IconButton>
-            <IconButton component="a" href="https://wa.me/919908597337?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20Final%20Year%20Project%20guidance!" target="_blank" rel="noopener noreferrer" sx={{ width: 60, height: 60, bgcolor: "#25D366", color: "#fff", boxShadow: "0 8px 28px rgba(37,211,102,0.5)", "&:hover": { bgcolor: "#1ebe58", transform: "scale(1.12)" }, transition: "transform 0.2s" }}>
+            <IconButton component="a" href="https://wa.me/919494808669?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20Final%20Year%20Project%20guidance!" target="_blank" rel="noopener noreferrer" sx={{ width: 60, height: 60, bgcolor: "#25D366", color: "#fff", boxShadow: "0 8px 28px rgba(37,211,102,0.5)", "&:hover": { bgcolor: "#1ebe58", transform: "scale(1.12)" }, transition: "transform 0.2s" }}>
                 <WhatsAppIcon sx={{ fontSize: 30 }} />
             </IconButton>
         </Box>
@@ -228,7 +228,7 @@ export default function FinalYearProjectsPage() {
                         <Typography sx={{ color: "rgba(255,255,255,0.65)", mb: 4, lineHeight: 1.75 }}>
                             Don't leave your final year project to the last minute. Contact ThaksaAi today and let's build something amazing together!
                         </Typography>
-                        <Box component="a" href="https://wa.me/919908597337?text=Hi%20ThaksaAi%2C%20I%20need%20help%20with%20my%20Final%20Year%20Project!" target="_blank" rel="noopener noreferrer" sx={{ display: "inline-flex", alignItems: "center", gap: 1.5, bgcolor: "#25D366", color: "#fff", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", px: 4, py: 1.8, borderRadius: 3, boxShadow: "0 12px 28px rgba(37,211,102,0.4)", transition: "transform 0.2s, box-shadow 0.2s", "&:hover": { transform: "translateY(-3px)", boxShadow: "0 20px 40px rgba(37,211,102,0.5)" } }}>
+                        <Box component="a" href="https://wa.me/919494808669?text=Hi%20ThaksaAi%2C%20I%20need%20help%20with%20my%20Final%20Year%20Project!" target="_blank" rel="noopener noreferrer" sx={{ display: "inline-flex", alignItems: "center", gap: 1.5, bgcolor: "#25D366", color: "#fff", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", px: 4, py: 1.8, borderRadius: 3, boxShadow: "0 12px 28px rgba(37,211,102,0.4)", transition: "transform 0.2s, box-shadow 0.2s", "&:hover": { transform: "translateY(-3px)", boxShadow: "0 20px 40px rgba(37,211,102,0.5)" } }}>
                             <WhatsAppIcon sx={{ fontSize: 24 }} /> Chat on WhatsApp
                         </Box>
                     </RevealBox>
