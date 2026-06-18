@@ -447,7 +447,7 @@ function MissionSection() {
                     >
                         <Box
                             component="img"
-                            src="/logo.png"
+                            src="/new-logo.png"
                             alt="Thaksa Ai Career Planet Logo"
                             sx={{
                                 width: "100%",
