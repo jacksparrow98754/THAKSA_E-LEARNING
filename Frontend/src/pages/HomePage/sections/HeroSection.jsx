@@ -269,7 +269,7 @@ export default function HeroSection() {
         {/* ── Top row: text content + logo ── */}
         <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 8, md: 10 } }}>
           {/* TEXT COLUMN */}
-          <Grid size={{ xs: 12, md: 7 }} sx={{ position: "relative", zIndex: 2 }}>
+          <Grid size={{ xs: 12, md: 7 }} sx={{ position: "relative", zIndex: 2, textAlign: { xs: "center", md: "left" } }}>
             {/* Mobile logo & text intro */}
             {isMobile && (
               <Box
@@ -370,7 +370,7 @@ export default function HeroSection() {
               sx={{
                 fontSize: { xs: "1.05rem", md: "1.2rem" },
                 color: "#475569",
-                maxWidth: 600,
+                maxWidth: 600, mx: { xs: "auto", md: 0 },
                 lineHeight: 1.7,
                 mb: 4,
                 opacity: mounted ? 1 : 0,
@@ -480,7 +480,8 @@ export default function HeroSection() {
               sx={{
                 position: "relative",
                 width: "100%",
-                maxWidth: 500,
+                maxWidth: { xs: 320, sm: 400, md: 500 },
+                mx: "auto",
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "scale(1) translateY(0)" : "scale(0.95) translateY(30px)",
                 transition: "all 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.2s",
