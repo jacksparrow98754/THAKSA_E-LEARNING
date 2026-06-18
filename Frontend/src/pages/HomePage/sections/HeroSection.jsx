@@ -1,5 +1,4 @@
 import { Box, Card, Chip, Container, Grid, Stack, Typography, Button } from "@mui/material";
-import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import WorkspacePremiumRoundedIcon from "@mui/icons-material/WorkspacePremiumRounded";
 import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
 import BuildRoundedIcon from "@mui/icons-material/BuildRounded";
@@ -8,7 +7,6 @@ import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
 import BusinessCenterRoundedIcon from "@mui/icons-material/BusinessCenterRounded";
 import HandshakeRoundedIcon from "@mui/icons-material/HandshakeRounded";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -235,7 +233,7 @@ export default function HeroSection() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        pt: { xs: 4, sm: 6, md: 14 },
+        pt: { xs: 4, sm: 5, md: 8 },
         pb: { xs: 6, sm: 8, md: 12 },
         borderBottom: "1px solid rgba(15,23,42,0.08)",
       }}
@@ -262,11 +260,12 @@ export default function HeroSection() {
           pointerEvents: "none",
         }}
       />
+      <Container maxWidth="lg">
 
         {/* ── Top row: text content + logo ── */}
         <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 8, md: 10 } }}>
           {/* TEXT COLUMN */}
-          <Grid size={{ xs: 12, md: 7 }} sx={{ position: "relative", zIndex: 2, textAlign: { xs: "center", md: "left" } }}>
+          <Grid size={{ xs: 12, md: 12 }} sx={{ position: "relative", zIndex: 2, textAlign: "center" }}>
             {/* Badge */}
             <Box
               sx={{
@@ -338,7 +337,7 @@ export default function HeroSection() {
               sx={{
                 fontSize: { xs: "1.05rem", md: "1.2rem" },
                 color: "#475569",
-                maxWidth: 600, mx: { xs: "auto", md: 0 },
+                maxWidth: 600, mx: "auto",
                 lineHeight: 1.7,
                 mb: 4,
                 opacity: mounted ? 1 : 0,
@@ -354,6 +353,7 @@ export default function HeroSection() {
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={2}
+              justifyContent="center"
               sx={{
                 mb: 5,
                 opacity: mounted ? 1 : 0,
@@ -421,14 +421,14 @@ export default function HeroSection() {
               <Typography sx={{ fontSize: "0.85rem", fontWeight: 700, color: "#64748b", mb: 2, textTransform: "uppercase", letterSpacing: "0.05em" }}>
                 Core Pillars
               </Typography>
-              <Grid container spacing={2}>
+              <Grid container spacing={2} justifyContent="center">
                 {[
                   { text: "AI-Powered Learning", icon: <AutoAwesomeRoundedIcon sx={{ fontSize: 18 }} /> },
                   { text: "Industry Mentorship", icon: <GroupsRoundedIcon sx={{ fontSize: 18 }} /> },
                   { text: "Career Guidance", icon: <HandshakeRoundedIcon sx={{ fontSize: 18 }} /> },
                   { text: "Placement Support", icon: <BusinessCenterRoundedIcon sx={{ fontSize: 18 }} /> }
                 ].map((item, idx) => (
-                  <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx}>
+                  <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx} sx={{ display: "flex", justifyContent: "center" }}>
                     <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "#334155" }}>
                       <Box sx={{ display: "flex", color: "#6366f1" }}>{item.icon}</Box>
                       <Typography sx={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.2 }}>{item.text}</Typography>
@@ -439,188 +439,6 @@ export default function HeroSection() {
             </Box>
           </Grid>
 
-          {/* VISUAL / VIDEO COLUMN */}
-          <Grid
-            size={{ xs: 12, md: 5 }}
-            sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-          >
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                maxWidth: { xs: 320, sm: 400, md: 500 },
-                mx: "auto",
-                opacity: mounted ? 1 : 0,
-                transform: mounted ? "scale(1) translateY(0)" : "scale(0.95) translateY(30px)",
-                transition: "all 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.2s",
-                perspective: "1000px",
-              }}
-            >
-              {/* Decorative glow behind video */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  inset: -30,
-                  borderRadius: "50%",
-                  background: "radial-gradient(circle, rgba(99,102,241,0.2) 0%, rgba(168,85,247,0.15) 40%, transparent 70%)",
-                  filter: "blur(30px)",
-                  pointerEvents: "none",
-                  zIndex: 0,
-                  animation: "pulse 4s infinite alternate",
-                  "@keyframes pulse": {
-                    "0%": { transform: "scale(1)", opacity: 0.8 },
-                    "100%": { transform: "scale(1.05)", opacity: 1 },
-                  }
-                }}
-              />
-
-              {/* Video Container */}
-              <Box
-                sx={{
-                  position: "relative",
-                  zIndex: 1,
-                  borderRadius: 6,
-                  overflow: "hidden",
-                  boxShadow: "0 24px 64px rgba(15,23,42,0.15), 0 0 0 1px rgba(255,255,255,0.5) inset",
-                  bgcolor: "#0f172a",
-                  aspectRatio: "4/5",
-                  transformStyle: "preserve-3d",
-                  transform: "rotateY(-5deg) rotateX(2deg)",
-                  transition: "transform 0.6s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.6s ease",
-                  "&:hover": {
-                    transform: "rotateY(0deg) rotateX(0deg) scale(1.02)",
-                    boxShadow: "0 32px 80px rgba(99,102,241,0.25), 0 0 0 1px rgba(255,255,255,0.6) inset",
-                  }
-                }}
-              >
-                {/* Fallback pattern if video is missing */}
-                <Box
-                  sx={{
-                    position: "absolute",
-                    inset: 0,
-                    backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
-                    backgroundSize: "24px 24px",
-                    zIndex: 0,
-                  }}
-                />
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  poster="/logo.png"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    position: "relative",
-                    zIndex: 1,
-                    opacity: 0.85,
-                  }}
-                >
-                  <source src="https://assets.mixkit.co/videos/preview/mixkit-young-woman-working-on-her-laptop-in-a-creative-office-40019-large.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-
-                {/* Floating overlay gradient & content */}
-                <Box
-                  sx={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(to top, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.6) 40%, transparent 100%)",
-                    zIndex: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-end",
-                    p: { xs: 2.5, sm: 3 },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 1,
-                      mb: 2,
-                    }}
-                  >
-                    <Chip size="small" label="AI Learning" sx={{ bgcolor: "rgba(99,102,241,0.2)", color: "#c7d2fe", border: "1px solid rgba(99,102,241,0.3)", fontWeight: 600, backdropFilter: "blur(4px)" }} />
-                    <Chip size="small" label="Workshops" sx={{ bgcolor: "rgba(168,85,247,0.2)", color: "#e9d5ff", border: "1px solid rgba(168,85,247,0.3)", fontWeight: 600, backdropFilter: "blur(4px)" }} />
-                    <Chip size="small" label="Projects" sx={{ bgcolor: "rgba(236,72,153,0.2)", color: "#fbcfe8", border: "1px solid rgba(236,72,153,0.3)", fontWeight: 600, backdropFilter: "blur(4px)" }} />
-                  </Box>
-                  <Typography variant="h6" sx={{ color: "#fff", fontWeight: 800, lineHeight: 1.2, mb: 1, textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
-                    Transform Your Potential
-                  </Typography>
-                  <Typography sx={{ color: "#cbd5e1", fontSize: "0.85rem", fontWeight: 500, lineHeight: 1.5, display: "flex", alignItems: "center", gap: 1 }}>
-                    <span>Industry Mentorship</span>
-                    <Box component="span" sx={{ width: 4, height: 4, borderRadius: "50%", bgcolor: "#64748b" }} />
-                    <span>Career Outcomes</span>
-                  </Typography>
-                </Box>
-              </Box>
-
-              {/* Floating Social Proof Card */}
-              <Card
-                sx={{
-                  position: "absolute",
-                  bottom: -20,
-                  left: -30,
-                  zIndex: 3,
-                  p: 2,
-                  borderRadius: 4,
-                  bgcolor: "rgba(255,255,255,0.9)",
-                  backdropFilter: "blur(12px)",
-                  boxShadow: "0 12px 32px rgba(15,23,42,0.15)",
-                  border: "1px solid rgba(255,255,255,0.5)",
-                  display: { xs: "none", sm: "block" },
-                  animation: "float 6s infinite ease-in-out",
-                  "@keyframes float": {
-                    "0%, 100%": { transform: "translateY(0)" },
-                    "50%": { transform: "translateY(-10px)" },
-                  }
-                }}
-              >
-                <Stack direction="row" alignItems="center" spacing={2}>
-                  <Box sx={{ width: 48, height: 48, borderRadius: "50%", bgcolor: "#e0e7ff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <CheckCircleRoundedIcon sx={{ color: "#6366f1", fontSize: 24 }} />
-                  </Box>
-                  <Box>
-                    <Typography sx={{ fontWeight: 800, fontSize: "1.2rem", color: "#0f172a", lineHeight: 1 }}>10K+</Typography>
-                    <Typography sx={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 600 }}>Students Trained</Typography>
-                  </Box>
-                </Stack>
-              </Card>
-
-              {/* Floating Metrics */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  top: 40,
-                  right: -20,
-                  zIndex: 3,
-                  display: { xs: "none", sm: "flex" },
-                  flexDirection: "column",
-                  gap: 1.5,
-                  animation: "float-delayed 7s infinite ease-in-out",
-                  "@keyframes float-delayed": {
-                    "0%, 100%": { transform: "translateY(0)" },
-                    "50%": { transform: "translateY(-12px)" },
-                  }
-                }}
-              >
-                <Chip
-                  icon={<WorkspacePremiumRoundedIcon sx={{ color: "#d97706 !important" }} />}
-                  label="500+ Workshops"
-                  sx={{ bgcolor: "#fff", boxShadow: "0 8px 24px rgba(15,23,42,0.1)", fontWeight: 700, borderRadius: 2 }}
-                />
-                <Chip
-                  icon={<RocketLaunchRoundedIcon sx={{ color: "#ec4899 !important" }} />}
-                  label="1000+ Projects"
-                  sx={{ bgcolor: "#fff", boxShadow: "0 8px 24px rgba(15,23,42,0.1)", fontWeight: 700, borderRadius: 2 }}
-                />
-              </Box>
-
-            </Box>
-          </Grid>
         </Grid>
 
         {/* Module Cards */}
