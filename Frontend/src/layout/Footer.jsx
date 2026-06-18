@@ -97,8 +97,8 @@ export default function Footer() {
         pointerEvents: "none",
       }} />
 
-      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 }, position: "relative", zIndex: 1 }}>
-        <Grid container spacing={{ xs: 6, md: 4 }}>
+      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 8 }, px: { xs: 3, md: 4 }, position: "relative", zIndex: 1 }}>
+        <Grid container spacing={{ xs: 4, md: 4 }}>
           <Grid size={{ xs: 12, md: 4 }}>
             <Stack spacing={3}>
               <Box
