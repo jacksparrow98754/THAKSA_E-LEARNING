@@ -115,10 +115,10 @@ export default function Navbar() {
         position={isFixedNav ? "fixed" : "static"}
         elevation={0}
         sx={{
-          bgcolor: scrolled || !isFixedNav ? "rgba(255, 255, 255, 0.85)" : "rgba(255, 255, 255, 0.98)",
-          backdropFilter: scrolled || !isFixedNav ? "blur(12px) saturate(180%)" : "none",
-          borderBottom: "1px solid",
-          borderColor: scrolled || !isFixedNav ? "rgba(15, 23, 42, 0.08)" : "transparent",
+          bgcolor: isHomePage && !scrolled ? "transparent" : (scrolled || !isFixedNav ? "rgba(255, 255, 255, 0.85)" : "rgba(255, 255, 255, 0.98)"),
+          backdropFilter: isHomePage && !scrolled ? "none" : (scrolled || !isFixedNav ? "blur(12px) saturate(180%)" : "none"),
+          borderBottom: isHomePage && !scrolled ? "none" : "1px solid",
+          borderColor: isHomePage && !scrolled ? "transparent" : (scrolled || !isFixedNav ? "rgba(15, 23, 42, 0.08)" : "transparent"),
           boxShadow: scrolled ? "0 4px 20px -2px rgba(15, 23, 42, 0.05)" : "none",
           transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
           zIndex: 1100,
@@ -134,7 +134,7 @@ export default function Navbar() {
               alignItems: "center",
               gap: 1.5,
               textDecoration: "none",
-              color: "#0f172a",
+              color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
               "&:hover img": {
                 transform: "scale(1.05)",
               }
@@ -159,10 +159,10 @@ export default function Navbar() {
                 fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.45rem" },
                 letterSpacing: "-0.03em",
                 fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                color: "#0f172a",
-                background: "linear-gradient(90deg, #0f172a 0%, #334155 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
+                background: isHomePage && !scrolled ? "none" : "linear-gradient(90deg, #0f172a 0%, #334155 100%)",
+                WebkitBackgroundClip: isHomePage && !scrolled ? "none" : "text",
+                WebkitTextFillColor: isHomePage && !scrolled ? "initial" : "transparent",
               }}
             >
               THAKSAai
@@ -182,7 +182,7 @@ export default function Navbar() {
                 color="inherit"
                 disableRipple
                 sx={{
-                  color: isActive(item.to) ? "#0f172a" : "#64748b",
+                  color: isActive(item.to) ? (isHomePage && !scrolled ? "#ffffff" : "#0f172a") : (isHomePage && !scrolled ? "rgba(255,255,255,0.8)" : "#64748b"),
                   fontWeight: isActive(item.to) ? 700 : 600,
                   fontSize: "0.95rem",
                   textTransform: "none",
@@ -191,8 +191,8 @@ export default function Navbar() {
                   borderRadius: "8px",
                   transition: "all 0.2s ease",
                   "&:hover": {
-                    color: "#0f172a",
-                    bgcolor: "rgba(15, 23, 42, 0.04)",
+                    color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
+                    bgcolor: isHomePage && !scrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(15, 23, 42, 0.04)",
                   },
                 }}
               >
@@ -213,12 +213,12 @@ export default function Navbar() {
                   to="/login"
                   disableRipple
                   sx={{
-                    color: "#0f172a",
+                    color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
                     fontWeight: 600,
                     fontSize: "0.95rem",
                     textTransform: "none",
                     px: 2.5,
-                    "&:hover": { bgcolor: "rgba(15,23,42,0.04)", borderRadius: "8px" }
+                    "&:hover": { bgcolor: isHomePage && !scrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(15,23,42,0.04)", borderRadius: "8px" }
                   }}
                 >
                   Login
@@ -229,8 +229,8 @@ export default function Navbar() {
                   variant="contained"
                   disableElevation
                   sx={{
-                    bgcolor: "#0f172a",
-                    color: "white",
+                    bgcolor: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
+                    color: isHomePage && !scrolled ? "#0f172a" : "white",
                     fontWeight: 600,
                     fontSize: "0.95rem",
                     textTransform: "none",
@@ -240,7 +240,7 @@ export default function Navbar() {
                     boxShadow: "0 4px 14px 0 rgba(15,23,42,0.15)",
                     transition: "all 0.2s ease",
                     "&:hover": {
-                      bgcolor: "#1e293b",
+                      bgcolor: isHomePage && !scrolled ? "rgba(255, 255, 255, 0.9)" : "#1e293b",
                       transform: "translateY(-1px)",
                       boxShadow: "0 6px 20px rgba(15,23,42,0.2)"
                     }
@@ -255,11 +255,11 @@ export default function Navbar() {
                   component={RouterLink}
                   to={dashboardPath}
                   sx={{
-                    color: "#0f172a",
+                    color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
                     fontWeight: 600,
                     fontSize: "0.95rem",
                     textTransform: "none",
-                    "&:hover": { bgcolor: "rgba(15,23,42,0.04)", borderRadius: "8px" }
+                    "&:hover": { bgcolor: isHomePage && !scrolled ? "rgba(255,255,255,0.1)" : "rgba(15,23,42,0.04)", borderRadius: "8px" }
                   }}
                 >
                   Dashboard
@@ -272,7 +272,7 @@ export default function Navbar() {
                     fontSize: "0.95rem",
                     fontWeight: 600,
                     textTransform: "none",
-                    "&:hover": { bgcolor: "rgba(239,68,68,0.04)", borderRadius: "8px" }
+                    "&:hover": { bgcolor: isHomePage && !scrolled ? "rgba(239,68,68,0.15)" : "rgba(239,68,68,0.04)", borderRadius: "8px" }
                   }}
                 >
                   Logout
@@ -287,7 +287,7 @@ export default function Navbar() {
             sx={{
               ml: "auto",
               display: { xs: "inline-flex", md: "none" },
-              color: "#0f172a"
+              color: isHomePage && !scrolled ? "#ffffff" : "#0f172a"
             }}
           >
             <MenuRoundedIcon />
@@ -481,7 +481,7 @@ export default function Navbar() {
         </Box>
       </Drawer>
     </AppBar>
-      {isFixedNav && <Toolbar sx={{ minHeight: { xs: 70, md: 80 } }} />}
+      {isFixedNav && !isHomePage && <Toolbar sx={{ minHeight: { xs: 70, md: 80 } }} />}
     </>
   );
 }
