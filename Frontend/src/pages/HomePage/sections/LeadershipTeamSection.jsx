@@ -1,10 +1,10 @@
 import React from "react";
-import { Box, Chip, Container, Grid, Typography, Stack, Avatar } from "@mui/material";
+import { Box, Container, Grid, Typography, Stack, Avatar, IconButton } from "@mui/material";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
-import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
-import PublicRoundedIcon from "@mui/icons-material/PublicRounded";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import EmailIcon from "@mui/icons-material/Email";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -24,15 +24,14 @@ const staggerContainer = {
 const GlassCard = ({ children, sx }) => (
   <Box
     sx={{
-      background: "rgba(255, 255, 255, 0.6)",
-      backdropFilter: "blur(20px)",
-      borderRadius: "24px",
-      border: "1px solid rgba(255, 255, 255, 0.9)",
-      boxShadow: "0 20px 40px -10px rgba(15, 23, 42, 0.05)",
+      background: "#ffffff",
+      borderRadius: "16px",
+      border: "none",
+      boxShadow: "0 10px 30px -10px rgba(15, 23, 42, 0.08)",
       transition: "transform 0.4s ease, box-shadow 0.4s ease",
       "&:hover": {
         transform: "translateY(-6px)",
-        boxShadow: "0 30px 60px -10px rgba(15, 23, 42, 0.12)",
+        boxShadow: "0 20px 40px -10px rgba(15, 23, 42, 0.15)",
       },
       ...sx,
     }}
@@ -74,7 +73,7 @@ export default function LeadershipTeamSection() {
       sx={{
         py: { xs: 10, md: 16 },
         position: "relative",
-        bgcolor: "#f8fafc",
+        bgcolor: "#e2e8f0", // Slightly darker gray background to match the template
         overflow: "hidden",
       }}
     >
@@ -111,46 +110,44 @@ export default function LeadershipTeamSection() {
         <Box textAlign="center" mb={{ xs: 8, md: 12 }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>
             <motion.div variants={fadeInUp}>
-              <Chip
-                label="LEADERSHIP TEAM"
-                icon={<AutoAwesomeRoundedIcon style={{ fontSize: "1rem", color: "#4f46e5" }} />}
+              <Typography
                 sx={{
-                  bgcolor: "rgba(79, 70, 229, 0.08)",
-                  color: "#4f46e5",
-                  fontWeight: 800,
+                  color: "#6366f1",
+                  fontWeight: 700,
+                  fontSize: "0.875rem",
                   letterSpacing: "0.1em",
-                  mb: 3,
-                  fontSize: "0.75rem",
-                  px: 1,
-                  border: "1px solid rgba(79, 70, 229, 0.2)",
-                  borderRadius: "8px",
+                  textTransform: "uppercase",
+                  mb: 2,
+                  display: "inline-block",
+                  px: 2,
+                  py: 0.5,
+                  borderRadius: "12px",
+                  bgcolor: "rgba(99, 102, 241, 0.1)",
                 }}
-              />
+              >
+                LEADERSHIP TEAM
+              </Typography>
             </motion.div>
             <motion.div variants={fadeInUp}>
               <Typography
                 variant="h2"
                 sx={{
-                  fontWeight: 900,
+                  fontWeight: 600,
                   color: "#0f172a",
                   mb: 3,
                   fontFamily: "'Sora', sans-serif",
-                  fontSize: { xs: "2.25rem", md: "3.5rem" },
+                  fontSize: { xs: "2.5rem", md: "3.5rem" },
                   lineHeight: 1.2,
-                  letterSpacing: "-0.02em",
                 }}
               >
-                The Team Behind <br />
-                <Box component="span" sx={{ color: "#6366f1" }}>
-                  Student Success
-                </Box>
+                The Team Behind Student Success
               </Typography>
             </motion.div>
             <motion.div variants={fadeInUp}>
               <Typography
                 sx={{
-                  color: "#475569",
-                  fontSize: { xs: "1.1rem", md: "1.25rem" },
+                  color: "#64748b",
+                  fontSize: { xs: "1rem", md: "1.25rem" },
                   maxWidth: "800px",
                   mx: "auto",
                   lineHeight: 1.6,
@@ -176,61 +173,63 @@ export default function LeadershipTeamSection() {
               }}
               style={{ height: "100%" }}
             >
-              <GlassCard sx={{ height: "100%", display: "flex", flexDirection: "column", p: { xs: 3, md: 5 } }}>
-                <Stack direction="row" spacing={3} alignItems="center" mb={4}>
-                  <Avatar
-                    sx={{
-                      width: 80,
-                      height: 80,
-                      background: "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
-                      fontSize: "2rem",
-                      fontWeight: 700,
-                      boxShadow: "0 10px 20px -5px rgba(99, 102, 241, 0.4)",
-                      border: "3px solid #ffffff",
-                    }}
-                  >
-                    PS
-                  </Avatar>
-                  <Box>
-                    <Typography variant="h4" sx={{ color: "#0f172a", fontWeight: 800, mb: 0.5, fontFamily: "'Sora', sans-serif", fontSize: "1.5rem" }}>
-                      P. Sadavisha
-                    </Typography>
-                    <Typography sx={{ color: "#6366f1", fontWeight: 700, fontSize: "0.95rem" }}>
-                      Business Development Associate
-                    </Typography>
-                  </Box>
-                </Stack>
+              <GlassCard sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: { xs: 4, md: 5 } }}>
+                <Box sx={{ position: "relative", mb: 3 }}>
+                   <Box sx={{ width: 130, height: 130, borderRadius: "50%", border: "4px solid #fdba74", display: "flex", justifyContent: "center", alignItems: "center", p: 0.5 }}>
+                     <Avatar
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        background: "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
+                        fontSize: "2.5rem",
+                        fontWeight: 700,
+                      }}
+                    >
+                      PS
+                    </Avatar>
+                   </Box>
+                </Box>
 
-                <Typography sx={{ color: "#0f172a", fontWeight: 700, fontSize: "1.15rem", mb: 2, lineHeight: 1.5 }}>
+                <Typography variant="h5" sx={{ color: "#1e293b", fontWeight: 500, mb: 2, fontFamily: "'Sora', sans-serif" }}>
+                  P. Sadavisha
+                </Typography>
+
+                <Typography sx={{ color: "#0f172a", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
+                  Business Dev Associate
+                </Typography>
+
+                <Typography sx={{ color: "#6366f1", fontWeight: 600, fontSize: "0.95rem", textAlign: "center", mb: 2 }}>
                   Building Industry Connections For Student Growth
                 </Typography>
 
-                <Typography sx={{ color: "#475569", lineHeight: 1.7, mb: 4, flexGrow: 1, fontSize: "1rem" }}>
+                <Typography sx={{ color: "#64748b", fontStyle: "italic", textAlign: "center", fontSize: "0.85rem", lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
                   Focused on strengthening industry partnerships, student outreach initiatives, workshop coordination, and opportunity creation. Plays a key role in connecting learners with meaningful career pathways and professional development opportunities.
                 </Typography>
 
-                <Box sx={{ borderTop: "1px solid rgba(15, 23, 42, 0.05)", pt: 3 }}>
-                  <Typography sx={{ color: "#64748b", fontSize: "0.75rem", fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", mb: 2 }}>
-                    Expertise Areas
+                <Box sx={{ width: "100%", mt: 2, mb: 3, borderTop: "1px solid rgba(0,0,0,0.05)", pt: 3 }}>
+                  <Typography sx={{ color: "#0f172a", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mb: 2, textAlign: "left" }}>
+                    Expertise Areas:
                   </Typography>
-                  <Stack direction="row" flexWrap="wrap" useFlexGap gap={1}>
-                    {["Business Development", "Industry Partnerships", "Workshop Coordination", "Student Engagement", "Career Ecosystem Growth"].map((tag) => (
-                      <Chip
-                        key={tag}
-                        label={tag}
-                        size="small"
-                        sx={{
-                          bgcolor: "rgba(15, 23, 42, 0.04)",
-                          color: "#334155",
-                          fontWeight: 600,
-                          fontSize: "0.75rem",
-                          borderRadius: "6px",
-                          border: "1px solid rgba(15, 23, 42, 0.05)"
-                        }}
-                      />
+                  <Stack direction="row" flexWrap="wrap" gap={1}>
+                    {["Business Development", "Industry Partnerships", "Workshop Coordination", "Student Engagement", "Career Ecosystem Growth"].map((skill) => (
+                      <Box key={skill} sx={{ bgcolor: "rgba(99,102,241,0.05)", color: "#6366f1", px: 1.5, py: 0.5, borderRadius: "4px", fontSize: "0.75rem", fontWeight: 600 }}>
+                        {skill}
+                      </Box>
                     ))}
                   </Stack>
                 </Box>
+
+                <Stack direction="row" spacing={1} mt="auto">
+                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
+                      <LinkedInIcon fontSize="small" />
+                   </IconButton>
+                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
+                      <TwitterIcon fontSize="small" />
+                   </IconButton>
+                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
+                      <EmailIcon fontSize="small" />
+                   </IconButton>
+                </Stack>
               </GlassCard>
             </motion.div>
           </Grid>
@@ -247,79 +246,73 @@ export default function LeadershipTeamSection() {
               }}
               style={{ height: "100%" }}
             >
-              <GlassCard sx={{ height: "100%", display: "flex", flexDirection: "column", p: { xs: 3, md: 5 } }}>
-                <Stack direction="row" spacing={3} alignItems="center" mb={4}>
-                  <Avatar
-                    sx={{
-                      width: 80,
-                      height: 80,
-                      background: "linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)",
-                      fontSize: "2rem",
-                      fontWeight: 700,
-                      boxShadow: "0 10px 20px -5px rgba(14, 165, 233, 0.4)",
-                      border: "3px solid #ffffff",
-                    }}
-                  >
-                    MR
-                  </Avatar>
-                  <Box>
-                    <Typography variant="h4" sx={{ color: "#0f172a", fontWeight: 800, mb: 0.5, fontFamily: "'Sora', sans-serif", fontSize: "1.5rem" }}>
-                      Dr. Madhukar Reddy
-                    </Typography>
-                    <Typography sx={{ color: "#0ea5e9", fontWeight: 700, fontSize: "0.95rem", mb: 0.5 }}>
-                      Head of Business Operations
-                    </Typography>
-                    <Stack direction="row" alignItems="center" spacing={0.5}>
-                      <PublicRoundedIcon sx={{ fontSize: "0.9rem", color: "#64748b" }} />
-                      <Typography sx={{ color: "#64748b", fontSize: "0.85rem", fontWeight: 600 }}>
-                        California, USA
-                      </Typography>
-                    </Stack>
-                  </Box>
-                </Stack>
+              <GlassCard sx={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", p: { xs: 4, md: 5 } }}>
+                <Box sx={{ position: "relative", mb: 3 }}>
+                   <Box sx={{ width: 130, height: 130, borderRadius: "50%", border: "4px solid #fdba74", display: "flex", justifyContent: "center", alignItems: "center", p: 0.5 }}>
+                     <Avatar
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        background: "linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)",
+                        fontSize: "2.5rem",
+                        fontWeight: 700,
+                      }}
+                    >
+                      MR
+                    </Avatar>
+                   </Box>
+                </Box>
 
-                <Typography sx={{ color: "#0f172a", fontWeight: 700, fontSize: "1.15rem", mb: 2, lineHeight: 1.5 }}>
+                <Typography variant="h5" sx={{ color: "#1e293b", fontWeight: 500, mb: 2, fontFamily: "'Sora', sans-serif" }}>
+                  Dr. Madhukar Reddy
+                </Typography>
+
+                <Typography sx={{ color: "#0f172a", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
+                  Head of Business Operations • California, USA
+                </Typography>
+
+                <Typography sx={{ color: "#0ea5e9", fontWeight: 600, fontSize: "0.95rem", textAlign: "center", mb: 2 }}>
                   Driving Global Industry Perspective And Strategic Growth
                 </Typography>
 
-                <Typography sx={{ color: "#475569", lineHeight: 1.7, mb: 4, flexGrow: 1, fontSize: "1rem" }}>
+                <Typography sx={{ color: "#64748b", fontStyle: "italic", textAlign: "center", fontSize: "0.85rem", lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
                   Experienced business and technology leader with expertise spanning cybersecurity, enterprise operations, and strategic business growth. Provides global industry insights and operational direction to ensure ThaksaAi remains aligned with evolving workforce demands.
                 </Typography>
 
-                <Box sx={{ borderTop: "1px solid rgba(15, 23, 42, 0.05)", pt: 3 }}>
-                  <Typography sx={{ color: "#64748b", fontSize: "0.75rem", fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", mb: 2 }}>
-                    Professional Highlights
+                <Box sx={{ width: "100%", mt: 2, mb: 3, borderTop: "1px solid rgba(0,0,0,0.05)", pt: 3 }}>
+                  <Typography sx={{ color: "#0f172a", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mb: 2, textAlign: "left" }}>
+                    Professional Highlights:
                   </Typography>
-                  <Stack direction="row" flexWrap="wrap" useFlexGap gap={1} mb={3}>
-                    {["Cybersecurity", "Enterprise Technology", "Business Operations", "Global Leadership", "Strategic Planning", "Industry Transformation"].map((tag) => (
-                      <Chip
-                        key={tag}
-                        label={tag}
-                        size="small"
-                        sx={{
-                          bgcolor: "rgba(15, 23, 42, 0.04)",
-                          color: "#334155",
-                          fontWeight: 600,
-                          fontSize: "0.75rem",
-                          borderRadius: "6px",
-                          border: "1px solid rgba(15, 23, 42, 0.05)"
-                        }}
-                      />
+                  <Stack direction="row" flexWrap="wrap" gap={1}>
+                    {["Cybersecurity", "Enterprise Technology", "Business Operations", "Global Leadership", "Strategic Planning", "Industry Transformation"].map((skill) => (
+                      <Box key={skill} sx={{ bgcolor: "rgba(14,165,233,0.05)", color: "#0ea5e9", px: 1.5, py: 0.5, borderRadius: "4px", fontSize: "0.75rem", fontWeight: 600 }}>
+                        {skill}
+                      </Box>
                     ))}
                   </Stack>
-
-                  <Typography sx={{ color: "#64748b", fontSize: "0.75rem", fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", mb: 1.5 }}>
-                    Former Experience
+                  <Typography sx={{ color: "#0f172a", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mt: 3, mb: 2, textAlign: "left" }}>
+                    Former Experience:
                   </Typography>
-                  <Stack direction="row" alignItems="center" spacing={1.5} flexWrap="wrap">
-                    {["IBM", "John Deere", "Global Technology Ecosystem"].map((exp, idx) => (
-                      <Box key={exp} sx={{ display: "flex", alignItems: "center" }}>
-                        <Typography sx={{ color: "#0f172a", fontSize: "0.85rem", fontWeight: 700 }}>{exp}</Typography>
-                        {idx < 2 && <Box sx={{ width: 4, height: 4, borderRadius: "50%", bgcolor: "#cbd5e1", ml: 1.5 }} />}
+                  <Stack direction="row" flexWrap="wrap" gap={1}>
+                    {["IBM", "John Deere", "Global Technology Ecosystem"].map((skill) => (
+                      <Box key={skill} sx={{ bgcolor: "rgba(0,0,0,0.03)", color: "#64748b", px: 1.5, py: 0.5, borderRadius: "4px", fontSize: "0.75rem", fontWeight: 600 }}>
+                        {skill}
                       </Box>
                     ))}
                   </Stack>
                 </Box>
+
+                <Stack direction="row" spacing={1} mt="auto">
+                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
+                      <LinkedInIcon fontSize="small" />
+                   </IconButton>
+                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
+                      <TwitterIcon fontSize="small" />
+                   </IconButton>
+                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
+                      <EmailIcon fontSize="small" />
+                   </IconButton>
+                </Stack>
               </GlassCard>
             </motion.div>
           </Grid>
@@ -327,53 +320,32 @@ export default function LeadershipTeamSection() {
 
         {/* Trust Bar */}
         <Box sx={{ mt: { xs: 10, md: 14 } }}>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 4 }}>
-              <Box sx={{ height: "1px", flexGrow: 1, maxWidth: "100px", background: "linear-gradient(to right, transparent, rgba(15, 23, 42, 0.1))" }} />
-              <Typography sx={{ color: "#64748b", fontWeight: 700, fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.15em", px: 3 }}>
-                Supported By
-              </Typography>
-              <Box sx={{ height: "1px", flexGrow: 1, maxWidth: "100px", background: "linear-gradient(to left, transparent, rgba(15, 23, 42, 0.1))" }} />
-            </Box>
-
-            <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={{ xs: 2, md: 2.5 }}>
-              {[
-                "Industry Mentors",
-                "Business Leaders",
-                "Technology Experts",
-                "Career Coaches",
-                "Workshop Facilitators",
-                "CRT Specialists"
-              ].map((badge) => (
-                <motion.div
-                  key={badge}
-                  whileHover={{ y: -2 }}
-                  style={{ display: "flex" }}
-                >
-                  <Box
-                    sx={{
-                      px: { xs: 2, md: 2.5 },
-                      py: 1.25,
-                      bgcolor: "#ffffff",
-                      borderRadius: "8px",
-                      border: "1px solid rgba(15, 23, 42, 0.05)",
-                      color: "#334155",
-                      fontWeight: 600,
-                      fontSize: { xs: "0.8rem", md: "0.85rem" },
-                      boxShadow: "0 2px 10px -2px rgba(15, 23, 42, 0.03)",
-                      transition: "all 0.2s ease",
-                      "&:hover": {
-                        borderColor: "rgba(99, 102, 241, 0.3)",
-                        boxShadow: "0 10px 15px -3px rgba(99, 102, 241, 0.08)",
-                        color: "#0f172a"
-                      }
-                    }}
-                  >
-                    {badge}
-                  </Box>
-                </motion.div>
-              ))}
-            </Stack>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeInUp}>
+             <Box
+                sx={{
+                  background: "rgba(255,255,255,0.7)",
+                  backdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  borderRadius: "24px",
+                  py: 4,
+                  px: { xs: 3, md: 6 },
+                  boxShadow: "0 10px 30px -10px rgba(15, 23, 42, 0.05)",
+                }}
+             >
+                <Typography sx={{ color: "#64748b", fontSize: "0.85rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", textAlign: "center", mb: 3 }}>
+                   Guided By Experts In
+                </Typography>
+                <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={{ xs: 2, md: 4 }}>
+                   {["Industry Mentors", "Business Leaders", "Technology Experts", "Career Coaches", "Workshop Facilitators", "CRT Specialists"].map((badge) => (
+                      <Box key={badge} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                         <Box sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#6366f1" }} />
+                         <Typography sx={{ color: "#1e293b", fontWeight: 600, fontSize: { xs: "0.9rem", md: "1rem" } }}>
+                            {badge}
+                         </Typography>
+                      </Box>
+                   ))}
+                </Stack>
+             </Box>
           </motion.div>
         </Box>
 
