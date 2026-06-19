@@ -10,6 +10,7 @@ import HandshakeRoundedIcon from "@mui/icons-material/HandshakeRounded";
 
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import StorytellingComponent from "./StorytellingComponent";
 
 const modules = [
   {
@@ -265,7 +266,7 @@ export default function HeroSection() {
         {/* ── Top row: text content + logo ── */}
         <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 8, md: 10 } }}>
           {/* TEXT COLUMN */}
-          <Grid size={{ xs: 12, md: 12 }} sx={{ position: "relative", zIndex: 2, textAlign: "center" }}>
+          <Grid size={{ xs: 12, lg: 6 }} sx={{ position: "relative", zIndex: 2, textAlign: { xs: "center", lg: "left" } }}>
             {/* Badge */}
             <Box
               sx={{
@@ -295,7 +296,7 @@ export default function HeroSection() {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "2.25rem", sm: "3.5rem", md: "4.5rem" },
+                fontSize: { xs: "2.25rem", sm: "3.5rem", md: "4rem", lg: "4.5rem" },
                 fontWeight: 900,
                 lineHeight: 1.1,
                 letterSpacing: "-0.04em",
@@ -337,7 +338,7 @@ export default function HeroSection() {
               sx={{
                 fontSize: { xs: "1.05rem", md: "1.2rem" },
                 color: "#475569",
-                maxWidth: 600, mx: "auto",
+                maxWidth: 600, mx: { xs: "auto", lg: 0 },
                 lineHeight: 1.7,
                 mb: 4,
                 opacity: mounted ? 1 : 0,
@@ -349,11 +350,16 @@ export default function HeroSection() {
               Join the elite ecosystem designed for future leaders. We bridge academia and industry with immersive AI-driven training, expert mentorship, and premium placement support.
             </Typography>
 
+            {/* Mobile Storytelling Placement */}
+            <Box sx={{ display: { xs: 'block', lg: 'none' }, mb: 4, textAlign: 'left' }}>
+              <StorytellingComponent />
+            </Box>
+
             {/* CTAs */}
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={2}
-              justifyContent="center"
+              justifyContent={{ xs: "center", lg: "flex-start" }}
               sx={{
                 mb: 5,
                 opacity: mounted ? 1 : 0,
@@ -421,7 +427,7 @@ export default function HeroSection() {
               <Typography sx={{ fontSize: "0.85rem", fontWeight: 700, color: "#64748b", mb: 2, textTransform: "uppercase", letterSpacing: "0.05em" }}>
                 Core Pillars
               </Typography>
-              <Grid container spacing={2} justifyContent="center">
+              <Grid container spacing={2} justifyContent={{ xs: "center", lg: "flex-start" }}>
                 {[
                   { text: "AI-Powered Learning", icon: <AutoAwesomeRoundedIcon sx={{ fontSize: 18 }} /> },
                   { text: "Industry Mentorship", icon: <GroupsRoundedIcon sx={{ fontSize: 18 }} /> },
@@ -436,6 +442,15 @@ export default function HeroSection() {
                   </Grid>
                 ))}
               </Grid>
+            </Box>
+          </Grid>
+
+          {/* VISUAL COLUMN / STORYTELLING */}
+          <Grid size={{ xs: 12, lg: 6 }} sx={{ display: { xs: 'none', lg: 'block' }, position: "relative", zIndex: 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', ml: { lg: 4 } }}>
+              <Box sx={{ width: '100%', maxWidth: 500 }}>
+                <StorytellingComponent />
+              </Box>
             </Box>
           </Grid>
 
