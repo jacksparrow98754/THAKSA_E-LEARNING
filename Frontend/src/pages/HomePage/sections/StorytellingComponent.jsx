@@ -83,7 +83,7 @@ export default function StorytellingComponent() {
               color: "#a855f7",
             }}
           >
-            Your Transformation Journey
+            Career Readiness Journey
           </Typography>
         </Stack>
 
