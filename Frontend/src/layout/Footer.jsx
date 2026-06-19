@@ -106,7 +106,7 @@ export default function Footer() {
                 to="/"
                 sx={{
                   display: "inline-flex",
-                  alignItems: "center",
+                  alignItems: "flex-start",
                   gap: 1.5,
                   textDecoration: "none",
                 }}
@@ -123,20 +123,34 @@ export default function Footer() {
                     boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                   }}
                 />
-                <Typography
-                  sx={{
-                    fontWeight: 800,
-                    fontSize: "1.35rem",
-                    letterSpacing: "-0.03em",
-                    fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                    color: "#0f172a",
-                  }}
-                >
-                  ThaksaAi
-                </Typography>
+                <Stack>
+                  <Typography
+                    sx={{
+                      fontWeight: 800,
+                      fontSize: "1.35rem",
+                      letterSpacing: "-0.03em",
+                      fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+                      color: "#0f172a",
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    THAKSAai
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: "0.85rem",
+                      color: "#64748b",
+                      letterSpacing: "0.05em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Career Planet
+                  </Typography>
+                </Stack>
               </Box>
               <Typography sx={{ color: "#475569", lineHeight: 1.7, fontSize: "1rem", maxWidth: 320 }}>
-                A premium, mentor-led AI ecosystem designed to accelerate your career and help you build industry-relevant skills with confidence.
+                Empowering students through Campus Recruitment Training, industry workshops, career development programs, and placement readiness initiatives.
               </Typography>
 
               <Stack direction="row" spacing={1.5}>
@@ -221,7 +235,7 @@ export default function Footer() {
           }}
         >
           <Typography sx={{ color: "#64748b", fontSize: "0.9rem", fontWeight: 500 }}>
-            © {new Date().getFullYear()} ThaksaAi. All rights reserved.
+            © {new Date().getFullYear()} THAKSAai. All rights reserved.
           </Typography>
           <Stack direction="row" spacing={3}>
             <MuiLink href="#" underline="none" sx={{ color: "#94a3b8", fontSize: "0.85rem", "&:hover": { color: "#0f172a" } }}>
