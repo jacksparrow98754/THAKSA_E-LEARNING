@@ -19,15 +19,13 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 const baseNavItems = [
   { label: "Home", to: "/" },
   { label: "Workshops", to: "/workshops" },
-  { label: "Training", to: "/training" },
+  { label: "CRT Training", to: "/training" },
 ];
 
 const homeStickyNavItems = [
   { label: "Home", to: "/" },
   { label: "Workshops", to: "/workshops" },
-  { label: "Training", to: "/training" },
-  { label: "Projects", to: "/final-year-projects" },
-  { label: "Placement", to: "/placements" },
+  { label: "CRT Training", to: "/training" },
 ];
 
 const workshopStickyNavItems = [
@@ -47,7 +45,7 @@ const placementsStickyNavItems = [
 
 const trainingPageNavItems = [
   { label: "Home", to: "/" },
-  { label: "Training", to: "/training" },
+  { label: "CRT Training", to: "/training" },
   { label: "Courses", to: "/courses" },
   { label: "Batches", to: "/batches" },
   { label: "Contact", to: "/contact" },

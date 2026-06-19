@@ -11,15 +11,13 @@ import logo from "/new-logo.png";
 const quickLinks = [
   { label: "Home", to: "/" },
   { label: "Workshops", to: "/workshops" },
-  { label: "Training", to: "/training" },
+  { label: "CRT Training", to: "/training" },
   { label: "Contact", to: "/contact" },
 ];
 
 const programs = [
   { label: "Courses", to: "/courses" },
   { label: "Batches", to: "/batches" },
-  { label: "Projects", to: "/final-year-projects" },
-  { label: "Placements", to: "/placements" },
 ];
 
 function FooterLink({ label, to }) {
