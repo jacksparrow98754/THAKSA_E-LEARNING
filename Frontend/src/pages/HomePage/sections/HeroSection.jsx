@@ -384,7 +384,9 @@ export default function HeroSection() {
                 variant="contained"
                 size="large"
                 onClick={() => navigate("/workshops")}
+                aria-label="Explore Workshops"
                 sx={{
+                  width: { xs: '100%', sm: 'auto' },
                   bgcolor: "#3b82f6",
                   color: "#ffffff",
                   px: 4,
@@ -407,7 +409,10 @@ export default function HeroSection() {
               <Button
                 variant="outlined"
                 size="large"
+                onClick={() => navigate("/contact")}
+                aria-label="Contact Us"
                 sx={{
+                  width: { xs: '100%', sm: 'auto' },
                   borderColor: "rgba(255,255,255,0.3)",
                   color: "#ffffff",
                   px: 4,
@@ -426,7 +431,7 @@ export default function HeroSection() {
                   },
                 }}
               >
-                Book Free Consultation
+                Contact Us
               </Button>
             </Stack>
 
