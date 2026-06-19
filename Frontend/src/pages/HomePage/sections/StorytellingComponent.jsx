@@ -71,13 +71,13 @@ export default function StorytellingComponent() {
         }}
       />
 
-      <Box sx={{ p: { xs: 3, sm: 4 }, position: "relative", zIndex: 1 }}>
-        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 3 }}>
-          <AutoAwesomeRoundedIcon sx={{ color: "#a855f7", fontSize: 20 }} />
+      <Box sx={{ p: { xs: 2, sm: 2.5 }, position: "relative", zIndex: 1 }}>
+        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
+          <AutoAwesomeRoundedIcon sx={{ color: "#a855f7", fontSize: 18 }} />
           <Typography
             sx={{
               fontWeight: 700,
-              fontSize: "0.85rem",
+              fontSize: "0.8rem",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
               color: "#a855f7",
@@ -90,10 +90,10 @@ export default function StorytellingComponent() {
         <Typography
           variant="h3"
           sx={{
-            fontSize: { xs: "1.25rem", sm: "1.5rem" },
+            fontSize: { xs: "1.1rem", sm: "1.25rem" },
             fontWeight: 800,
             color: "#0f172a",
-            mb: 4,
+            mb: 3,
             lineHeight: 1.3,
           }}
         >
@@ -101,29 +101,29 @@ export default function StorytellingComponent() {
         </Typography>
 
         {/* Journey Timeline */}
-        <Box sx={{ position: "relative", mb: 5 }}>
+        <Box sx={{ position: "relative", mb: 3 }}>
           <Box
             sx={{
               position: "absolute",
               top: 0,
               bottom: 0,
-              left: 20,
+              left: 16,
               width: 2,
               background: "rgba(99, 102, 241, 0.15)",
               zIndex: 0,
             }}
           />
-          <Stack spacing={3}>
+          <Stack spacing={2}>
             {journeySteps.map((step, index) => {
               const Icon = step.icon;
               const isActive = index === activeStep;
               const isPast = index <= activeStep;
               return (
-                <Stack direction="row" alignItems="center" spacing={3} key={index} sx={{ position: "relative", zIndex: 1 }}>
+                <Stack direction="row" alignItems="center" spacing={2} key={index} sx={{ position: "relative", zIndex: 1 }}>
                   <Box
                     sx={{
-                      width: 40,
-                      height: 40,
+                      width: 32,
+                      height: 32,
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
@@ -137,13 +137,13 @@ export default function StorytellingComponent() {
                       border: isPast ? "none" : "1px solid #cbd5e1",
                     }}
                   >
-                    <Icon sx={{ fontSize: 20 }} />
+                    <Icon sx={{ fontSize: 16 }} />
                   </Box>
                   <Typography
                     sx={{
                       fontWeight: isPast ? 700 : 500,
                       color: isPast ? "#0f172a" : "#64748b",
-                      fontSize: "1rem",
+                      fontSize: "0.9rem",
                       transition: "all 0.5s ease",
                       transform: isActive ? "translateX(4px)" : "translateX(0)",
                     }}
@@ -157,7 +157,7 @@ export default function StorytellingComponent() {
         </Box>
 
         {/* Impact Metrics */}
-        <Box sx={{ pt: 3, borderTop: "1px dashed rgba(15, 23, 42, 0.1)" }}>
+        <Box sx={{ pt: 2, borderTop: "1px dashed rgba(15, 23, 42, 0.1)" }}>
           <Grid container spacing={2}>
             {metrics.map((metric, index) => (
               <Grid item xs={6} key={index}>
@@ -165,7 +165,7 @@ export default function StorytellingComponent() {
                   <Typography
                     sx={{
                       fontWeight: 800,
-                      fontSize: "1.25rem",
+                      fontSize: "1.1rem",
                       color: "#6366f1",
                       lineHeight: 1,
                       mb: 0.5,
@@ -176,7 +176,7 @@ export default function StorytellingComponent() {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontSize: "0.75rem",
+                      fontSize: "0.7rem",
                       color: "#64748b",
                       textTransform: "uppercase",
                       letterSpacing: "0.02em",
