@@ -14,7 +14,7 @@ export default function HomePage() {
       }}
     >
       <HeroSection />
-      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
+      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 }, px: { xs: 2, md: 3 } }}>
         <FeaturesSection />
         <FounderSection />
         <LeadershipTeamSection />

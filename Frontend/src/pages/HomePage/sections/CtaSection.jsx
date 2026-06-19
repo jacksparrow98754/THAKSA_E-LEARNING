@@ -8,7 +8,7 @@ export default function CtaSection() {
   return (
     <Box
       sx={{
-        borderRadius: 5,
+        borderRadius: "24px",
         p: { xs: 3, md: 5 },
         border: "1px solid rgba(37, 99, 235, 0.22)",
         background:
@@ -16,13 +16,12 @@ export default function CtaSection() {
       }}
     >
       <Typography
-        variant="h4"
+        variant="h2"
         sx={{
-          fontWeight: 900,
-          color: "#0f172a",
+
+
           mb: 1.2,
-          fontSize: { xs: "1.6rem", md: "2rem" },
-          fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+
         }}
       >
         Start Your Career-Oriented Learning Journey
@@ -39,8 +38,8 @@ export default function CtaSection() {
           sx={{
             py: 1.4,
             px: 3.2,
-            borderRadius: 3,
-            fontWeight: 700,
+            borderRadius: "24px",
+
             bgcolor: "#2563eb",
             "&:hover": { bgcolor: "#1d4ed8" },
           }}
@@ -54,8 +53,8 @@ export default function CtaSection() {
           sx={{
             py: 1.4,
             px: 3.2,
-            borderRadius: 3,
-            fontWeight: 700,
+            borderRadius: "24px",
+
             borderColor: "#0f766e",
             color: "#0f766e",
             "&:hover": { borderColor: "#0d665e", bgcolor: "rgba(15, 118, 110, 0.06)" },

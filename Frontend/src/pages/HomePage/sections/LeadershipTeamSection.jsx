@@ -75,11 +75,11 @@ const GlassCard = ({ children, sx }) => (
       backdropFilter: "blur(16px)",
       borderRadius: "24px",
       border: "1px solid rgba(255, 255, 255, 0.8)",
-      boxShadow: "0 24px 48px -12px rgba(15, 23, 42, 0.05)",
+      boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
       transition: "transform 0.4s ease, box-shadow 0.4s ease",
       "&:hover": {
-        transform: "translateY(-8px)",
-        boxShadow: "0 32px 64px -12px rgba(15, 23, 42, 0.15)",
+                      transform: "translateY(-6px)",
+                      boxShadow: "0 12px 30px rgba(15, 23, 42, 0.1)",
       },
       ...sx,
     }}
@@ -92,7 +92,7 @@ export default function LeadershipTeamSection() {
   return (
     <Box
       sx={{
-        py: { xs: 8, md: 12 },
+        py: { xs: 10, md: 15 },
         position: "relative",
         bgcolor: "#ffffff",
         overflow: "hidden",
@@ -131,8 +131,8 @@ export default function LeadershipTeamSection() {
                 label="LEADERSHIP TEAM"
                 sx={{
                   bgcolor: "rgba(15, 23, 42, 0.05)",
-                  color: "#0f172a",
-                  fontWeight: 800,
+
+
                   letterSpacing: "0.1em",
                   mb: 3,
                   fontSize: "0.75rem",
@@ -145,11 +145,9 @@ export default function LeadershipTeamSection() {
               <Typography
                 variant="h2"
                 sx={{
-                  fontWeight: 900,
-                  color: "#0f172a",
+
+
                   mb: 3,
-                  fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                  fontSize: { xs: "2.25rem", md: "3.5rem" },
                   lineHeight: 1.2,
                 }}
               >
@@ -162,8 +160,8 @@ export default function LeadershipTeamSection() {
             <motion.div variants={fadeInUp}>
               <Typography
                 sx={{
-                  color: "#475569",
-                  fontSize: { xs: "1.1rem", md: "1.25rem" },
+
+
                   maxWidth: "800px",
                   mx: "auto",
                   lineHeight: 1.6,
@@ -220,17 +218,17 @@ export default function LeadershipTeamSection() {
                       }}
                     />
                     <Box sx={{ position: "absolute", bottom: 24, left: 24, right: 24 }}>
-                      <Typography variant="h4" sx={{ color: "#fff", fontWeight: 800, mb: 0.5, fontFamily: "'Sora', sans-serif" }}>
+                      <Typography variant="h3" sx={{ color: "#fff", mb: 0.5 }}>
                         {leader.name}
                       </Typography>
                       <Stack direction="row" alignItems="center" spacing={1} flexWrap="wrap" useFlexGap>
-                         <Typography sx={{ color: "#a5b4fc", fontWeight: 600, fontSize: "1rem" }}>
+                         <Typography sx={{ color: "#a5b4fc",  fontSize: "1rem" }}>
                            {leader.role}
                          </Typography>
                          {leader.location && (
                            <>
                              <Typography sx={{ color: "#fff", opacity: 0.5 }}>•</Typography>
-                             <Typography sx={{ color: "#e2e8f0", fontSize: "0.85rem", fontWeight: 500 }}>
+                             <Typography sx={{ color: "#e2e8f0", fontSize: "0.85rem",  }}>
                                {leader.location}
                              </Typography>
                            </>
@@ -240,10 +238,10 @@ export default function LeadershipTeamSection() {
                   </Box>
 
                   <Box sx={{ p: { xs: 3, md: 4 }, flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                    <Typography sx={{ color: "#0f172a", fontWeight: 700, fontSize: "1.1rem", mb: 2, lineHeight: 1.4 }}>
+                    <Typography sx={{   fontSize: "1.1rem", mb: 3, lineHeight: 1.4 }}>
                       {leader.headline}
                     </Typography>
-                    <Typography sx={{ color: "#475569", lineHeight: 1.7, mb: 4, flexGrow: 1 }}>
+                    <Typography sx={{  lineHeight: 1.7, mb: 6, flexGrow: 1 }}>
                       {leader.description}
                     </Typography>
 
@@ -257,9 +255,9 @@ export default function LeadershipTeamSection() {
                             sx={{
                               bgcolor: "rgba(99,102,241,0.08)",
                               color: "#4f46e5",
-                              fontWeight: 600,
+
                               fontSize: "0.75rem",
-                              borderRadius: "8px",
+                              borderRadius: "24px",
                               mb: 1
                             }}
                           />
@@ -282,7 +280,7 @@ export default function LeadershipTeamSection() {
         {/* Team Credibility Bar */}
         <Box sx={{ mt: { xs: 10, md: 14 } }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-            <Typography textAlign="center" sx={{ color: "#64748b", fontWeight: 600, fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em", mb: 4 }}>
+            <Typography textAlign="center" sx={{ color: "#64748b",  fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em", mb: 4 }}>
               Supported by a network of
             </Typography>
             <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={{ xs: 2, md: 3 }}>
@@ -300,14 +298,14 @@ export default function LeadershipTeamSection() {
                       borderRadius: "100px",
                       border: "1px solid #e2e8f0",
                       color: "#334155",
-                      fontWeight: 600,
-                      fontSize: { xs: "0.8rem", md: "0.9rem" },
-                      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.02)",
+
+
+                      boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                       transition: "all 0.2s ease",
                       "&:hover": {
                         bgcolor: "#ffffff",
                         borderColor: "#cbd5e1",
-                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05)",
+                        boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                         color: "#0f172a"
                       }
                     }}
