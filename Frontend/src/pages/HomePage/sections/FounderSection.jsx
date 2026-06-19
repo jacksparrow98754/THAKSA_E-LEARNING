@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Box, Chip, Container, Grid, Stack, Typography } from "@mui/material";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-import tharunImg from "./cofounder-tharunkrishna.png";
+import img1 from "./cofounder.jpeg";
+import img2 from "./IMG-20260619-WA0036.jpg";
+import img3 from "./IMG-20260619-WA0010.jpg";
+
+const ceoImages = [img1, img2, img3];
 
 function useReveal(delay = 0) {
   const ref = useRef(null);
@@ -58,6 +62,41 @@ export default function FounderSection() {
     "Career mentorship",
     "Industry readiness focus"
   ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  useEffect(() => {
+    if (isHovered) return;
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % ceoImages.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [isHovered]);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    const swipeThreshold = 50;
+    if (touchStartX.current - touchEndX.current > swipeThreshold) {
+      // Swipe left
+      setCurrentIndex((prev) => (prev + 1) % ceoImages.length);
+    } else if (touchEndX.current - touchStartX.current > swipeThreshold) {
+      // Swipe right
+      setCurrentIndex((prev) => (prev - 1 + ceoImages.length) % ceoImages.length);
+    }
+  };
 
   return (
     <Box
@@ -117,52 +156,110 @@ export default function FounderSection() {
           {/* Mobile: Photo top. Desktop: Photo left. */}
           <Grid size={{ xs: 12, md: 5 }}>
             <RevealBox direction="left" delay={0}>
-              <Box sx={{ position: "relative", width: "100%", maxWidth: 380, mx: "auto" }}>
-                <Box
-                  sx={{
-                    width: "100%",
-                    paddingBottom: "100%", // Maintain 1:1 aspect ratio
-                    borderRadius: "50%",
-                    background: "linear-gradient(135deg,#6366f1,#7c3aed)",
-                    p: "4px",
-                    position: "relative",
-                    boxShadow: "0 20px 40px rgba(99,102,241,0.2)",
-                  }}
-                >
+              <Box
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                sx={{
+                  position: "relative",
+                  width: "100%",
+                  maxWidth: 420,
+                  mx: "auto",
+                  aspectRatio: "4/5",
+                  borderRadius: "24px",
+                  overflow: "hidden",
+                  boxShadow: "0 24px 48px -12px rgba(15, 23, 42, 0.15)",
+                  bgcolor: "#f8fafc",
+                  border: "8px solid #ffffff",
+                  transition: "box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                  "&:hover": {
+                    boxShadow: "0 32px 64px -12px rgba(15, 23, 42, 0.2)",
+                  },
+                }}
+              >
+                {ceoImages.map((imgSrc, index) => (
                   <Box
+                    key={index}
                     component="img"
-                    src={tharunImg}
-                    alt="K. Tharunkrishna - CEO and Founder"
+                    src={imgSrc}
+                    alt={`K. Tharunkrishna - Image ${index + 1}`}
                     sx={{
                       position: "absolute",
-                      top: "4px",
-                      left: "4px",
-                      width: "calc(100% - 8px)",
-                      height: "calc(100% - 8px)",
-                      borderRadius: "50%",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
                       objectFit: "cover",
                       objectPosition: "top center",
-                      border: "6px solid #fff",
+                      opacity: currentIndex === index ? 1 : 0,
+                      transition: "opacity 1s ease-in-out, transform 0.8s ease-in-out",
+                      transform: isHovered && currentIndex === index ? "scale(1.05)" : "scale(1)",
+                      zIndex: currentIndex === index ? 1 : 0,
                     }}
                   />
-                </Box>
+                ))}
+
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: "40%",
+                    background: "linear-gradient(to top, rgba(15,23,42,0.7) 0%, transparent 100%)",
+                    zIndex: 2,
+                    pointerEvents: "none",
+                  }}
+                />
+
                 <Chip
                   label="CEO & Founder"
                   size="medium"
                   sx={{
                     position: "absolute",
-                    bottom: 10,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    bgcolor: "#6366f1",
-                    color: "#fff",
+                    top: 16,
+                    right: 16,
+                    bgcolor: "rgba(255, 255, 255, 0.9)",
+                    color: "#0f172a",
                     fontWeight: 800,
                     fontSize: "0.85rem",
-                    whiteSpace: "nowrap",
-                    boxShadow: "0 4px 12px rgba(99,102,241,0.4)",
+                    backdropFilter: "blur(8px)",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                     px: 1,
+                    zIndex: 3,
                   }}
                 />
+
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  sx={{
+                    position: "absolute",
+                    bottom: 24,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    zIndex: 3,
+                  }}
+                >
+                  {ceoImages.map((_, index) => (
+                    <Box
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      sx={{
+                        width: currentIndex === index ? 24 : 8,
+                        height: 8,
+                        borderRadius: 4,
+                        bgcolor: currentIndex === index ? "#ffffff" : "rgba(255,255,255,0.5)",
+                        cursor: "pointer",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          bgcolor: "#ffffff",
+                        },
+                      }}
+                    />
+                  ))}
+                </Stack>
               </Box>
             </RevealBox>
           </Grid>
