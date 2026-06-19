@@ -234,34 +234,45 @@ export default function HeroSection() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        pt: { xs: 4, sm: 5, md: 8 },
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        pt: { xs: 12, md: 16 },
         pb: { xs: 6, sm: 8, md: 12 },
-        borderBottom: "1px solid rgba(15,23,42,0.08)",
       }}
     >
-      {/* Background radial glows */}
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 0,
+        }}
+      >
+        <source src="/VID-20260619-WA0002.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay for readability (target ~20% video visibility) */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
-          background:
-            "radial-gradient(circle at 10% 15%, rgba(99,102,241,0.18) 0%, transparent 45%), radial-gradient(circle at 90% 80%, rgba(15,118,110,0.16) 0%, transparent 45%), radial-gradient(circle at 55% 50%, rgba(217,119,6,0.08) 0%, transparent 50%)",
+          background: "linear-gradient(180deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.7) 100%)",
+          zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
-      {/* Subtle grid pattern */}
-      <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "linear-gradient(rgba(15,23,42,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.03) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-          pointerEvents: "none",
-        }}
-      />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
         {/* ── Top row: text content + logo ── */}
         <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 8, md: 10 } }}>
@@ -273,8 +284,8 @@ export default function HeroSection() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 1.5,
-                bgcolor: "rgba(99,102,241,0.08)",
-                border: "1px solid rgba(99,102,241,0.25)",
+                bgcolor: "rgba(255,255,255,0.1)",
+                border: "1px solid rgba(255,255,255,0.2)",
                 borderRadius: 12,
                 px: 2.5,
                 py: 1,
@@ -283,11 +294,11 @@ export default function HeroSection() {
                 transform: mounted ? "translateY(0)" : "translateY(-12px)",
                 transition: "all 0.5s ease",
                 backdropFilter: "blur(8px)",
-                boxShadow: "0 4px 12px rgba(99,102,241,0.1)",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
               }}
             >
-              <AutoAwesomeRoundedIcon sx={{ fontSize: 20, color: "#6366f1" }} />
-              <Typography sx={{ fontWeight: 700, fontSize: "0.85rem", color: "#6366f1", letterSpacing: "0.02em" }}>
+              <AutoAwesomeRoundedIcon sx={{ fontSize: 20, color: "#818cf8" }} />
+              <Typography sx={{ fontWeight: 700, fontSize: "0.85rem", color: "#f8fafc", letterSpacing: "0.02em" }}>
                 ThaksaAi — The Premier AI Career Ecosystem
               </Typography>
             </Box>
@@ -300,19 +311,20 @@ export default function HeroSection() {
                 fontWeight: 900,
                 lineHeight: 1.1,
                 letterSpacing: "-0.04em",
-                color: "#0f172a",
+                color: "#ffffff",
                 fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 mb: 2,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.1s",
+                textShadow: "0 4px 20px rgba(0,0,0,0.4)"
               }}
             >
               Accelerate Your <br />
               <Box
                 component="span"
                 sx={{
-                  background: "linear-gradient(90deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)",
+                  background: "linear-gradient(90deg, #818cf8 0%, #c084fc 50%, #f472b6 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   position: "relative",
@@ -337,7 +349,7 @@ export default function HeroSection() {
             <Typography
               sx={{
                 fontSize: { xs: "1.05rem", md: "1.2rem" },
-                color: "#475569",
+                color: "#cbd5e1",
                 maxWidth: 600, mx: { xs: "auto", lg: 0 },
                 lineHeight: 1.7,
                 mb: 4,
@@ -345,6 +357,7 @@ export default function HeroSection() {
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.2s",
                 fontWeight: 500,
+                textShadow: "0 2px 10px rgba(0,0,0,0.3)"
               }}
             >
               Join the elite ecosystem designed for future leaders. We bridge academia and industry with immersive AI-driven training, expert mentorship, and premium placement support.
@@ -371,20 +384,20 @@ export default function HeroSection() {
                 variant="contained"
                 size="large"
                 sx={{
-                  bgcolor: "#0f172a",
-                  color: "#fff",
+                  bgcolor: "#ffffff",
+                  color: "#0f172a",
                   px: 4,
                   py: 1.8,
                   borderRadius: 3,
                   fontSize: "1.05rem",
                   fontWeight: 700,
                   textTransform: "none",
-                  boxShadow: "0 8px 20px rgba(15,23,42,0.25)",
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.25)",
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    bgcolor: "#1e293b",
+                    bgcolor: "#f8fafc",
                     transform: "translateY(-2px)",
-                    boxShadow: "0 12px 28px rgba(15,23,42,0.35)",
+                    boxShadow: "0 12px 28px rgba(0,0,0,0.35)",
                   },
                 }}
               >
@@ -394,8 +407,8 @@ export default function HeroSection() {
                 variant="outlined"
                 size="large"
                 sx={{
-                  borderColor: "rgba(15,23,42,0.2)",
-                  color: "#0f172a",
+                  borderColor: "rgba(255,255,255,0.3)",
+                  color: "#ffffff",
                   px: 4,
                   py: 1.8,
                   borderRadius: 3,
@@ -403,11 +416,11 @@ export default function HeroSection() {
                   fontWeight: 700,
                   textTransform: "none",
                   transition: "all 0.3s ease",
-                  bgcolor: "rgba(255,255,255,0.5)",
-                  backdropFilter: "blur(4px)",
+                  bgcolor: "rgba(255,255,255,0.1)",
+                  backdropFilter: "blur(8px)",
                   "&:hover": {
-                    borderColor: "#0f172a",
-                    bgcolor: "rgba(15,23,42,0.04)",
+                    borderColor: "#ffffff",
+                    bgcolor: "rgba(255,255,255,0.15)",
                     transform: "translateY(-2px)",
                   },
                 }}
@@ -424,7 +437,7 @@ export default function HeroSection() {
                 transition: "all 0.6s ease 0.4s",
               }}
             >
-              <Typography sx={{ fontSize: "0.85rem", fontWeight: 700, color: "#64748b", mb: 2, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+              <Typography sx={{ fontSize: "0.85rem", fontWeight: 700, color: "#94a3b8", mb: 2, textTransform: "uppercase", letterSpacing: "0.05em" }}>
                 Core Pillars
               </Typography>
               <Grid container spacing={2} justifyContent={{ xs: "center", lg: "flex-start" }}>
@@ -435,8 +448,8 @@ export default function HeroSection() {
                   { text: "Placement Support", icon: <BusinessCenterRoundedIcon sx={{ fontSize: 18 }} /> }
                 ].map((item, idx) => (
                   <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx} sx={{ display: "flex", justifyContent: "center" }}>
-                    <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "#334155" }}>
-                      <Box sx={{ display: "flex", color: "#6366f1" }}>{item.icon}</Box>
+                    <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "#e2e8f0" }}>
+                      <Box sx={{ display: "flex", color: "#818cf8" }}>{item.icon}</Box>
                       <Typography sx={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.2 }}>{item.text}</Typography>
                     </Stack>
                   </Grid>
