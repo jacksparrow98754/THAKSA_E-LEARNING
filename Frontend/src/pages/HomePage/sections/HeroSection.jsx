@@ -7,6 +7,7 @@ import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
 import BusinessCenterRoundedIcon from "@mui/icons-material/BusinessCenterRounded";
 import HandshakeRoundedIcon from "@mui/icons-material/HandshakeRounded";
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -17,9 +18,12 @@ const modules = [
     id: "workshops",
     icon: BuildRoundedIcon,
     title: "Workshops",
-    subtitle: "Hands-On Learning",
-    description:
-      "Industry-led offline workshops designed to give students real-world exposure through live projects, expert sessions, and collaborative problem-solving.",
+    subtitle: "Hands-On Industry Learning",
+    benefits: [
+      "Expert Sessions",
+      "Real-world Exposure",
+      "Collaborative Learning"
+    ],
     color: "#6366f1",
     gradient: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)",
     bgGlow: "rgba(99,102,241,0.12)",
@@ -32,10 +36,13 @@ const modules = [
   {
     id: "training",
     icon: WorkspacePremiumRoundedIcon,
-    title: "Training",
+    title: "CRT Training",
     subtitle: "Career Launch Program",
-    description:
-      "Structured training tracks with aptitude, technical, and soft-skill modules, followed by dedicated placement support with top hiring companies.",
+    benefits: [
+      "Aptitude & Technical Tracks",
+      "Soft-skills Modules",
+      "Placement Support"
+    ],
     color: "#0f766e",
     gradient: "linear-gradient(135deg, #0f766e 0%, #0891b2 100%)",
     bgGlow: "rgba(15,118,110,0.12)",
@@ -50,8 +57,11 @@ const modules = [
     icon: RocketLaunchRoundedIcon,
     title: "Final Year Projects",
     subtitle: "Build Real-World Solutions",
-    description:
-      "Guided project execution with domain experts, documentation support, IEEE-standard reporting, and live demos that stand out in interviews.",
+    benefits: [
+      "Guided Project Execution",
+      "IEEE-standard Reporting",
+      "Live Demos"
+    ],
     color: "#d97706",
     gradient: "linear-gradient(135deg, #d97706 0%, #ea580c 100%)",
     bgGlow: "rgba(217,119,6,0.12)",
@@ -60,22 +70,6 @@ const modules = [
     tag: "Industry Grade",
     tagColor: "#d97706",
     tagBg: "rgba(217,119,6,0.1)",
-  },
-  {
-    id: "placements",
-    icon: WorkspacePremiumRoundedIcon,
-    title: "Placements",
-    subtitle: "Career Opportunities",
-    description:
-      "Get dedicated placement guidance with resume support, interview preparation, and hiring connections to launch your career with confidence.",
-    color: "#0b4f8c",
-    gradient: "linear-gradient(135deg, #0b4f8c 0%, #2563eb 100%)",
-    bgGlow: "rgba(37,99,235,0.14)",
-    borderColor: "rgba(37,99,235,0.28)",
-    route: "/placements",
-    tag: "Hiring Support",
-    tagColor: "#1d4ed8",
-    tagBg: "rgba(37,99,235,0.1)",
   },
 ];
 
@@ -98,12 +92,10 @@ function AnimatedCard({ module, index }) {
 
   return (
     <Grid
+      size={{ xs: 12, sm: 6, md: 4 }}
       ref={ref}
       sx={{
-        minWidth: { xs: "86vw", sm: "46vw", md: "32vw", lg: "24vw" },
-        maxWidth: { xs: "86vw", sm: "46vw", md: "32vw", lg: "24vw" },
         scrollSnapAlign: "start",
-        flexShrink: 0,
       }}
     >
       <Card
@@ -114,13 +106,16 @@ function AnimatedCard({ module, index }) {
         sx={{
           cursor: "pointer",
           height: "100%",
+          display: "flex",
+          flexDirection: "column",
           borderRadius: 4,
-          border: `1.5px solid ${module.borderColor}`,
-          background: "rgba(255,255,255,0.85)",
-          backdropFilter: "blur(12px)",
+          border: `1px solid rgba(255, 255, 255, 0.15)`,
+          background: "linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
           boxShadow: hovered
-            ? `0 24px 48px ${module.bgGlow}, 0 8px 24px rgba(15,23,42,0.08)`
-            : "0 4px 16px rgba(15,23,42,0.05)",
+            ? `0 24px 48px rgba(0, 0, 0, 0.2), 0 0 0 1px ${module.color}`
+            : "0 4px 16px rgba(0, 0, 0, 0.1)",
           transform: visible
             ? hovered ? "translateY(-8px) scale(1.02)" : "translateY(0) scale(1)"
             : "translateY(40px) scale(0.97)",
@@ -128,94 +123,121 @@ function AnimatedCard({ module, index }) {
           transition: `all 0.55s cubic-bezier(0.34,1.56,0.64,1) ${index * 120}ms`,
           position: "relative",
           overflow: "hidden",
-          p: { xs: 2.6, sm: 3, md: 3.2 },
+          p: { xs: 3, md: 4 },
         }}
       >
         {/* Glow blob */}
         <Box
           sx={{
             position: "absolute",
-            top: -30,
-            right: -30,
-            width: 120,
-            height: 120,
+            top: -40,
+            right: -40,
+            width: 140,
+            height: 140,
             borderRadius: "50%",
             background: module.gradient,
-            opacity: hovered ? 0.15 : 0.07,
-            filter: "blur(30px)",
+            opacity: hovered ? 0.3 : 0.1,
+            filter: "blur(40px)",
             transition: "opacity 0.4s ease",
             pointerEvents: "none",
           }}
         />
 
-        {/* Icon */}
-        <Box
-          sx={{
-            width: 58,
-            height: 58,
-            borderRadius: 3,
-            background: module.gradient,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            mb: 2.5,
-            boxShadow: `0 8px 20px ${module.bgGlow}`,
-          }}
-        >
-          <Icon sx={{ color: "#fff", fontSize: 30 }} />
-        </Box>
-
-        <Chip
-          label={module.tag}
-          size="small"
-          sx={{
-            mb: 1.5,
-            fontWeight: 700,
-            fontSize: "0.72rem",
-            bgcolor: module.tagBg,
-            color: module.tagColor,
-            border: `1px solid ${module.borderColor}`,
-          }}
-        />
-
-        <Typography
-          variant="h6"
-          sx={{
-            fontWeight: 900,
-            color: "#0f172a",
-            fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-            mb: 0.5,
-            lineHeight: 1.2,
-          }}
-        >
-          {module.title}
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "0.82rem",
-            fontWeight: 700,
-            color: module.color,
-            mb: 1.5,
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
-          }}
-        >
-          {module.subtitle}
-        </Typography>
-        <Typography sx={{ color: "#475569", fontSize: { xs: "0.9rem", md: "0.92rem" }, lineHeight: 1.6, mb: 2.5 }}>
-          {module.description}
-        </Typography>
-
-        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ color: module.color }}>
-          <Typography sx={{ fontWeight: 700, fontSize: "0.88rem" }}>Learn More</Typography>
-          <ArrowForwardRoundedIcon
+        {/* Header Section */}
+        <Box sx={{ mb: 3 }}>
+          {/* Icon */}
+          <Box
             sx={{
-              fontSize: 18,
-              transform: hovered ? "translateX(4px)" : "translateX(0)",
-              transition: "transform 0.3s ease",
+              width: 64,
+              height: 64,
+              borderRadius: 3,
+              background: module.gradient,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              mb: 3,
+              boxShadow: `0 8px 24px ${module.bgGlow}`,
+              transform: hovered ? "scale(1.05) translateY(-4px)" : "scale(1) translateY(0)",
+              transition: "transform 0.4s ease",
+            }}
+          >
+            <Icon sx={{ color: "#fff", fontSize: 34 }} />
+          </Box>
+
+          <Chip
+            label={module.tag}
+            size="small"
+            sx={{
+              mb: 2,
+              fontWeight: 700,
+              fontSize: "0.75rem",
+              bgcolor: "rgba(255, 255, 255, 0.1)",
+              color: "#fff",
+              border: `1px solid rgba(255, 255, 255, 0.2)`,
             }}
           />
-        </Stack>
+
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 800,
+              color: "#ffffff",
+              fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+              mb: 1,
+              lineHeight: 1.2,
+            }}
+          >
+            {module.title}
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "0.9rem",
+              fontWeight: 600,
+              color: "#cbd5e1",
+              mb: 0,
+            }}
+          >
+            {module.subtitle}
+          </Typography>
+        </Box>
+
+        {/* Benefits Section */}
+        <Box sx={{ flexGrow: 1, mb: 4 }}>
+          <Stack spacing={1.5}>
+            {module.benefits.map((benefit, i) => (
+              <Stack key={i} direction="row" alignItems="center" spacing={1.5}>
+                <CheckCircleRoundedIcon sx={{ fontSize: 18, color: module.color, opacity: 0.9 }} />
+                <Typography sx={{ color: "#e2e8f0", fontSize: "0.95rem", fontWeight: 500 }}>
+                  {benefit}
+                </Typography>
+              </Stack>
+            ))}
+          </Stack>
+        </Box>
+
+        {/* CTA */}
+        <Box sx={{ mt: "auto" }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            sx={{
+              color: "#ffffff",
+              opacity: hovered ? 1 : 0.8,
+              transition: "opacity 0.3s ease",
+            }}
+          >
+            <Typography sx={{ fontWeight: 700, fontSize: "0.95rem" }}>Learn More</Typography>
+            <ArrowForwardRoundedIcon
+              sx={{
+                fontSize: 20,
+                transform: hovered ? "translateX(6px)" : "translateX(0)",
+                transition: "transform 0.3s ease",
+                color: module.color
+              }}
+            />
+          </Stack>
+        </Box>
       </Card>
     </Grid>
   );
@@ -497,30 +519,10 @@ export default function HeroSection() {
           </Typography>
           <Grid
             container
-            wrap="nowrap"
+            spacing={3}
+            wrap="wrap"
             sx={{
-              gap: { xs: 2, md: 2.5 },
-              overflowX: "auto",
-              overflowY: "hidden",
               pb: 1,
-              scrollSnapType: "x mandatory",
-              WebkitOverflowScrolling: "touch",
-              scrollbarWidth: "thin",
-              "&::-webkit-scrollbar": {
-                display: { xs: "none", md: "block" },
-                height: 8,
-              },
-              "&::-webkit-scrollbar-track": {
-                background: "rgba(15,23,42,0.06)",
-                borderRadius: 999,
-              },
-              "&::-webkit-scrollbar-thumb": {
-                background: "rgba(99,102,241,0.45)",
-                borderRadius: 999,
-              },
-              "&::-webkit-scrollbar-thumb:hover": {
-                background: "rgba(99,102,241,0.6)",
-              },
             }}
           >
             {modules.map((mod, i) => (
