@@ -3,6 +3,7 @@ import HeroSection from "./sections/HeroSection";
 import FeaturesSection from "./sections/FeaturesSection";
 import TestimonialsSection from "./sections/TestimonialsSection";
 import FounderSection from "./sections/FounderSection";
+import LeadershipTeamSection from "./sections/LeadershipTeamSection";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
         <FeaturesSection />
         <FounderSection />
+        <LeadershipTeamSection />
         <TestimonialsSection />
       </Container>
     </Box>
