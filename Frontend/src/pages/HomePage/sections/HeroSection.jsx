@@ -223,6 +223,7 @@ function AnimatedCard({ module, index }) {
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80);
@@ -266,7 +267,7 @@ export default function HeroSection() {
         sx={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(180deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.7) 100%)",
+          background: "linear-gradient(180deg, rgba(15,23,42,0.88) 0%, rgba(15,23,42,0.78) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
@@ -277,7 +278,7 @@ export default function HeroSection() {
         {/* ── Top row: text content + logo ── */}
         <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 6, md: 8 } }}>
           {/* TEXT COLUMN */}
-          <Grid size={{ xs: 12, lg: 6 }} sx={{ position: "relative", zIndex: 2, textAlign: { xs: "center", lg: "left" } }}>
+          <Grid size={{ xs: 12, lg: 7 }} sx={{ position: "relative", zIndex: 2, textAlign: { xs: "center", lg: "left" } }}>
             {/* Badge */}
             <Box
               sx={{
@@ -307,10 +308,10 @@ export default function HeroSection() {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4rem", lg: "4.25rem" },
-                fontWeight: 900,
-                lineHeight: 1.15,
-                letterSpacing: "-0.04em",
+                fontSize: { xs: "1.75rem", sm: "2.25rem", md: "2.75rem", lg: "3.25rem" },
+                fontWeight: 800,
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
                 color: "#ffffff",
                 fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 mb: 2,
@@ -348,15 +349,15 @@ export default function HeroSection() {
             {/* Sub-headline / Description */}
             <Typography
               sx={{
-                fontSize: { xs: "1.1rem", md: "1.25rem" },
+                fontSize: { xs: "1rem", md: "1.125rem" },
                 color: "#f8fafc",
-                maxWidth: 600, mx: { xs: "auto", lg: 0 },
+                maxWidth: 520, mx: { xs: "auto", lg: 0 },
                 lineHeight: 1.6,
                 mb: 4,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.2s",
-                fontWeight: 600,
+                fontWeight: 500,
                 textShadow: "0 2px 8px rgba(0,0,0,0.6)"
               }}
             >
@@ -371,7 +372,7 @@ export default function HeroSection() {
             {/* CTAs */}
             <Stack
               direction={{ xs: "column", sm: "row" }}
-              spacing={2}
+              spacing={2.5}
               justifyContent={{ xs: "center", lg: "flex-start" }}
               sx={{
                 mb: 4,
@@ -387,10 +388,10 @@ export default function HeroSection() {
                 sx={{
                   bgcolor: "#3b82f6",
                   color: "#ffffff",
-                  px: 4,
-                  py: 1.8,
+                  px: 3.5,
+                  py: 1.2,
                   borderRadius: 3,
-                  fontSize: "1.05rem",
+                  fontSize: "1rem",
                   fontWeight: 700,
                   textTransform: "none",
                   boxShadow: "0 8px 20px rgba(59,130,246,0.35)",
@@ -410,10 +411,10 @@ export default function HeroSection() {
                 sx={{
                   borderColor: "rgba(255,255,255,0.3)",
                   color: "#ffffff",
-                  px: 4,
-                  py: 1.8,
+                  px: 3.5,
+                  py: 1.2,
                   borderRadius: 3,
-                  fontSize: "1.05rem",
+                  fontSize: "1rem",
                   fontWeight: 700,
                   textTransform: "none",
                   transition: "all 0.3s ease",
@@ -426,7 +427,7 @@ export default function HeroSection() {
                   },
                 }}
               >
-                Book Free Consultation
+                Contact Us
               </Button>
             </Stack>
 
@@ -460,9 +461,9 @@ export default function HeroSection() {
           </Grid>
 
           {/* VISUAL COLUMN / STORYTELLING */}
-          <Grid size={{ xs: 12, lg: 6 }} sx={{ display: { xs: 'none', lg: 'block' }, position: "relative", zIndex: 2 }}>
+          <Grid size={{ xs: 12, lg: 5 }} sx={{ display: { xs: 'none', lg: 'block' }, position: "relative", zIndex: 2 }}>
             <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', ml: { lg: 4 } }}>
-              <Box sx={{ width: '100%', maxWidth: 500 }}>
+              <Box sx={{ width: '100%', maxWidth: 380 }}>
                 <StorytellingComponent />
               </Box>
             </Box>
