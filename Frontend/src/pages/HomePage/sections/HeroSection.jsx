@@ -275,7 +275,7 @@ export default function HeroSection() {
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
         {/* ── Top row: text content + logo ── */}
-        <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 8, md: 10 } }}>
+        <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 6, md: 8 } }}>
           {/* TEXT COLUMN */}
           <Grid size={{ xs: 12, lg: 6 }} sx={{ position: "relative", zIndex: 2, textAlign: { xs: "center", lg: "left" } }}>
             {/* Badge */}
@@ -299,7 +299,7 @@ export default function HeroSection() {
             >
               <AutoAwesomeRoundedIcon sx={{ fontSize: 20, color: "#818cf8" }} />
               <Typography sx={{ fontWeight: 700, fontSize: "0.85rem", color: "#f8fafc", letterSpacing: "0.02em" }}>
-                ThaksaAi — The Premier AI Career Ecosystem
+                THAKSAai Career Planet — From Campus to Career
               </Typography>
             </Box>
 
@@ -307,9 +307,9 @@ export default function HeroSection() {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "2.25rem", sm: "3.5rem", md: "4rem", lg: "4.5rem" },
+                fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4rem", lg: "4.25rem" },
                 fontWeight: 900,
-                lineHeight: 1.1,
+                lineHeight: 1.15,
                 letterSpacing: "-0.04em",
                 color: "#ffffff",
                 fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
@@ -320,11 +320,11 @@ export default function HeroSection() {
                 textShadow: "0 4px 20px rgba(0,0,0,0.4)"
               }}
             >
-              Accelerate Your <br />
+              Build Skills Companies <br />
               <Box
                 component="span"
                 sx={{
-                  background: "linear-gradient(90deg, #818cf8 0%, #c084fc 50%, #f472b6 100%)",
+                  background: "linear-gradient(90deg, #93c5fd 0%, #c4b5fd 50%, #f9a8d4 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   position: "relative",
@@ -341,26 +341,26 @@ export default function HeroSection() {
                   }
                 }}
               >
-                Career Growth
+                Actually Hire For
               </Box>
             </Typography>
 
             {/* Sub-headline / Description */}
             <Typography
               sx={{
-                fontSize: { xs: "1.05rem", md: "1.2rem" },
-                color: "#cbd5e1",
+                fontSize: { xs: "1.1rem", md: "1.25rem" },
+                color: "#f8fafc",
                 maxWidth: 600, mx: { xs: "auto", lg: 0 },
-                lineHeight: 1.7,
+                lineHeight: 1.6,
                 mb: 4,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.2s",
-                fontWeight: 500,
-                textShadow: "0 2px 10px rgba(0,0,0,0.3)"
+                fontWeight: 600,
+                textShadow: "0 2px 8px rgba(0,0,0,0.6)"
               }}
             >
-              Join the elite ecosystem designed for future leaders. We bridge academia and industry with immersive AI-driven training, expert mentorship, and premium placement support.
+              Transform your career trajectory with our industry-led Campus Recruitment Training (CRT), hands-on workshops, and premium placement support.
             </Typography>
 
             {/* Mobile Storytelling Placement */}
@@ -374,7 +374,7 @@ export default function HeroSection() {
               spacing={2}
               justifyContent={{ xs: "center", lg: "flex-start" }}
               sx={{
-                mb: 5,
+                mb: 4,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.3s",
@@ -383,25 +383,26 @@ export default function HeroSection() {
               <Button
                 variant="contained"
                 size="large"
+                onClick={() => navigate("/workshops")}
                 sx={{
-                  bgcolor: "#ffffff",
-                  color: "#0f172a",
+                  bgcolor: "#3b82f6",
+                  color: "#ffffff",
                   px: 4,
                   py: 1.8,
                   borderRadius: 3,
                   fontSize: "1.05rem",
                   fontWeight: 700,
                   textTransform: "none",
-                  boxShadow: "0 8px 20px rgba(0,0,0,0.25)",
+                  boxShadow: "0 8px 20px rgba(59,130,246,0.35)",
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    bgcolor: "#f8fafc",
+                    bgcolor: "#2563eb",
                     transform: "translateY(-2px)",
-                    boxShadow: "0 12px 28px rgba(0,0,0,0.35)",
+                    boxShadow: "0 12px 28px rgba(59,130,246,0.45)",
                   },
                 }}
               >
-                Explore Programs
+                Explore Workshops
               </Button>
               <Button
                 variant="outlined"
@@ -442,10 +443,10 @@ export default function HeroSection() {
               </Typography>
               <Grid container spacing={2} justifyContent={{ xs: "center", lg: "flex-start" }}>
                 {[
-                  { text: "AI-Powered Learning", icon: <AutoAwesomeRoundedIcon sx={{ fontSize: 18 }} /> },
-                  { text: "Industry Mentorship", icon: <GroupsRoundedIcon sx={{ fontSize: 18 }} /> },
-                  { text: "Career Guidance", icon: <HandshakeRoundedIcon sx={{ fontSize: 18 }} /> },
-                  { text: "Placement Support", icon: <BusinessCenterRoundedIcon sx={{ fontSize: 18 }} /> }
+                  { text: "Campus Recruitment Training", icon: <AutoAwesomeRoundedIcon sx={{ fontSize: 18 }} /> },
+                  { text: "Industry Workshops", icon: <GroupsRoundedIcon sx={{ fontSize: 18 }} /> },
+                  { text: "Interview Preparation", icon: <HandshakeRoundedIcon sx={{ fontSize: 18 }} /> },
+                  { text: "Career Readiness", icon: <BusinessCenterRoundedIcon sx={{ fontSize: 18 }} /> }
                 ].map((item, idx) => (
                   <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx} sx={{ display: "flex", justifyContent: "center" }}>
                     <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "#e2e8f0" }}>
