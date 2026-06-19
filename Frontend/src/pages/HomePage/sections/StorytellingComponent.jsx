@@ -45,10 +45,10 @@ export default function StorytellingComponent() {
       sx={{
         position: "relative",
         borderRadius: 3,
-        background: "rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(24px)",
-        border: "1px solid rgba(255, 255, 255, 0.15)",
-        boxShadow: "0 16px 40px rgba(0, 0, 0, 0.1)",
+        background: "rgba(255, 255, 255, 0.05)",
+        backdropFilter: "blur(16px)",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
         overflow: "hidden",
         opacity: mounted ? 1 : 0,
         transform: mounted ? "translateY(0)" : "translateY(20px)",
@@ -64,23 +64,23 @@ export default function StorytellingComponent() {
           width: 300,
           height: 300,
           background: "linear-gradient(135deg, #818cf8 0%, #c084fc 100%)",
-          filter: "blur(80px)",
-          opacity: 0.1,
+          filter: "blur(100px)",
+          opacity: 0.05,
           borderRadius: "50%",
           pointerEvents: "none",
         }}
       />
 
       <Box sx={{ p: { xs: 2, sm: 2.5 }, position: "relative", zIndex: 1 }}>
-        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1.5 }}>
-          <AutoAwesomeRoundedIcon sx={{ color: "#c084fc", fontSize: 16 }} />
+        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
+          <AutoAwesomeRoundedIcon sx={{ color: "#a5b4fc", fontSize: 14 }} />
           <Typography
             sx={{
-              fontWeight: 600,
-              fontSize: "0.75rem",
+              fontWeight: 500,
+              fontSize: "0.7rem",
               textTransform: "uppercase",
-              letterSpacing: "0.05em",
-              color: "#c084fc",
+              letterSpacing: "0.04em",
+              color: "#a5b4fc",
             }}
           >
             Career Readiness Journey
@@ -90,10 +90,10 @@ export default function StorytellingComponent() {
         <Typography
           variant="h3"
           sx={{
-            fontSize: { xs: "0.95rem", sm: "1.05rem" },
-            fontWeight: 700,
-            color: "#f8fafc",
-            mb: 2.5,
+            fontSize: { xs: "0.85rem", sm: "0.95rem" },
+            fontWeight: 600,
+            color: "#e2e8f0",
+            mb: 2,
             lineHeight: 1.3,
           }}
         >
@@ -101,19 +101,19 @@ export default function StorytellingComponent() {
         </Typography>
 
         {/* Journey Timeline */}
-        <Box sx={{ position: "relative", mb: 3 }}>
+        <Box sx={{ position: "relative", mb: 2 }}>
           <Box
             sx={{
               position: "absolute",
               top: 0,
               bottom: 0,
-              left: 12,
-              width: 1.5,
-              background: "rgba(255, 255, 255, 0.1)",
+              left: 10,
+              width: 1,
+              background: "rgba(255, 255, 255, 0.08)",
               zIndex: 0,
             }}
           />
-          <Stack spacing={1.5}>
+          <Stack spacing={1}>
             {journeySteps.map((step, index) => {
               const Icon = step.icon;
               const isActive = index === activeStep;
@@ -122,28 +122,27 @@ export default function StorytellingComponent() {
                 <Stack direction="row" alignItems="center" spacing={1.5} key={index} sx={{ position: "relative", zIndex: 1 }}>
                   <Box
                     sx={{
-                      width: 24,
-                      height: 24,
+                      width: 20,
+                      height: 20,
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       background: isPast
-                        ? "linear-gradient(135deg, #818cf8 0%, #c084fc 100%)"
+                        ? "rgba(255, 255, 255, 0.9)"
                         : "rgba(255,255,255,0.05)",
-                      boxShadow: isActive ? "0 0 10px rgba(192, 132, 252, 0.3)" : "none",
-                      color: isPast ? "#fff" : "#94a3b8",
+                      color: isPast ? "#0f172a" : "#64748b",
                       transition: "all 0.5s ease",
-                      border: isPast ? "none" : "1px solid rgba(255,255,255,0.2)",
+                      border: isPast ? "none" : "1px solid rgba(255,255,255,0.15)",
                     }}
                   >
-                    <Icon sx={{ fontSize: 12 }} />
+                    <Icon sx={{ fontSize: 10 }} />
                   </Box>
                   <Typography
                     sx={{
-                      fontWeight: isPast ? 600 : 400,
-                      color: isPast ? "#f8fafc" : "#94a3b8",
-                      fontSize: "0.85rem",
+                      fontWeight: isPast ? 500 : 400,
+                      color: isPast ? "#f8fafc" : "#64748b",
+                      fontSize: "0.8rem",
                       transition: "all 0.5s ease",
                       transform: isActive ? "translateX(2px)" : "translateX(0)",
                     }}
@@ -157,16 +156,16 @@ export default function StorytellingComponent() {
         </Box>
 
         {/* Impact Metrics */}
-        <Box sx={{ pt: 1.5, borderTop: "1px dashed rgba(255, 255, 255, 0.1)" }}>
+        <Box sx={{ pt: 1.5, borderTop: "1px solid rgba(255, 255, 255, 0.05)" }}>
           <Grid container spacing={2}>
             {metrics.map((metric, index) => (
               <Grid item xs={6} key={index}>
                 <Box>
                   <Typography
                     sx={{
-                      fontWeight: 700,
-                      fontSize: "1rem",
-                      color: "#c084fc",
+                      fontWeight: 600,
+                      fontSize: "0.9rem",
+                      color: "#e2e8f0",
                       lineHeight: 1,
                       mb: 0.5,
                     }}
@@ -176,8 +175,8 @@ export default function StorytellingComponent() {
                   <Typography
                     sx={{
                       fontWeight: 500,
-                      fontSize: "0.65rem",
-                      color: "#94a3b8",
+                      fontSize: "0.6rem",
+                      color: "#64748b",
                       textTransform: "uppercase",
                       letterSpacing: "0.02em",
                     }}
