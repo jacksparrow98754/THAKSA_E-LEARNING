@@ -289,16 +289,16 @@ export default function HeroSection() {
         sx={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(180deg, rgba(15,23,42,0.88) 0%, rgba(15,23,42,0.78) 100%)",
+          background: "linear-gradient(180deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.82) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center", pt: { xs: 12, md: 16 } }}>
 
         {/* ── Top row: text content + logo ── */}
-        <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 6, md: 8 } }}>
+        <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center" sx={{ mb: { xs: 8, md: 10 } }}>
           {/* TEXT COLUMN */}
           <Grid size={{ xs: 12, lg: 7 }} sx={{ position: "relative", zIndex: 2, textAlign: { xs: "center", lg: "left" } }}>
             {/* Badge */}
@@ -307,8 +307,8 @@ export default function HeroSection() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 1.5,
-                bgcolor: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.2)",
+                bgcolor: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: 12,
                 px: 2.5,
                 py: 1,
@@ -316,12 +316,11 @@ export default function HeroSection() {
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(-12px)",
                 transition: "all 0.5s ease",
-                backdropFilter: "blur(8px)",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                backdropFilter: "blur(12px)",
               }}
             >
-              <AutoAwesomeRoundedIcon sx={{ fontSize: 20, color: "#818cf8" }} />
-              <Typography sx={{ fontWeight: 700, fontSize: "0.85rem", color: "#f8fafc", letterSpacing: "0.02em" }}>
+              <AutoAwesomeRoundedIcon sx={{ fontSize: 18, color: "#818cf8" }} />
+              <Typography sx={{ fontWeight: 600, fontSize: "0.8rem", color: "#e2e8f0", letterSpacing: "0.03em" }}>
                 THAKSAai Career Planet — From Campus to Career
               </Typography>
             </Box>
@@ -330,24 +329,23 @@ export default function HeroSection() {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "1.75rem", sm: "2.25rem", md: "2.75rem", lg: "3.25rem" },
+                fontSize: { xs: "2.25rem", sm: "3rem", md: "3.5rem", lg: "4rem" },
                 fontWeight: 800,
-                lineHeight: 1.2,
-                letterSpacing: "-0.02em",
+                lineHeight: 1.15,
+                letterSpacing: "-0.03em",
                 color: "#ffffff",
                 fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                mb: 2,
+                mb: 3,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.1s",
-                textShadow: "0 4px 20px rgba(0,0,0,0.4)"
               }}
             >
               Build Skills Companies <br />
               <Box
                 component="span"
                 sx={{
-                  background: "linear-gradient(90deg, #93c5fd 0%, #c4b5fd 50%, #f9a8d4 100%)",
+                  background: "linear-gradient(90deg, #818cf8 0%, #c084fc 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   position: "relative",
@@ -358,7 +356,7 @@ export default function HeroSection() {
                     left: 0,
                     right: 0,
                     height: "12%",
-                    background: "rgba(99,102,241,0.2)",
+                    background: "rgba(99,102,241,0.15)",
                     borderRadius: "4px",
                     zIndex: -1,
                   }
@@ -371,16 +369,15 @@ export default function HeroSection() {
             {/* Sub-headline / Description */}
             <Typography
               sx={{
-                fontSize: { xs: "1rem", md: "1.125rem" },
-                color: "#f8fafc",
-                maxWidth: 520, mx: { xs: "auto", lg: 0 },
+                fontSize: { xs: "1rem", md: "1.125rem", lg: "1.25rem" },
+                color: "#cbd5e1",
+                maxWidth: 580, mx: { xs: "auto", lg: 0 },
                 lineHeight: 1.6,
-                mb: 4,
+                mb: 5,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.2s",
-                fontWeight: 500,
-                textShadow: "0 2px 8px rgba(0,0,0,0.6)"
+                fontWeight: 400,
               }}
             >
               Transform your career trajectory with our industry-led Campus Recruitment Training (CRT), hands-on workshops, and premium placement support.
@@ -394,10 +391,10 @@ export default function HeroSection() {
             {/* CTAs */}
             <Stack
               direction={{ xs: "column", sm: "row" }}
-              spacing={2.5}
+              spacing={2}
               justifyContent={{ xs: "center", lg: "flex-start" }}
               sx={{
-                mb: 4,
+                mb: 6,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.3s",
@@ -410,20 +407,20 @@ export default function HeroSection() {
                 aria-label="Explore Workshops"
                 sx={{
                   width: { xs: '100%', sm: 'auto' },
-                  bgcolor: "#3b82f6",
-                  color: "#ffffff",
-                  px: 3.5,
-                  py: 1.2,
+                  bgcolor: "#ffffff",
+                  color: "#0f172a",
+                  px: 4,
+                  py: 1.5,
                   borderRadius: 3,
                   fontSize: "1rem",
                   fontWeight: 700,
                   textTransform: "none",
-                  boxShadow: "0 8px 20px rgba(59,130,246,0.35)",
+                  boxShadow: "0 8px 20px rgba(255,255,255,0.15)",
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    bgcolor: "#2563eb",
+                    bgcolor: "#f8fafc",
                     transform: "translateY(-2px)",
-                    boxShadow: "0 12px 28px rgba(59,130,246,0.45)",
+                    boxShadow: "0 12px 28px rgba(255,255,255,0.25)",
                   },
                 }}
               >
@@ -436,20 +433,20 @@ export default function HeroSection() {
                 aria-label="Contact Us"
                 sx={{
                   width: { xs: '100%', sm: 'auto' },
-                  borderColor: "rgba(255,255,255,0.3)",
+                  borderColor: "rgba(255,255,255,0.4)",
                   color: "#ffffff",
-                  px: 3.5,
-                  py: 1.2,
+                  px: 4,
+                  py: 1.5,
                   borderRadius: 3,
                   fontSize: "1rem",
                   fontWeight: 700,
                   textTransform: "none",
                   transition: "all 0.3s ease",
-                  bgcolor: "rgba(255,255,255,0.1)",
-                  backdropFilter: "blur(8px)",
+                  bgcolor: "rgba(255,255,255,0.05)",
+                  backdropFilter: "blur(12px)",
                   "&:hover": {
                     borderColor: "#ffffff",
-                    bgcolor: "rgba(255,255,255,0.15)",
+                    bgcolor: "rgba(255,255,255,0.1)",
                     transform: "translateY(-2px)",
                   },
                 }}
