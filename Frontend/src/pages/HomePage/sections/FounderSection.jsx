@@ -1,329 +1,453 @@
-import { useEffect, useRef, useState } from "react";
-import { Box, Chip, Container, Grid, Stack, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Chip,
+  Stack,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+
+// Icons
+import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
+import ComputerRoundedIcon from "@mui/icons-material/ComputerRounded";
+import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import TimelineRoundedIcon from "@mui/icons-material/TimelineRounded";
+
 import img1 from "./cofounder.jpeg";
 import img2 from "./IMG-20260619-WA0036.jpg";
 import img3 from "./IMG-20260619-WA0010.jpg";
 
 const ceoImages = [img1, img2, img3];
 
-function useReveal(delay = 0) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-        }
-      },
-      { threshold: 0.12 }
-    );
-
-    if (ref.current) {
-      obs.observe(ref.current);
-    }
-
-    return () => obs.disconnect();
-  }, []);
-
-  return { ref, visible, delay };
-}
-
-function RevealBox({ children, delay = 0, direction = "up", sx = {} }) {
-  const { ref, visible } = useReveal(delay);
-  const transforms = {
-    up: visible ? "translateY(0)" : "translateY(48px)",
-    left: visible ? "translateX(0)" : "translateX(-56px)",
-    right: visible ? "translateX(0)" : "translateX(56px)",
-    fade: "none",
-  };
-
+const FloatingCard = ({ icon, text, top, left, right, bottom, delay }) => {
   return (
     <Box
-      ref={ref}
+      component={motion.div}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: delay, duration: 0.8 }}
+      whileHover={{ y: -5, scale: 1.05 }}
       sx={{
-        opacity: visible ? 1 : 0,
-        transform: transforms[direction],
-        transition: `opacity 0.8s ease ${delay}ms, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${delay}ms`,
-        ...sx,
-      }}
-    >
-      {children}
-    </Box>
-  );
-}
-
-export default function FounderSection() {
-  const highlights = [
-    "Workshops conducted",
-    "CRT training experience",
-    "Career mentorship",
-    "Industry readiness focus"
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-
-  useEffect(() => {
-    if (isHovered) return;
-
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % ceoImages.length);
-    }, 4500);
-
-    return () => clearInterval(timer);
-  }, [isHovered]);
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = (e) => {
-    touchEndX.current = e.changedTouches[0].screenX;
-    handleSwipe();
-  };
-
-  const handleSwipe = () => {
-    const swipeThreshold = 50;
-    if (touchStartX.current - touchEndX.current > swipeThreshold) {
-      // Swipe left
-      setCurrentIndex((prev) => (prev + 1) % ceoImages.length);
-    } else if (touchEndX.current - touchStartX.current > swipeThreshold) {
-      // Swipe right
-      setCurrentIndex((prev) => (prev - 1 + ceoImages.length) % ceoImages.length);
-    }
-  };
-
-  return (
-    <Box
-      sx={{
-        py: { xs: 8, md: 10 },
-        mb: { xs: 6, md: 10 },
-        background: "linear-gradient(135deg, #f0f4ff 0%, #fafbff 50%, #f0fdf9 100%)",
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: { xs: 4, md: 5 },
+        position: "absolute",
+        top,
+        left,
+        right,
+        bottom,
+        bgcolor: "rgba(255, 255, 255, 0.9)",
+        backdropFilter: "blur(12px)",
+        borderRadius: "16px",
+        px: 2,
+        py: 1.5,
+        display: "flex",
+        alignItems: "center",
+        gap: 1.5,
+        boxShadow: "0 10px 30px -10px rgba(0,0,0,0.15)",
+        zIndex: 5,
+        border: "1px solid rgba(255,255,255,0.5)",
       }}
     >
       <Box
         sx={{
-          position: "absolute",
-          top: -80,
-          left: -80,
-          width: 300,
-          height: 300,
+          bgcolor: "rgba(99, 102, 241, 0.1)",
+          color: "#6366f1",
+          borderRadius: "8px",
+          p: 0.75,
+          display: "flex",
+        }}
+      >
+        {icon}
+      </Box>
+      <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.85rem", whiteSpace: "nowrap" }}>
+        {text}
+      </Typography>
+    </Box>
+  );
+};
+
+const StatCard = ({ end, suffix, label, delay }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <Box
+      ref={ref}
+      component={motion.div}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay }}
+      sx={{
+        p: 2.5,
+        borderRadius: "20px",
+        bgcolor: "#ffffff",
+        boxShadow: "0 4px 20px -5px rgba(0,0,0,0.05)",
+        border: "1px solid rgba(99,102,241,0.05)",
+        textAlign: "center",
+        flex: "1 1 auto",
+        minWidth: "130px",
+      }}
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          fontWeight: 800,
+          color: "#6366f1",
+          fontFamily: "'Sora', sans-serif",
+          mb: 0.5,
+        }}
+      >
+        {inView ? <CountUp end={end} duration={2.5} /> : "0"}
+        {suffix}
+      </Typography>
+      <Typography sx={{ color: "#64748b", fontSize: "0.875rem", fontWeight: 600 }}>
+        {label}
+      </Typography>
+    </Box>
+  );
+};
+
+const TimelineItem = ({ title }) => (
+  <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2, mb: 2 }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        mt: 0.5,
+      }}
+    >
+      <Box
+        sx={{
+          width: 12,
+          height: 12,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)",
+          bgcolor: "#6366f1",
+          boxShadow: "0 0 0 4px rgba(99,102,241,0.2)",
+        }}
+      />
+      <Box sx={{ width: 2, height: 24, bgcolor: "rgba(99,102,241,0.2)", mt: 1 }} />
+    </Box>
+    <Box>
+      <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.95rem" }}>
+        {title}
+      </Typography>
+    </Box>
+  </Box>
+);
+
+const HeadingContent = () => (
+  <Box component={motion.div} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+    <Chip
+      icon={<AutoAwesomeRoundedIcon style={{ color: "#6366f1", fontSize: "1rem" }} />}
+      label="LEADERSHIP"
+      size="small"
+      sx={{
+        bgcolor: "rgba(99,102,241,0.1)",
+        color: "#6366f1",
+        fontWeight: 800,
+        letterSpacing: "0.05em",
+        mb: 2,
+        px: 1,
+        border: "1px solid rgba(99,102,241,0.2)",
+      }}
+    />
+    <Typography
+      variant="h2"
+      sx={{
+        fontWeight: 900,
+        color: "#0f172a",
+        mb: 1,
+        fontFamily: "'Sora', sans-serif",
+        fontSize: { xs: "2rem", md: "2.75rem" },
+        lineHeight: 1.2,
+      }}
+    >
+      Meet The Founder Behind ThaksaAi
+    </Typography>
+    <Typography
+      variant="h4"
+      sx={{
+        color: "#334155",
+        fontWeight: 700,
+        mb: 0.5,
+        fontSize: { xs: "1.5rem", md: "1.75rem" },
+      }}
+    >
+      K. Tharunkrishna
+    </Typography>
+    <Typography
+      sx={{
+        color: "#6366f1",
+        fontWeight: 600,
+        fontSize: "1rem",
+        mb: { xs: 4, md: 3 },
+      }}
+    >
+      Founder & CEO | Visionary Educator | Career Transformation Specialist
+    </Typography>
+  </Box>
+);
+
+export default function FounderSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % ceoImages.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const TrustBadges = ["CRT Specialist", "Career Mentor", "Industry Speaker", "Technology Educator"];
+  const TimelineEvents = ["Workshop Leadership", "CRT Training Programs", "Industry Mentorship", "Student Success Initiatives"];
+
+  return (
+    <Box
+      sx={{
+        py: { xs: 8, md: 12 },
+        position: "relative",
+        overflow: "hidden",
+        bgcolor: "#f8fafc",
+      }}
+    >
+      {/* Subtle Premium Background Lighting */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "-10%",
+          left: "-5%",
+          width: "40%",
+          height: "60%",
+          background: "radial-gradient(ellipse at center, rgba(99,102,241,0.06) 0%, rgba(255,255,255,0) 70%)",
+          filter: "blur(40px)",
           pointerEvents: "none",
         }}
       />
       <Box
         sx={{
           position: "absolute",
-          bottom: -60,
-          right: -60,
-          width: 250,
-          height: 250,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(15,118,110,0.1) 0%, transparent 70%)",
+          bottom: "-10%",
+          right: "-5%",
+          width: "50%",
+          height: "60%",
+          background: "radial-gradient(ellipse at center, rgba(14,165,233,0.04) 0%, rgba(255,255,255,0) 70%)",
+          filter: "blur(60px)",
           pointerEvents: "none",
         }}
       />
 
       <Container maxWidth="lg">
-        <Box textAlign="center" mb={{ xs: 5, md: 7 }}>
-          <RevealBox direction="up" delay={0}>
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 900,
-                color: "#0f172a",
-                mb: 2,
-                fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                fontSize: { xs: "2rem", md: "2.75rem" },
-              }}
-            >
-              Meet Our Founder
-            </Typography>
-          </RevealBox>
-        </Box>
+        {/* Render Heading outside of Grid for mobile to ensure strict ordering: Heading -> Image -> Bio */}
+        {isMobile && <HeadingContent />}
 
-        <Grid container spacing={{ xs: 5, md: 8 }} alignItems="center">
-          {/* Mobile: Photo top. Desktop: Photo left. */}
+        <Grid container spacing={{ xs: 6, md: 10 }} alignItems="flex-start">
+          {/* LEFT: FOUNDER SHOWCASE (45% on Desktop) */}
           <Grid size={{ xs: 12, md: 5 }}>
-            <RevealBox direction="left" delay={0}>
+            <Box
+              component={motion.div}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              sx={{ position: "relative", mx: "auto", maxWidth: { xs: 380, md: "100%" } }}
+            >
               <Box
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
                 sx={{
                   position: "relative",
-                  width: "100%",
-                  maxWidth: 420,
-                  mx: "auto",
                   aspectRatio: "4/5",
                   borderRadius: "24px",
                   overflow: "hidden",
-                  boxShadow: "0 24px 48px -12px rgba(15, 23, 42, 0.15)",
-                  bgcolor: "#f8fafc",
-                  border: "8px solid #ffffff",
-                  transition: "box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                  "&:hover": {
-                    boxShadow: "0 32px 64px -12px rgba(15, 23, 42, 0.2)",
-                  },
+                  boxShadow: "0 25px 50px -12px rgba(15, 23, 42, 0.25)",
+                  bgcolor: "#ffffff",
+                  border: "8px solid rgba(255,255,255,0.8)",
+                  backdropFilter: "blur(10px)",
                 }}
               >
-                {ceoImages.map((imgSrc, index) => (
-                  <Box
-                    key={index}
-                    component="img"
-                    src={imgSrc}
-                    alt={`K. Tharunkrishna - Image ${index + 1}`}
-                    sx={{
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentIndex}
+                    src={ceoImages[currentIndex]}
+                    alt="Founder"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
                       objectPosition: "top center",
-                      opacity: currentIndex === index ? 1 : 0,
-                      transition: "opacity 1s ease-in-out, transform 0.8s ease-in-out",
-                      transform: isHovered && currentIndex === index ? "scale(1.05)" : "scale(1)",
-                      zIndex: currentIndex === index ? 1 : 0,
                     }}
                   />
-                ))}
+                </AnimatePresence>
 
+                {/* Dark Overlay for depth */}
                 <Box
                   sx={{
                     position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: "40%",
-                    background: "linear-gradient(to top, rgba(15,23,42,0.7) 0%, transparent 100%)",
-                    zIndex: 2,
+                    inset: 0,
+                    background: "linear-gradient(to top, rgba(15,23,42,0.6) 0%, transparent 40%)",
                     pointerEvents: "none",
                   }}
                 />
 
-                <Chip
-                  label="CEO & Founder"
-                  size="medium"
-                  sx={{
-                    position: "absolute",
-                    top: 16,
-                    right: 16,
-                    bgcolor: "rgba(255, 255, 255, 0.9)",
-                    color: "#0f172a",
-                    fontWeight: 800,
-                    fontSize: "0.85rem",
-                    backdropFilter: "blur(8px)",
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                    px: 1,
-                    zIndex: 3,
-                  }}
-                />
-
+                {/* Internal Indicators */}
                 <Stack
                   direction="row"
                   spacing={1}
-                  sx={{
-                    position: "absolute",
-                    bottom: 24,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    zIndex: 3,
-                  }}
+                  sx={{ position: "absolute", bottom: 24, left: "50%", transform: "translateX(-50%)", zIndex: 3 }}
                 >
                   {ceoImages.map((_, index) => (
                     <Box
                       key={index}
-                      onClick={() => setCurrentIndex(index)}
                       sx={{
                         width: currentIndex === index ? 24 : 8,
                         height: 8,
                         borderRadius: 4,
-                        bgcolor: currentIndex === index ? "#ffffff" : "rgba(255,255,255,0.5)",
-                        cursor: "pointer",
+                        bgcolor: currentIndex === index ? "#ffffff" : "rgba(255,255,255,0.4)",
                         transition: "all 0.3s ease",
-                        "&:hover": {
-                          bgcolor: "#ffffff",
-                        },
                       }}
                     />
                   ))}
                 </Stack>
               </Box>
-            </RevealBox>
+
+              {/* Floating Cards (Desktop/Tablet Layout) */}
+              <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                <FloatingCard
+                  icon={<GroupsRoundedIcon fontSize="small" />}
+                  text="1000+ Students Mentored"
+                  top="10%"
+                  left="-15%"
+                  delay={0.2}
+                />
+                <FloatingCard
+                  icon={<ComputerRoundedIcon fontSize="small" />}
+                  text="50+ CRT Programs"
+                  bottom="15%"
+                  right="-10%"
+                  delay={0.4}
+                />
+              </Box>
+
+              {/* Stacked Achievement Cards for Mobile (No Overlap) */}
+              <Stack
+                direction="row"
+                spacing={2}
+                sx={{
+                  display: { xs: "flex", sm: "none" },
+                  mt: 3,
+                  justifyContent: "center"
+                }}
+              >
+                <Box sx={{
+                  bgcolor: "rgba(255, 255, 255, 0.9)",
+                  borderRadius: "12px",
+                  px: 1.5,
+                  py: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                  border: "1px solid rgba(0,0,0,0.05)",
+                }}>
+                  <GroupsRoundedIcon sx={{ color: "#6366f1", fontSize: "1rem" }} />
+                  <Typography sx={{ fontWeight: 700, fontSize: "0.75rem", color: "#0f172a" }}>
+                    1000+ Mentored
+                  </Typography>
+                </Box>
+                <Box sx={{
+                  bgcolor: "rgba(255, 255, 255, 0.9)",
+                  borderRadius: "12px",
+                  px: 1.5,
+                  py: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                  border: "1px solid rgba(0,0,0,0.05)",
+                }}>
+                  <ComputerRoundedIcon sx={{ color: "#6366f1", fontSize: "1rem" }} />
+                  <Typography sx={{ fontWeight: 700, fontSize: "0.75rem", color: "#0f172a" }}>
+                    50+ CRT Progs
+                  </Typography>
+                </Box>
+              </Stack>
+
+            </Box>
           </Grid>
 
+          {/* RIGHT: STORY & METRICS (55% on Desktop) */}
           <Grid size={{ xs: 12, md: 7 }}>
-            <RevealBox direction="up" delay={150}>
-              <Box>
-                <Typography
-                  noWrap
-                  variant="h4"
-                  sx={{
-                    fontWeight: 900,
-                    color: "#0f172a",
-                    mb: 0.5,
-                    fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                    fontSize: { xs: "1.75rem", md: "2.25rem" },
-                  }}
-                >
-                  K. Tharunkrishna
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#6366f1",
-                    fontWeight: 700,
-                    fontSize: "0.95rem",
-                    mb: 2,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                  }}
-                >
-                  Visionary & Educator
-                </Typography>
-                <Typography sx={{ color: "#475569", lineHeight: 1.8, fontSize: "1.1rem", mb: 3 }}>
-                  Believing that the future belongs to those who continuously learn and adapt, the foundation of Thaksa Ai Career Planet is built on empowering individuals through technology and practical innovation. Combining expertise in Cloud Engineering, DevSecOps, Artificial Intelligence, and modern software practices, the goal is to create transformative learning experiences that prepare students for real industry challenges.
-                </Typography>
+            {/* Desktop Heading (Hidden on Mobile) */}
+            {!isMobile && <HeadingContent />}
 
-                <Stack spacing={1.5} sx={{ mb: 4 }}>
-                  {highlights.map((highlight, index) => (
-                    <Stack direction="row" alignItems="center" spacing={1.5} key={index}>
-                      <CheckCircleRoundedIcon sx={{ color: "#10b981", fontSize: 22 }} />
-                      <Typography sx={{ color: "#1e293b", fontWeight: 600, fontSize: "1rem" }}>
-                        {highlight}
-                      </Typography>
-                    </Stack>
-                  ))}
-                </Stack>
+            <Box component={motion.div} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
 
-                <Stack direction="row" spacing={1.5} flexWrap="wrap" useFlexGap>
-                  {["Educator", "Technologist", "Mentor"].map((tag) => (
-                    <Chip
-                      key={tag}
-                      label={tag}
-                      sx={{
-                        bgcolor: "rgba(99,102,241,0.1)",
-                        color: "#6366f1",
-                        fontWeight: 700,
-                        fontSize: "0.8rem",
-                        border: "1px solid rgba(99,102,241,0.2)",
-                      }}
-                    />
-                  ))}
+              {/* Trust Badges */}
+              <Stack direction="row" spacing={1.5} flexWrap="wrap" useFlexGap sx={{ mb: 4 }}>
+                {TrustBadges.map((badge) => (
+                  <Chip
+                    key={badge}
+                    icon={<CheckCircleRoundedIcon style={{ color: "#10b981", fontSize: "1.1rem" }} />}
+                    label={badge}
+                    sx={{
+                      bgcolor: "#ffffff",
+                      color: "#475569",
+                      fontWeight: 600,
+                      fontSize: "0.85rem",
+                      border: "1px solid #e2e8f0",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.02)",
+                    }}
+                  />
+                ))}
+              </Stack>
+
+              {/* Storytelling Paragraphs */}
+              <Typography sx={{ color: "#475569", lineHeight: 1.8, fontSize: "1.05rem", mb: 2 }}>
+                Believing that the future belongs to those who continuously learn and adapt, the foundation of ThaksaAi Career Planet is built on empowering individuals through technology and practical innovation.
+              </Typography>
+              <Typography sx={{ color: "#475569", lineHeight: 1.8, fontSize: "1.05rem", mb: 2 }}>
+                With a deep focus on Campus Recruitment Training (CRT) and real-world technology education, the ecosystem bridges the gap between academic learning and industry expectations. Through immersive workshops and career transformation programs, students are molded into industry-ready professionals.
+              </Typography>
+              <Typography sx={{ color: "#475569", lineHeight: 1.8, fontSize: "1.05rem", mb: 4 }}>
+                Combining expertise in cutting-edge software practices with a passion for mentorship, the mission is to create learning experiences that don't just teach skills, but build lasting careers and foster transformative student outcomes.
+              </Typography>
+
+              {/* Metrics Grid */}
+              <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap sx={{ mb: 5 }}>
+                <StatCard end={1000} suffix="+" label="Students Trained" delay={0.1} />
+                <StatCard end={40} suffix="+" label="Workshops Conducted" delay={0.2} />
+                <StatCard end={500} suffix="+" label="Mentorship Sessions" delay={0.3} />
+              </Stack>
+
+              {/* Timeline */}
+              <Box sx={{ mt: 2 }}>
+                <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 3 }}>
+                  <TimelineRoundedIcon sx={{ color: "#6366f1" }} />
+                  <Typography variant="h6" sx={{ fontWeight: 800, color: "#0f172a" }}>
+                    Impact Journey
+                  </Typography>
                 </Stack>
+                {TimelineEvents.map((event, idx) => (
+                  <TimelineItem key={idx} title={event} />
+                ))}
               </Box>
-            </RevealBox>
+
+            </Box>
           </Grid>
         </Grid>
       </Container>
