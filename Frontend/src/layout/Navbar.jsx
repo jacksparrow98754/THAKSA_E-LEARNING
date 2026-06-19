@@ -167,7 +167,7 @@ export default function Navbar() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              ThaksaAi
+              THAKSAai
             </Typography>
           </Box>
 
@@ -344,7 +344,7 @@ export default function Navbar() {
                   fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 }}
               >
-                ThaksaAi
+                THAKSAai
               </Typography>
             </Box>
             <IconButton
