@@ -18,10 +18,10 @@ const journeySteps = [
 ];
 
 const metrics = [
-  { value: "5000+", label: "Students Trained" },
-  { value: "200+", label: "Workshops Conducted" },
-  { value: "1000+", label: "Projects Delivered" },
-  { value: "500+", label: "Mentor Sessions" },
+  { value: "1000+", label: "Students Trained" },
+  { value: "40+", label: "Workshops Conducted" },
+  { value: "50+", label: "CRT conducted" },
+  { value: "500+", label: "Online Mentorship Sessions" },
 ];
 
 export default function StorytellingComponent() {
