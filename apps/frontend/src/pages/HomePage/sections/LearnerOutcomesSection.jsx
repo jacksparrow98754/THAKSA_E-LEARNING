@@ -1,8 +1,11 @@
-import { Box, Container, Typography, Stack, Paper, Grid } from "@mui/material";
+import { Box, Container, Typography, Stack, Paper, IconButton } from "@mui/material";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import StarIcon from '@mui/icons-material/Star';
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+import { useRef, useState, useEffect } from "react";
 
 const TESTIMONIALS = [
   {
@@ -28,6 +31,50 @@ const TESTIMONIALS = [
 ];
 
 export default function LearnerOutcomesSection() {
+  const containerRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const getScrollAmount = () => {
+    if (!containerRef.current) return 0;
+    // Assuming container width is roughly divided into 3 on desktop, 1 on mobile
+    // Taking the width of one child as the scroll amount
+    return containerRef.current.children[0].offsetWidth;
+  };
+
+  const handleNext = () => {
+    if (containerRef.current) {
+      const scrollAmount = getScrollAmount();
+      const newScrollLeft = containerRef.current.scrollLeft + scrollAmount;
+      // Loop back if reached the end
+      if (newScrollLeft >= containerRef.current.scrollWidth - containerRef.current.clientWidth) {
+         containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+         containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    if (containerRef.current) {
+      const scrollAmount = getScrollAmount();
+      const newScrollLeft = containerRef.current.scrollLeft - scrollAmount;
+      // Loop to end if reached the start
+      if (newScrollLeft <= 0 && containerRef.current.scrollLeft === 0) {
+        containerRef.current.scrollTo({ left: containerRef.current.scrollWidth, behavior: 'smooth' });
+      } else {
+        containerRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
     <Box
       sx={{
@@ -86,11 +133,36 @@ export default function LearnerOutcomesSection() {
             </motion.div>
           </Box>
 
-          {/* Metrics Bar / Testimonials */}
-          <Box>
-            <Grid container spacing={3} justifyContent="center">
+          {/* Testimonials Slider */}
+          <Box
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            sx={{ position: "relative", width: "100%", py: 2 }}
+          >
+            <Box
+              ref={containerRef}
+              sx={{
+                display: "flex",
+                gap: 3,
+                overflowX: "auto",
+                scrollSnapType: "x mandatory",
+                scrollbarWidth: "none", // Firefox
+                "&::-webkit-scrollbar": {
+                  display: "none", // Chrome, Safari
+                },
+                scrollBehavior: "smooth",
+                px: { xs: 2, md: 0 },
+              }}
+            >
               {TESTIMONIALS.map((testimonial, index) => (
-                <Grid size={{ xs: 12, md: 6, lg: 3 }} key={index}>
+                <Box
+                  key={index}
+                  sx={{
+                    flex: "0 0 auto",
+                    width: { xs: "100%", md: "calc((100% - 48px) / 3)" }, // 3 items on desktop, 1 on mobile
+                    scrollSnapAlign: "start",
+                  }}
+                >
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -166,9 +238,41 @@ export default function LearnerOutcomesSection() {
                       </Box>
                     </Paper>
                   </motion.div>
-                </Grid>
+                </Box>
               ))}
-            </Grid>
+            </Box>
+
+            {/* Minimal SaaS Navigation */}
+            <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
+              <IconButton
+                onClick={handlePrev}
+                sx={{
+                  color: "rgba(255, 255, 255, 0.7)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  "&:hover": {
+                    background: "rgba(255, 255, 255, 0.1)",
+                    color: "white",
+                    border: "1px solid rgba(255, 255, 255, 0.4)",
+                  },
+                }}
+              >
+                <ArrowBackIosNewRoundedIcon fontSize="small" />
+              </IconButton>
+              <IconButton
+                onClick={handleNext}
+                sx={{
+                  color: "rgba(255, 255, 255, 0.7)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  "&:hover": {
+                    background: "rgba(255, 255, 255, 0.1)",
+                    color: "white",
+                    border: "1px solid rgba(255, 255, 255, 0.4)",
+                  },
+                }}
+              >
+                <ArrowForwardIosRoundedIcon fontSize="small" />
+              </IconButton>
+            </Box>
           </Box>
 
           {/* Trust Booster */}
