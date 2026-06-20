@@ -37,21 +37,19 @@ export default function FeaturesSection() {
       <Container maxWidth="lg">
         <Box textAlign="center" mb={{ xs: 5, md: 7 }}>
           <Typography
-            variant="h3"
+            variant="h2"
             sx={{
-              fontWeight: 900,
-              color: "#0f172a",
-              mb: 2,
-              fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-              fontSize: { xs: "2rem", md: "2.75rem" },
+
+
+              mb: 3,
             }}
           >
             Why Students Choose ThaksaAi
           </Typography>
           <Typography
             sx={{
-              color: "#475569",
-              fontSize: { xs: "1.05rem", md: "1.2rem" },
+
+
               maxWidth: 700,
               mx: "auto",
               lineHeight: 1.6,
@@ -71,18 +69,18 @@ export default function FeaturesSection() {
                   sx={{
                     p: 4,
                     height: "100%",
-                    borderRadius: 4,
+                    borderRadius: "24px",
                     background: "rgba(255, 255, 255, 0.7)",
                     backdropFilter: "blur(12px)",
                     border: "1px solid rgba(255, 255, 255, 0.5)",
-                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.04)",
+                    boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     "&:hover": {
-                      transform: "translateY(-8px)",
-                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.08)",
+                      transform: "translateY(-6px)",
+                      boxShadow: "0 4px 20px rgba(15, 23, 42, 0.1)",
                       background: "rgba(255, 255, 255, 0.9)",
                     },
                   }}
@@ -91,21 +89,21 @@ export default function FeaturesSection() {
                     sx={{
                       width: 56,
                       height: 56,
-                      borderRadius: 3,
+                      borderRadius: "24px",
                       background: feature.gradient,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       mb: 3,
-                      boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                      boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                     }}
                   >
                     <Icon sx={{ color: "#fff", fontSize: 28 }} />
                   </Box>
                   <Typography
-                    variant="h6"
+                    variant="h3"
                     sx={{
-                      fontWeight: 800,
+
                       color: "#1e293b",
                       mb: 1.5,
                       fontFamily: "'Inter', sans-serif",

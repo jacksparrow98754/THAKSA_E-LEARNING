@@ -20,9 +20,8 @@ import MemoryRoundedIcon from "@mui/icons-material/MemoryRounded";
 
 import img1 from "./cofounder.jpeg";
 import img2 from "./IMG-20260619-WA0036.jpg";
-import img3 from "./IMG-20260619-WA0010.jpg";
 
-const ceoImages = [img1, img2, img3];
+const ceoImages = [img1, img2];
 
 const PillarIcon = ({ icon, label }) => (
   <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "80px" }}>
