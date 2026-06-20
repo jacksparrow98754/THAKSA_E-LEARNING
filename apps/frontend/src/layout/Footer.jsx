@@ -45,18 +45,25 @@ function FooterLink({ label, to }) {
 
 function ContactItem({ icon, text, href }) {
   const content = (
-    <Stack direction="row" spacing={1.5} alignItems="center" sx={{ color: "#64748b" }}>
+    <Stack direction="row" spacing={1.5} alignItems="flex-start" sx={{ color: "#64748b" }}>
       <Box sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         bgcolor: 'rgba(15,23,42,0.03)',
         p: 1,
-        borderRadius: 2
+        borderRadius: 2,
+        mt: 0.2,
       }}>
         {icon}
       </Box>
-      <Typography sx={{ fontSize: "0.95rem", fontWeight: 500 }}>{text}</Typography>
+      <Box>
+        {typeof text === "string" ? (
+          <Typography sx={{ fontSize: "0.95rem", fontWeight: 500 }}>{text}</Typography>
+        ) : (
+          text
+        )}
+      </Box>
     </Stack>
   );
 
@@ -196,7 +203,20 @@ export default function Footer() {
                 />
                 <ContactItem
                   icon={<LocationOnRoundedIcon fontSize="small" />}
-                  text="Hyderabad, Telangana, India"
+                  text={
+                    <Stack spacing={0.5}>
+                      <Typography sx={{ fontSize: "0.95rem", fontWeight: 500, color: "#0F172A" }}>
+                        Hyderabad, Telangana
+                      </Typography>
+                      <Typography sx={{ fontSize: "0.85rem", color: "#64748b" }}>
+                        Gachibowli Technology District
+                      </Typography>
+                      <Typography sx={{ fontSize: "0.85rem", color: "#64748b" }}>
+                        Near Gachibowli Flyover
+                      </Typography>
+                    </Stack>
+                  }
+                  href="https://maps.google.com/?q=Gachibowli+Flyover,+Hyderabad"
                 />
               </Stack>
             </Stack>
