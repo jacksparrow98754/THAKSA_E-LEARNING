@@ -12,7 +12,6 @@ import SupportAgentRoundedIcon from "@mui/icons-material/SupportAgentRounded";
 import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
 import RecordVoiceOverRoundedIcon from "@mui/icons-material/RecordVoiceOverRounded";
 import ArrowDownwardRoundedIcon from "@mui/icons-material/ArrowDownwardRounded";
-import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import WorkspacePremiumRoundedIcon from "@mui/icons-material/WorkspacePremiumRounded";
 import HandymanRoundedIcon from "@mui/icons-material/HandymanRounded";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
@@ -63,11 +62,13 @@ export default function TrustEcosystemSection() {
   return (
     <Box
       sx={{
-        background: "linear-gradient( 180deg, #F8FAFC, #FFFFFF )",
-        py: { xs: 10, md: 15 }, // 80px mobile, 120px desktop
+        background: "linear-gradient(180deg, #090E17, #0F172A)",
+        py: { xs: 10, md: 15 },
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
         {/* Header Section */}
         <Box textAlign="center" mb={{ xs: 6, md: 8 }}>
           <Typography
@@ -75,7 +76,7 @@ export default function TrustEcosystemSection() {
               fontSize: "14px",
               textTransform: "uppercase",
               letterSpacing: "0.1em",
-              color: "#6366F1",
+              color: "#818CF8", // slightly lighter indigo for dark mode
               fontWeight: 600,
               mb: 2,
             }}
@@ -87,7 +88,7 @@ export default function TrustEcosystemSection() {
             sx={{
               fontSize: { xs: "30px", md: "42px" },
               fontWeight: 700,
-              color: "#0F172A",
+              color: "#F8FAFC",
               mb: 3,
               lineHeight: 1.2,
             }}
@@ -96,7 +97,7 @@ export default function TrustEcosystemSection() {
           </Typography>
           <Typography
             sx={{
-              color: "#475569",
+              color: "#94A3B8",
               maxWidth: "700px",
               mx: "auto",
               fontSize: "18px",
@@ -126,16 +127,17 @@ export default function TrustEcosystemSection() {
                       textAlign: "center",
                       height: "100%",
                       borderRadius: "20px",
-                      background: "rgba(255, 255, 255, 0.7)",
+                      background: "rgba(255, 255, 255, 0.03)",
                       backdropFilter: "blur(12px)",
-                      border: "1px solid rgba(226, 232, 240, 0.8)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
                       transition: "all 0.3s ease",
                       "&:hover": {
                         transform: "translateY(-4px)",
-                        boxShadow: "0 10px 25px rgba(99, 102, 241, 0.15)",
-                        borderColor: "rgba(99, 102, 241, 0.3)",
+                        boxShadow: "0 10px 25px rgba(99, 102, 241, 0.2)",
+                        borderColor: "rgba(99, 102, 241, 0.4)",
+                        background: "rgba(255, 255, 255, 0.05)",
                         "& .MuiSvgIcon-root": {
-                          color: "#6366F1",
+                          color: "#818CF8",
                         },
                       },
                     }}
@@ -152,7 +154,7 @@ export default function TrustEcosystemSection() {
                       sx={{
                         fontSize: "14px",
                         fontWeight: 600,
-                        color: "#1E293B",
+                        color: "#E2E8F0",
                         lineHeight: 1.3,
                       }}
                     >
@@ -197,7 +199,7 @@ export default function TrustEcosystemSection() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  bgcolor: "#FFFFFF",
+                  bgcolor: "transparent",
                   px: 2,
                   py: 1,
                 }}
@@ -207,13 +209,14 @@ export default function TrustEcosystemSection() {
                     width: 48,
                     height: 48,
                     borderRadius: "50%",
-                    background: "#F8FAFC",
-                    border: "2px solid #E2E8F0",
+                    background: "rgba(15, 23, 42, 0.8)",
+                    backdropFilter: "blur(8px)",
+                    border: "2px solid rgba(99, 102, 241, 0.5)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     mb: 1,
-                    color: "#6366F1",
+                    color: "#818CF8",
                     fontWeight: 700,
                     fontSize: "16px",
                   }}
@@ -224,7 +227,7 @@ export default function TrustEcosystemSection() {
                   sx={{
                     fontWeight: 600,
                     fontSize: "15px",
-                    color: "#0F172A",
+                    color: "#F8FAFC",
                     textAlign: "center",
                   }}
                 >
@@ -235,7 +238,7 @@ export default function TrustEcosystemSection() {
                   <ArrowDownwardRoundedIcon
                     sx={{
                       display: { xs: "block", md: "none" },
-                      color: "#CBD5E1",
+                      color: "#64748B",
                       mt: 1,
                     }}
                   />
@@ -250,13 +253,13 @@ export default function TrustEcosystemSection() {
           <Paper
             elevation={0}
             sx={{
-              background: "rgba(15, 23, 42, 0.95)",
-              backdropFilter: "blur(12px)",
+              background: "rgba(255, 255, 255, 0.03)",
+              backdropFilter: "blur(16px)",
               borderRadius: "24px",
               py: { xs: 4, md: 5 },
               px: { xs: 3, md: 6 },
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
+              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.4)",
             }}
           >
             <Grid container spacing={3} justifyContent="space-between" alignItems="center">
@@ -310,16 +313,18 @@ export default function TrustEcosystemSection() {
                     p: 4,
                     height: "100%",
                     borderRadius: "24px",
-                    background: "#FFFFFF",
-                    border: "1px solid rgba(226, 232, 240, 0.8)",
-                    boxShadow: "0 4px 20px rgba(15, 23, 42, 0.04)",
+                    background: "rgba(255, 255, 255, 0.03)",
+                    backdropFilter: "blur(12px)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
                     transition: "all 0.3s ease",
                     display: "flex",
                     flexDirection: "column",
                     "&:hover": {
                       transform: "translateY(-6px)",
-                      boxShadow: "0 12px 30px rgba(15, 23, 42, 0.08)",
-                      borderColor: "rgba(99, 102, 241, 0.2)",
+                      boxShadow: "0 12px 30px rgba(0, 0, 0, 0.3)",
+                      borderColor: "rgba(99, 102, 241, 0.4)",
+                      background: "rgba(255, 255, 255, 0.05)",
                     },
                   }}
                 >
@@ -328,20 +333,20 @@ export default function TrustEcosystemSection() {
                       width: 56,
                       height: 56,
                       borderRadius: "16px",
-                      background: "rgba(99, 102, 241, 0.1)",
+                      background: "rgba(99, 102, 241, 0.15)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       mb: 3,
                     }}
                   >
-                    <Icon sx={{ color: "#6366F1", fontSize: 28 }} />
+                    <Icon sx={{ color: "#818CF8", fontSize: 28 }} />
                   </Box>
                   <Typography
                     sx={{
                       fontSize: "20px",
                       fontWeight: 600,
-                      color: "#0F172A",
+                      color: "#F8FAFC",
                       mb: 1.5,
                     }}
                   >
@@ -349,7 +354,7 @@ export default function TrustEcosystemSection() {
                   </Typography>
                   <Typography
                     sx={{
-                      color: "#475569",
+                      color: "#94A3B8",
                       lineHeight: 1.6,
                       fontSize: "15px",
                     }}
