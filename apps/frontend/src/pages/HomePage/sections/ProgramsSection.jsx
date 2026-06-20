@@ -32,11 +32,18 @@ const modules = [
     id: "training",
     icon: WorkspacePremiumRoundedIcon,
     title: "CRT Training",
-    subtitle: "Career Launch Program",
+    subtitle: (
+      <>
+        Industry Career Readiness Program
+        <span style={{ display: 'block', fontSize: '0.85em', opacity: 0.8, fontWeight: 400, marginTop: '6px', lineHeight: 1.4 }}>
+          Hands-on training designed for emerging technologies and modern industry roles.
+        </span>
+      </>
+    ),
     benefits: [
-      "Aptitude & Technical Tracks",
-      "Soft-skills Modules",
-      "Placement Support"
+      "AWS Cloud & Cloud Fundamentals",
+      "DevOps & Deployment Practices",
+      "Machine Learning & AI Foundations"
     ],
     color: "#0f766e",
     gradient: "linear-gradient(135deg, #0f766e 0%, #0891b2 100%)",
