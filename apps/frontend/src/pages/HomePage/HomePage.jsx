@@ -1,9 +1,10 @@
 import { Box, Container } from "@mui/material";
 import HeroSection from "./sections/HeroSection";
 import VisualProofSection from "./sections/VisualProofSection";
-import TestimonialsSection from "./sections/TestimonialsSection";
 import FounderSection from "./sections/FounderSection";
 import LeadershipTeamSection from "./sections/LeadershipTeamSection";
+import LearnerOutcomesSection from "./sections/LearnerOutcomesSection";
+import CtaSection from "./sections/CtaSection";
 
 export default function HomePage() {
   return (
@@ -17,7 +18,8 @@ export default function HomePage() {
       <VisualProofSection />
       <FounderSection />
       <LeadershipTeamSection />
-      <TestimonialsSection />
+      <LearnerOutcomesSection />
+      <CtaSection />
     </Box>
   );
 }
