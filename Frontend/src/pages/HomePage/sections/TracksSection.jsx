@@ -39,23 +39,22 @@ export default function TracksSection() {
       <Stack direction={{ xs: "column", md: "row" }} justifyContent="space-between" sx={{ mb: 3 }}>
         <Box>
           <Typography
-            variant="h4"
+            variant="h2"
             sx={{
-              fontWeight: 900,
-              color: "#0f172a",
-              fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+
+
             }}
           >
             Learning Tracks
           </Typography>
-          <Typography sx={{ color: "#475569", mt: 1 }}>
+          <Typography sx={{  mt: 1 }}>
             Designed to align with modern hiring expectations.
           </Typography>
         </Box>
         <Button
           variant="text"
           onClick={() => navigate("/courses")}
-          sx={{ mt: { xs: 1.5, md: 0 }, fontWeight: 700, color: "#1d4ed8" }}
+          sx={{ mt: { xs: 1.5, md: 0 },  color: "#1d4ed8" }}
         >
           View All Courses
         </Button>
@@ -69,14 +68,14 @@ export default function TracksSection() {
               <Card
                 elevation={0}
                 sx={{
-                  borderRadius: 4,
+                  borderRadius: "24px",
                   border: "1px solid rgba(15, 23, 42, 0.04)",
                   height: "100%",
-                  boxShadow: "0 4px 12px rgba(15, 23, 42, 0.03)",
+                  boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                   transition: "transform .3s ease, box-shadow .3s ease",
                   "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: "0 14px 28px rgba(15, 23, 42, 0.08)",
+                    transform: "translateY(-6px)",
+                    boxShadow: "0 12px 30px rgba(15, 23, 42, 0.1)",
                   },
                 }}
               >
@@ -85,12 +84,12 @@ export default function TracksSection() {
                     sx={{
                       width: 56,
                       height: 56,
-                      borderRadius: 3,
+                      borderRadius: "24px",
                       bgcolor: track.bgColor,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      mb: 2.5,
+                      mb: 3,
                     }}
                   >
                     <Icon sx={{ color: track.color, fontSize: 32 }} />
@@ -102,10 +101,10 @@ export default function TracksSection() {
                       mb: 1.8,
                       bgcolor: "rgba(15, 118, 110, 0.12)",
                       color: "#0f766e",
-                      fontWeight: 700,
+
                     }}
                   />
-                  <Typography variant="h6" sx={{ fontWeight: 800, color: "#0f172a", mb: 1 }}>
+                  <Typography variant="h6" sx={{   mb: 1 }}>
                     {track.title}
                   </Typography>
                   <Typography sx={{ color: "#475569" }}>{track.blurb}</Typography>

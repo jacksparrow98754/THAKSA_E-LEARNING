@@ -122,32 +122,15 @@ export default function Footer() {
                   }}
                 />
                 <Stack>
-                  <Typography
-                    sx={{
-                      fontWeight: 800,
-                      fontSize: "1.35rem",
-                      letterSpacing: "-0.03em",
-                      fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                      color: "#0f172a",
-                      lineHeight: 1.2,
-                    }}
-                  >
+                  <Typography variant="h3" sx={{ fontWeight: 800, color: "#0F172A", lineHeight: 1.2 }}>
                     THAKSAai
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: "0.85rem",
-                      color: "#64748b",
-                      letterSpacing: "0.05em",
-                      textTransform: "uppercase",
-                    }}
-                  >
+                  <Typography variant="subtitle2" sx={{ color: "#64748B" }}>
                     Career Planet
                   </Typography>
                 </Stack>
               </Box>
-              <Typography sx={{ color: "#475569", lineHeight: 1.7, fontSize: "1rem", maxWidth: 320 }}>
+              <Typography variant="body1" sx={{ color: "#475569", maxWidth: 320 }}>
                 Empowering students through Campus Recruitment Training, industry workshops, career development programs, and placement readiness initiatives.
               </Typography>
 
@@ -177,7 +160,7 @@ export default function Footer() {
 
           <Grid size={{ xs: 6, md: 2.5 }}>
             <Stack spacing={{ xs: 1.5, md: 2.5 }}>
-              <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "1.05rem" }}>Platform</Typography>
+              <Typography variant="h4" sx={{ color: "#0F172A", fontSize: "1.05rem" }}>Platform</Typography>
               <Stack spacing={1.5}>
                 {quickLinks.map((link) => (
                   <FooterLink key={link.to} {...link} />
@@ -188,7 +171,7 @@ export default function Footer() {
 
           <Grid size={{ xs: 6, md: 2.5 }}>
             <Stack spacing={{ xs: 1.5, md: 2.5 }}>
-              <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "1.05rem" }}>Programs</Typography>
+              <Typography variant="h4" sx={{ color: "#0F172A", fontSize: "1.05rem" }}>Programs</Typography>
               <Stack spacing={1.5}>
                 {programs.map((link) => (
                   <FooterLink key={link.to} {...link} />
@@ -199,7 +182,7 @@ export default function Footer() {
 
           <Grid size={{ xs: 12, md: 3 }}>
             <Stack spacing={{ xs: 1.5, md: 2.5 }}>
-              <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "1.05rem" }}>Get in Touch</Typography>
+              <Typography variant="h4" sx={{ color: "#0F172A", fontSize: "1.05rem" }}>Get in Touch</Typography>
               <Stack spacing={2}>
                 <ContactItem
                   icon={<EmailRoundedIcon fontSize="small" />}

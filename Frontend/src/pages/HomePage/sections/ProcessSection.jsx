@@ -34,12 +34,11 @@ export default function ProcessSection() {
   return (
     <Box sx={{ mb: { xs: 6, md: 10 } }}>
       <Typography
-        variant="h4"
+        variant="h2"
         sx={{
-          fontWeight: 900,
-          color: "#0f172a",
+
+
           mb: 3,
-          fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
         }}
       >
         How Learning Works
@@ -54,16 +53,16 @@ export default function ProcessSection() {
                 elevation={0}
                 sx={{
                   p: { xs: 3, md: 4 },
-                  borderRadius: 4,
+                  borderRadius: "24px",
                   border: "1px solid rgba(15, 23, 42, 0.04)",
                   background:
                     "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(248,250,252,0.6) 100%)",
                   height: "100%",
-                  boxShadow: "0 4px 12px rgba(15, 23, 42, 0.03)",
+                  boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
                   "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: "0 14px 28px rgba(15, 23, 42, 0.08)",
+                    transform: "translateY(-6px)",
+                    boxShadow: "0 12px 30px rgba(15, 23, 42, 0.1)",
                   },
                 }}
               >
@@ -71,7 +70,7 @@ export default function ProcessSection() {
                   sx={{
                     width: 56,
                     height: 56,
-                    borderRadius: 3,
+                    borderRadius: "24px",
                     bgcolor: item.bgColor,
                     display: "flex",
                     alignItems: "center",
@@ -81,7 +80,7 @@ export default function ProcessSection() {
                 >
                   <Icon sx={{ color: item.color, fontSize: 32 }} />
                 </Box>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: "#0f172a", mb: 1.5 }}>
+                <Typography variant="h6" sx={{   mb: 1.5 }}>
                   {item.title}
                 </Typography>
                 <Typography sx={{ color: "#475569" }}>{item.text}</Typography>

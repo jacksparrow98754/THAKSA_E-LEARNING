@@ -108,7 +108,7 @@ function AnimatedCard({ module, index }) {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          borderRadius: 4,
+          borderRadius: "24px",
           border: `1px solid rgba(255, 255, 255, 0.15)`,
           background: "linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)",
           backdropFilter: "blur(16px)",
@@ -150,7 +150,7 @@ function AnimatedCard({ module, index }) {
             sx={{
               width: 64,
               height: 64,
-              borderRadius: 3,
+              borderRadius: "24px",
               background: module.gradient,
               display: "flex",
               alignItems: "center",
@@ -168,8 +168,8 @@ function AnimatedCard({ module, index }) {
             label={module.tag}
             size="small"
             sx={{
-              mb: 2,
-              fontWeight: 700,
+              mb: 3,
+
               fontSize: "0.75rem",
               bgcolor: "rgba(255, 255, 255, 0.1)",
               color: "#fff",
@@ -180,9 +180,8 @@ function AnimatedCard({ module, index }) {
           <Typography
             variant="h5"
             sx={{
-              fontWeight: 800,
+
               color: "#ffffff",
-              fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
               mb: 1,
               lineHeight: 1.2,
             }}
@@ -192,7 +191,7 @@ function AnimatedCard({ module, index }) {
           <Typography
             sx={{
               fontSize: "0.9rem",
-              fontWeight: 600,
+
               color: "#cbd5e1",
               mb: 0,
             }}
@@ -207,7 +206,7 @@ function AnimatedCard({ module, index }) {
             {module.benefits.map((benefit, i) => (
               <Stack key={i} direction="row" alignItems="center" spacing={1.5}>
                 <CheckCircleRoundedIcon sx={{ fontSize: 18, color: module.color, opacity: 0.9 }} />
-                <Typography sx={{ color: "#e2e8f0", fontSize: "0.95rem", fontWeight: 500 }}>
+                <Typography sx={{ color: "#e2e8f0", fontSize: "0.95rem",  }}>
                   {benefit}
                 </Typography>
               </Stack>
@@ -227,7 +226,7 @@ function AnimatedCard({ module, index }) {
               transition: "opacity 0.3s ease",
             }}
           >
-            <Typography sx={{ fontWeight: 700, fontSize: "0.95rem" }}>Learn More</Typography>
+            <Typography sx={{  fontSize: "0.95rem" }}>Learn More</Typography>
             <ArrowForwardRoundedIcon
               sx={{
                 fontSize: 20,
@@ -261,8 +260,8 @@ export default function HeroSection() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        pt: { xs: 12, md: 16 },
-        pb: { xs: 6, sm: 8, md: 12 },
+        pt: { xs: 10, md: 15 },
+        pb: { xs: 10, md: 15 },
       }}
     >
       {/* Background Video */}
@@ -295,7 +294,7 @@ export default function HeroSection() {
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center", pt: { xs: 4, md: 6 } }}>
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
         {/* ── Top row: text content + logo ── */}
         <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center" sx={{ mb: { xs: 8, md: 10 } }}>
@@ -309,10 +308,10 @@ export default function HeroSection() {
                 gap: 1,
                 bgcolor: "rgba(255,255,255,0.03)",
                 border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: 8,
+                borderRadius: "24px",
                 px: 2,
                 py: 0.75,
-                mb: 2.5,
+                mb: 3,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(-12px)",
                 transition: "all 0.5s ease",
@@ -320,7 +319,7 @@ export default function HeroSection() {
               }}
             >
               <AutoAwesomeRoundedIcon sx={{ fontSize: 16, color: "#a5b4fc" }} />
-              <Typography sx={{ fontWeight: 500, fontSize: "0.75rem", color: "#cbd5e1", letterSpacing: "0.02em" }}>
+              <Typography sx={{  fontSize: "0.75rem", color: "#cbd5e1", letterSpacing: "0.02em" }}>
                 THAKSAai Career Planet — From Campus to Career
               </Typography>
             </Box>
@@ -329,13 +328,8 @@ export default function HeroSection() {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
-                fontWeight: 700,
-                lineHeight: 1.2,
-                letterSpacing: "-0.02em",
                 color: "#ffffff",
-                fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
-                mb: 2.5,
+                mb: 3,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.1s",
@@ -367,22 +361,22 @@ export default function HeroSection() {
             {/* Sub-headline / Description */}
             <Typography
               sx={{
-                fontSize: { xs: "1rem", md: "1.125rem" },
+
                 color: "#94a3b8",
                 maxWidth: 540, mx: { xs: "auto", lg: 0 },
                 lineHeight: 1.6,
-                mb: 4,
+                mb: 6,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.2s",
-                fontWeight: 400,
+
               }}
             >
               Transform your career trajectory with our industry-led Campus Recruitment Training (CRT), hands-on workshops, and premium placement support.
             </Typography>
 
             {/* Mobile Storytelling Placement */}
-            <Box sx={{ display: { xs: 'block', lg: 'none' }, mb: 4, textAlign: 'left' }}>
+            <Box sx={{ display: { xs: 'block', lg: 'none' }, mb: 6, textAlign: 'left' }}>
               <StorytellingComponent />
             </Box>
 
@@ -398,56 +392,10 @@ export default function HeroSection() {
                 transition: "all 0.6s ease 0.3s",
               }}
             >
-              <Button
-                variant="contained"
-                size="large"
-                onClick={() => navigate("/workshops")}
-                aria-label="Explore Workshops"
-                sx={{
-                  width: { xs: '100%', sm: 'auto' },
-                  bgcolor: "#ffffff",
-                  color: "#0f172a",
-                  px: 4,
-                  py: 1.25,
-                  borderRadius: 2,
-                  fontSize: "0.95rem",
-                  fontWeight: 600,
-                  textTransform: "none",
-                  boxShadow: "0 4px 14px 0 rgba(255, 255, 255, 0.2)",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    bgcolor: "#f8fafc",
-                    transform: "translateY(-1px)",
-                    boxShadow: "0 6px 20px rgba(255,255,255,0.3)",
-                  },
-                }}
-              >
+              <Button variant="contained" color="primary" size="large" onClick={() => navigate("/workshops")} aria-label="Explore Workshops" sx={{ width: { xs: "100%", sm: "auto" } }}>
                 Explore Workshops
               </Button>
-              <Button
-                variant="outlined"
-                size="large"
-                onClick={() => navigate("/contact")}
-                aria-label="Contact Us"
-                sx={{
-                  width: { xs: '100%', sm: 'auto' },
-                  borderColor: "rgba(255,255,255,0.2)",
-                  color: "#ffffff",
-                  px: 4,
-                  py: 1.25,
-                  borderRadius: 2,
-                  fontSize: "0.95rem",
-                  fontWeight: 600,
-                  textTransform: "none",
-                  transition: "all 0.3s ease",
-                  bgcolor: "transparent",
-                  "&:hover": {
-                    borderColor: "#ffffff",
-                    bgcolor: "rgba(255,255,255,0.05)",
-                    transform: "translateY(-1px)",
-                  },
-                }}
-              >
+              <Button variant="outlined" color="primary" size="large" onClick={() => navigate("/contact")} aria-label="Contact Us" sx={{ width: { xs: "100%", sm: "auto" } }}>
                 Contact Us
               </Button>
             </Stack>
@@ -460,7 +408,7 @@ export default function HeroSection() {
                 transition: "all 0.6s ease 0.4s",
               }}
             >
-              <Typography sx={{ fontSize: "0.85rem", fontWeight: 700, color: "#94a3b8", mb: 2, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+              <Typography sx={{ fontSize: "0.85rem",  color: "#94a3b8", mb: 3, textTransform: "uppercase", letterSpacing: "0.05em" }}>
                 Core Pillars
               </Typography>
               <Grid container spacing={2} justifyContent={{ xs: "center", lg: "flex-start" }}>
@@ -473,7 +421,7 @@ export default function HeroSection() {
                   <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx} sx={{ display: "flex", justifyContent: "center" }}>
                     <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "#e2e8f0" }}>
                       <Box sx={{ display: "flex", color: "#818cf8" }}>{item.icon}</Box>
-                      <Typography sx={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.2 }}>{item.text}</Typography>
+                      <Typography sx={{ fontSize: "0.85rem",  lineHeight: 1.2 }}>{item.text}</Typography>
                     </Stack>
                   </Grid>
                 ))}
@@ -501,12 +449,12 @@ export default function HeroSection() {
         >
           <Typography
             sx={{
-              fontWeight: 800,
+
               fontSize: "0.78rem",
               color: "#64748b",
               textTransform: "uppercase",
               letterSpacing: "0.1em",
-              mb: 2.5,
+              mb: 3,
             }}
           >
             ⚡ Explore Our Programmes

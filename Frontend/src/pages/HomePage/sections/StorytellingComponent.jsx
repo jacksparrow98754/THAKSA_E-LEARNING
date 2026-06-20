@@ -44,11 +44,11 @@ export default function StorytellingComponent() {
       elevation={0}
       sx={{
         position: "relative",
-        borderRadius: 3,
+        borderRadius: "24px",
         background: "rgba(255, 255, 255, 0.05)",
         backdropFilter: "blur(16px)",
         border: "1px solid rgba(255, 255, 255, 0.1)",
-        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
+        boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
         overflow: "hidden",
         opacity: mounted ? 1 : 0,
         transform: mounted ? "translateY(0)" : "translateY(20px)",
@@ -76,7 +76,7 @@ export default function StorytellingComponent() {
           <AutoAwesomeRoundedIcon sx={{ color: "#a5b4fc", fontSize: 14 }} />
           <Typography
             sx={{
-              fontWeight: 500,
+
               fontSize: "0.7rem",
               textTransform: "uppercase",
               letterSpacing: "0.04em",
@@ -88,12 +88,12 @@ export default function StorytellingComponent() {
         </Stack>
 
         <Typography
-          variant="h3"
+          variant="h2"
           sx={{
             fontSize: { xs: "0.85rem", sm: "0.95rem" },
-            fontWeight: 600,
+
             color: "#e2e8f0",
-            mb: 2,
+            mb: 3,
             lineHeight: 1.3,
           }}
         >
@@ -101,7 +101,7 @@ export default function StorytellingComponent() {
         </Typography>
 
         {/* Journey Timeline */}
-        <Box sx={{ position: "relative", mb: 2 }}>
+        <Box sx={{ position: "relative", mb: 3 }}>
           <Box
             sx={{
               position: "absolute",
@@ -163,7 +163,7 @@ export default function StorytellingComponent() {
                 <Box>
                   <Typography
                     sx={{
-                      fontWeight: 600,
+
                       fontSize: "0.9rem",
                       color: "#e2e8f0",
                       lineHeight: 1,
@@ -174,7 +174,7 @@ export default function StorytellingComponent() {
                   </Typography>
                   <Typography
                     sx={{
-                      fontWeight: 500,
+
                       fontSize: "0.6rem",
                       color: "#64748b",
                       textTransform: "uppercase",

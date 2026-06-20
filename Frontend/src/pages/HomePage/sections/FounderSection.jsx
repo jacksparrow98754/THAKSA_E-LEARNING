@@ -42,13 +42,13 @@ const FloatingCard = ({ icon, text, top, left, right, bottom, delay }) => {
         bottom,
         bgcolor: "rgba(255, 255, 255, 0.9)",
         backdropFilter: "blur(12px)",
-        borderRadius: "16px",
+        borderRadius: "24px",
         px: 2,
         py: 1.5,
         display: "flex",
         alignItems: "center",
         gap: 1.5,
-        boxShadow: "0 10px 30px -10px rgba(0,0,0,0.15)",
+        boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
         zIndex: 5,
         border: "1px solid rgba(255,255,255,0.5)",
       }}
@@ -57,14 +57,14 @@ const FloatingCard = ({ icon, text, top, left, right, bottom, delay }) => {
         sx={{
           bgcolor: "rgba(99, 102, 241, 0.1)",
           color: "#6366f1",
-          borderRadius: "8px",
+          borderRadius: "24px",
           p: 0.75,
           display: "flex",
         }}
       >
         {icon}
       </Box>
-      <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.85rem", whiteSpace: "nowrap" }}>
+      <Typography sx={{   fontSize: "0.85rem" }}>
         {text}
       </Typography>
     </Box>
@@ -86,9 +86,9 @@ const StatCard = ({ end, suffix, label, delay }) => {
       transition={{ duration: 0.6, delay }}
       sx={{
         p: 2.5,
-        borderRadius: "20px",
+        borderRadius: "24px",
         bgcolor: "#ffffff",
-        boxShadow: "0 4px 20px -5px rgba(0,0,0,0.05)",
+        boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
         border: "1px solid rgba(99,102,241,0.05)",
         textAlign: "center",
         flex: "1 1 auto",
@@ -98,16 +98,15 @@ const StatCard = ({ end, suffix, label, delay }) => {
       <Typography
         variant="h4"
         sx={{
-          fontWeight: 800,
+
           color: "#6366f1",
-          fontFamily: "'Sora', sans-serif",
           mb: 0.5,
         }}
       >
         {inView ? <CountUp end={end} duration={2.5} /> : "0"}
         {suffix}
       </Typography>
-      <Typography sx={{ color: "#64748b", fontSize: "0.875rem", fontWeight: 600 }}>
+      <Typography sx={{ color: "#64748b", fontSize: "0.875rem",  }}>
         {label}
       </Typography>
     </Box>
@@ -115,7 +114,7 @@ const StatCard = ({ end, suffix, label, delay }) => {
 };
 
 const TimelineItem = ({ title }) => (
-  <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2, mb: 2 }}>
+  <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2, mb: 3 }}>
     <Box
       sx={{
         display: "flex",
@@ -136,7 +135,7 @@ const TimelineItem = ({ title }) => (
       <Box sx={{ width: 2, height: 24, bgcolor: "rgba(99,102,241,0.2)", mt: 1 }} />
     </Box>
     <Box>
-      <Typography sx={{ fontWeight: 700, color: "#0f172a", fontSize: "0.95rem" }}>
+      <Typography sx={{   fontSize: "0.95rem" }}>
         {title}
       </Typography>
     </Box>
@@ -152,9 +151,9 @@ const HeadingContent = () => (
       sx={{
         bgcolor: "rgba(99,102,241,0.1)",
         color: "#6366f1",
-        fontWeight: 800,
+
         letterSpacing: "0.05em",
-        mb: 2,
+        mb: 3,
         px: 1,
         border: "1px solid rgba(99,102,241,0.2)",
       }}
@@ -162,11 +161,10 @@ const HeadingContent = () => (
     <Typography
       variant="h2"
       sx={{
-        fontWeight: 900,
-        color: "#0f172a",
+
+
         mb: 1,
-        fontFamily: "'Sora', sans-serif",
-        fontSize: { xs: "2rem", md: "2.75rem" },
+
         lineHeight: 1.2,
       }}
     >
@@ -176,9 +174,9 @@ const HeadingContent = () => (
       variant="h4"
       sx={{
         color: "#334155",
-        fontWeight: 700,
+
         mb: 0.5,
-        fontSize: { xs: "1.5rem", md: "1.75rem" },
+
       }}
     >
       K. Tharunkrishna
@@ -186,7 +184,7 @@ const HeadingContent = () => (
     <Typography
       sx={{
         color: "#6366f1",
-        fontWeight: 600,
+
         fontSize: "1rem",
         mb: { xs: 4, md: 3 },
       }}
@@ -215,7 +213,7 @@ export default function FounderSection() {
   return (
     <Box
       sx={{
-        py: { xs: 8, md: 12 },
+        py: { xs: 10, md: 15 },
         position: "relative",
         overflow: "hidden",
         bgcolor: "#f8fafc",
@@ -268,7 +266,7 @@ export default function FounderSection() {
                   aspectRatio: "4/5",
                   borderRadius: "24px",
                   overflow: "hidden",
-                  boxShadow: "0 25px 50px -12px rgba(15, 23, 42, 0.25)",
+                  boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                   bgcolor: "#ffffff",
                   border: "8px solid rgba(255,255,255,0.8)",
                   backdropFilter: "blur(10px)",
@@ -315,7 +313,7 @@ export default function FounderSection() {
                       sx={{
                         width: currentIndex === index ? 24 : 8,
                         height: 8,
-                        borderRadius: 4,
+                        borderRadius: "24px",
                         bgcolor: currentIndex === index ? "#ffffff" : "rgba(255,255,255,0.4)",
                         transition: "all 0.3s ease",
                       }}
@@ -354,33 +352,33 @@ export default function FounderSection() {
               >
                 <Box sx={{
                   bgcolor: "rgba(255, 255, 255, 0.9)",
-                  borderRadius: "12px",
+                  borderRadius: "24px",
                   px: 1.5,
                   py: 1,
                   display: "flex",
                   alignItems: "center",
                   gap: 1,
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                  boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                   border: "1px solid rgba(0,0,0,0.05)",
                 }}>
                   <GroupsRoundedIcon sx={{ color: "#6366f1", fontSize: "1rem" }} />
-                  <Typography sx={{ fontWeight: 700, fontSize: "0.75rem", color: "#0f172a" }}>
+                  <Typography sx={{  fontSize: "0.75rem", color: "#0f172a" }}>
                     1000+ Mentored
                   </Typography>
                 </Box>
                 <Box sx={{
                   bgcolor: "rgba(255, 255, 255, 0.9)",
-                  borderRadius: "12px",
+                  borderRadius: "24px",
                   px: 1.5,
                   py: 1,
                   display: "flex",
                   alignItems: "center",
                   gap: 1,
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                  boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                   border: "1px solid rgba(0,0,0,0.05)",
                 }}>
                   <ComputerRoundedIcon sx={{ color: "#6366f1", fontSize: "1rem" }} />
-                  <Typography sx={{ fontWeight: 700, fontSize: "0.75rem", color: "#0f172a" }}>
+                  <Typography sx={{  fontSize: "0.75rem", color: "#0f172a" }}>
                     50+ CRT Progs
                   </Typography>
                 </Box>
@@ -405,24 +403,24 @@ export default function FounderSection() {
                     label={badge}
                     sx={{
                       bgcolor: "#ffffff",
-                      color: "#475569",
-                      fontWeight: 600,
+
+
                       fontSize: "0.85rem",
                       border: "1px solid #e2e8f0",
-                      boxShadow: "0 2px 4px rgba(0,0,0,0.02)",
+                      boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
                     }}
                   />
                 ))}
               </Stack>
 
               {/* Storytelling Paragraphs */}
-              <Typography sx={{ color: "#475569", lineHeight: 1.8, fontSize: "1.05rem", mb: 2 }}>
+              <Typography sx={{  lineHeight: 1.8, fontSize: "1.05rem", mb: 3 }}>
                 Believing that the future belongs to those who continuously learn and adapt, the foundation of ThaksaAi Career Planet is built on empowering individuals through technology and practical innovation.
               </Typography>
-              <Typography sx={{ color: "#475569", lineHeight: 1.8, fontSize: "1.05rem", mb: 2 }}>
+              <Typography sx={{  lineHeight: 1.8, fontSize: "1.05rem", mb: 3 }}>
                 With a deep focus on Campus Recruitment Training (CRT) and real-world technology education, the ecosystem bridges the gap between academic learning and industry expectations. Through immersive workshops and career transformation programs, students are molded into industry-ready professionals.
               </Typography>
-              <Typography sx={{ color: "#475569", lineHeight: 1.8, fontSize: "1.05rem", mb: 4 }}>
+              <Typography sx={{  lineHeight: 1.8, fontSize: "1.05rem", mb: 4 }}>
                 Combining expertise in cutting-edge software practices with a passion for mentorship, the mission is to create learning experiences that don't just teach skills, but build lasting careers and foster transformative student outcomes.
               </Typography>
 
@@ -437,7 +435,7 @@ export default function FounderSection() {
               <Box sx={{ mt: 2 }}>
                 <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 3 }}>
                   <TimelineRoundedIcon sx={{ color: "#6366f1" }} />
-                  <Typography variant="h6" sx={{ fontWeight: 800, color: "#0f172a" }}>
+                  <Typography variant="h6" sx={{  color: "#0f172a" }}>
                     Impact Journey
                   </Typography>
                 </Stack>
