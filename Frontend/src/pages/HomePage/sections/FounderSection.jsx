@@ -22,9 +22,8 @@ import TimelineRoundedIcon from "@mui/icons-material/TimelineRounded";
 
 import img1 from "./cofounder.jpeg";
 import img2 from "./IMG-20260619-WA0036.jpg";
-import img3 from "./IMG-20260619-WA0010.jpg";
 
-const ceoImages = [img1, img2, img3];
+const ceoImages = [img1, img2];
 
 const FloatingCard = ({ icon, text, top, left, right, bottom, delay }) => {
   return (
