@@ -10,22 +10,22 @@ const TESTIMONIALS = [
   {
     name: "Mohammed Azhar",
     role: "Computer Science Student",
-    review: "The workshops helped me understand how technology is actually used in companies. The practical sessions were far more valuable than regular classroom learning."
+    review: "The hands-on AWS Cloud and DevOps workshops completely bridged the gap between academic theory and industry reality. Building robust cloud architectures was a game-changer for me."
   },
   {
     name: "K. Rahul",
-    role: "Final Year Student",
-    review: "The CRT sessions improved my aptitude and communication skills significantly. I became much more confident while attending interviews."
+    role: "First Year Student",
+    review: "Learning AI Tools and AI Prompt Engineering early on gave me a massive head start. It changed how I approach problem-solving and made complex technology feel incredibly accessible."
   },
   {
     name: "Sheikh Zubair",
-    role: "Aspiring Software Engineer",
-    review: "Mentorship sessions gave me clarity on what skills I should focus on. The guidance helped me build a clear learning roadmap."
+    role: "Aspiring ML Engineer",
+    review: "The Machine Learning mentorship provided deep clarity on building scalable models. The guidance helped me transition from simple scripts to professional, industry-standard AI solutions."
   },
   {
     name: "Pavan Kumar",
-    role: "Workshop Participant",
-    review: "The learning environment feels professional and structured. Every session had practical value and actionable takeaways."
+    role: "ECE Student",
+    review: "The specialized training in IoT, Embedded Systems, and VLSI was highly professional. Every hardware integration session delivered practical value that standard classrooms simply can't match."
   }
 ];
 
@@ -167,7 +167,7 @@ export default function LearnerOutcomesSection() {
                         mb: 4,
                         flexGrow: 1,
                         display: "-webkit-box",
-                        WebkitLineClamp: 4,
+                        WebkitLineClamp: 5,
                         WebkitBoxOrient: "vertical",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
