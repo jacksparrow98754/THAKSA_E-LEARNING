@@ -24,15 +24,14 @@ const staggerContainer = {
 const GlassCard = ({ children, sx }) => (
   <Box
     sx={{
-      background: "rgba(255, 255, 255, 0.7)",
-      backdropFilter: "blur(16px)",
-      borderRadius: "24px",
-      border: "1px solid rgba(255, 255, 255, 0.8)",
-      boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
+      background: "#ffffff",
+      borderRadius: "16px",
+      border: "none",
+      boxShadow: "0 10px 30px -10px rgba(15, 23, 42, 0.08)",
       transition: "transform 0.4s ease, box-shadow 0.4s ease",
       "&:hover": {
-                      transform: "translateY(-6px)",
-                      boxShadow: "0 12px 30px rgba(15, 23, 42, 0.1)",
+        transform: "translateY(-6px)",
+        boxShadow: "0 20px 40px -10px rgba(15, 23, 42, 0.15)",
       },
       ...sx,
     }}
@@ -72,7 +71,7 @@ export default function LeadershipTeamSection() {
   return (
     <Box
       sx={{
-        py: { xs: 10, md: 15 },
+        py: { xs: 10, md: 16 },
         position: "relative",
         bgcolor: "#e2e8f0", // Slightly darker gray background to match the template
         overflow: "hidden",
@@ -113,9 +112,9 @@ export default function LeadershipTeamSection() {
             <motion.div variants={fadeInUp}>
               <Typography
                 sx={{
-                  bgcolor: "rgba(15, 23, 42, 0.05)",
-
-
+                  color: "#6366f1",
+                  fontWeight: 700,
+                  fontSize: "0.875rem",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   mb: 2,
@@ -133,9 +132,11 @@ export default function LeadershipTeamSection() {
               <Typography
                 variant="h2"
                 sx={{
-
-
+                  fontWeight: 600,
+                  color: "#0f172a",
                   mb: 3,
+                  fontFamily: "'Sora', sans-serif",
+                  fontSize: { xs: "2.5rem", md: "3.5rem" },
                   lineHeight: 1.2,
                 }}
               >
@@ -145,8 +146,8 @@ export default function LeadershipTeamSection() {
             <motion.div variants={fadeInUp}>
               <Typography
                 sx={{
-
-
+                  color: "#64748b",
+                  fontSize: { xs: "1rem", md: "1.25rem" },
                   maxWidth: "800px",
                   mx: "auto",
                   lineHeight: 1.6,
@@ -256,53 +257,50 @@ export default function LeadershipTeamSection() {
                         fontSize: "2.5rem",
                         fontWeight: 700,
                       }}
-                    />
-                    <Box sx={{ position: "absolute", bottom: 24, left: 24, right: 24 }}>
-                      <Typography variant="h3" sx={{ color: "#fff", mb: 0.5 }}>
-                        {leader.name}
-                      </Typography>
-                      <Stack direction="row" alignItems="center" spacing={1} flexWrap="wrap" useFlexGap>
-                         <Typography sx={{ color: "#a5b4fc",  fontSize: "1rem" }}>
-                           {leader.role}
-                         </Typography>
-                         {leader.location && (
-                           <>
-                             <Typography sx={{ color: "#fff", opacity: 0.5 }}>•</Typography>
-                             <Typography sx={{ color: "#e2e8f0", fontSize: "0.85rem",  }}>
-                               {leader.location}
-                             </Typography>
-                           </>
-                         )}
-                      </Stack>
-                    </Box>
-                  </Box>
+                    >
+                      MR
+                    </Avatar>
+                   </Box>
+                </Box>
 
-                  <Box sx={{ p: { xs: 3, md: 4 }, flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                    <Typography sx={{   fontSize: "1.1rem", mb: 3, lineHeight: 1.4 }}>
-                      {leader.headline}
-                    </Typography>
-                    <Typography sx={{  lineHeight: 1.7, mb: 6, flexGrow: 1 }}>
-                      {leader.description}
-                    </Typography>
+                <Typography variant="h5" sx={{ color: "#1e293b", fontWeight: 500, mb: 2, fontFamily: "'Sora', sans-serif" }}>
+                  Dr. Madhukar Reddy
+                </Typography>
 
-                    <Box>
-                      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 3 }}>
-                        {leader.tags.map((tag) => (
-                          <Chip
-                            key={tag}
-                            label={tag}
-                            size="small"
-                            sx={{
-                              bgcolor: "rgba(99,102,241,0.08)",
-                              color: "#4f46e5",
+                <Typography sx={{ color: "#0f172a", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
+                  Head of Business Operations • California, USA
+                </Typography>
 
-                              fontSize: "0.75rem",
-                              borderRadius: "24px",
-                              mb: 1
-                            }}
-                          />
-                        ))}
-                      </Stack>
+                <Typography sx={{ color: "#0ea5e9", fontWeight: 600, fontSize: "0.95rem", textAlign: "center", mb: 2 }}>
+                  Driving Global Industry Perspective And Strategic Growth
+                </Typography>
+
+                <Typography sx={{ color: "#64748b", fontStyle: "italic", textAlign: "center", fontSize: "0.85rem", lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
+                  Experienced business and technology leader with expertise spanning cybersecurity, enterprise operations, and strategic business growth. Provides global industry insights and operational direction to ensure ThaksaAi remains aligned with evolving workforce demands.
+                </Typography>
+
+                <Box sx={{ width: "100%", mt: 2, mb: 3, borderTop: "1px solid rgba(0,0,0,0.05)", pt: 3 }}>
+                  <Typography sx={{ color: "#0f172a", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mb: 2, textAlign: "left" }}>
+                    Professional Highlights:
+                  </Typography>
+                  <Stack direction="row" flexWrap="wrap" gap={1}>
+                    {["Cybersecurity", "Enterprise Technology", "Business Operations", "Global Leadership", "Strategic Planning", "Industry Transformation"].map((skill) => (
+                      <Box key={skill} sx={{ bgcolor: "rgba(14,165,233,0.05)", color: "#0ea5e9", px: 1.5, py: 0.5, borderRadius: "4px", fontSize: "0.75rem", fontWeight: 600 }}>
+                        {skill}
+                      </Box>
+                    ))}
+                  </Stack>
+                  <Typography sx={{ color: "#0f172a", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mt: 3, mb: 2, textAlign: "left" }}>
+                    Former Experience:
+                  </Typography>
+                  <Stack direction="row" flexWrap="wrap" gap={1}>
+                    {["IBM", "John Deere", "Global Technology Ecosystem"].map((skill) => (
+                      <Box key={skill} sx={{ bgcolor: "rgba(0,0,0,0.03)", color: "#64748b", px: 1.5, py: 0.5, borderRadius: "4px", fontSize: "0.75rem", fontWeight: 600 }}>
+                        {skill}
+                      </Box>
+                    ))}
+                  </Stack>
+                </Box>
 
                 <Stack direction="row" spacing={1} mt="auto">
                    <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
@@ -322,42 +320,32 @@ export default function LeadershipTeamSection() {
 
         {/* Trust Bar */}
         <Box sx={{ mt: { xs: 10, md: 14 } }}>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-            <Typography textAlign="center" sx={{ color: "#64748b",  fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em", mb: 4 }}>
-              Supported by a network of
-            </Typography>
-            <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={{ xs: 2, md: 3 }}>
-              {credibilityBadges.map((badge) => (
-                <motion.div
-                  key={badge}
-                  whileHover={{ y: -3 }}
-                  style={{ display: "flex" }}
-                >
-                  <Box
-                    sx={{
-                      px: { xs: 2, md: 3 },
-                      py: 1.5,
-                      bgcolor: "#f8fafc",
-                      borderRadius: "100px",
-                      border: "1px solid #e2e8f0",
-                      color: "#334155",
-
-
-                      boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
-                      transition: "all 0.2s ease",
-                      "&:hover": {
-                        bgcolor: "#ffffff",
-                        borderColor: "#cbd5e1",
-                        boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
-                        color: "#0f172a"
-                      }
-                    }}
-                  >
-                    {badge}
-                  </Box>
-                </motion.div>
-              ))}
-            </Stack>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeInUp}>
+             <Box
+                sx={{
+                  background: "rgba(255,255,255,0.7)",
+                  backdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  borderRadius: "24px",
+                  py: 4,
+                  px: { xs: 3, md: 6 },
+                  boxShadow: "0 10px 30px -10px rgba(15, 23, 42, 0.05)",
+                }}
+             >
+                <Typography sx={{ color: "#64748b", fontSize: "0.85rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", textAlign: "center", mb: 3 }}>
+                   Guided By Experts In
+                </Typography>
+                <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={{ xs: 2, md: 4 }}>
+                   {["Industry Mentors", "Business Leaders", "Technology Experts", "Career Coaches", "Workshop Facilitators", "CRT Specialists"].map((badge) => (
+                      <Box key={badge} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                         <Box sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#6366f1" }} />
+                         <Typography sx={{ color: "#1e293b", fontWeight: 600, fontSize: { xs: "0.9rem", md: "1rem" } }}>
+                            {badge}
+                         </Typography>
+                      </Box>
+                   ))}
+                </Stack>
+             </Box>
           </motion.div>
         </Box>
 
