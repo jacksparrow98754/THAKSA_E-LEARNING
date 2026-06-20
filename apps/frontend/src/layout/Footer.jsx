@@ -112,7 +112,7 @@ export default function Footer() {
                 <Box
                   component="img"
                   src={logo}
-                  alt="ThaksaAi Logo"
+                  alt="THAKSA.AI Logo"
                   sx={{
                     width: 42,
                     height: 42,
@@ -123,7 +123,7 @@ export default function Footer() {
                 />
                 <Stack>
                   <Typography variant="h3" sx={{ fontWeight: 800, color: "#0F172A", lineHeight: 1.2 }}>
-                    THAKSAai
+                    THAKSA.AI
                   </Typography>
                   <Typography variant="subtitle2" sx={{ color: "#64748B" }}>
                     Career Planet
@@ -216,7 +216,7 @@ export default function Footer() {
           }}
         >
           <Typography sx={{ color: "#64748b", fontSize: "0.9rem", fontWeight: 500 }}>
-            © {new Date().getFullYear()} THAKSAai. All rights reserved.
+            © {new Date().getFullYear()} THAKSA.AI. All rights reserved.
           </Typography>
           <Stack direction="row" spacing={3}>
             <MuiLink href="#" underline="none" sx={{ color: "#94a3b8", fontSize: "0.85rem", "&:hover": { color: "#0f172a" } }}>

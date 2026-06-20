@@ -266,7 +266,7 @@ export default function LeadershipTeamSection() {
                 </Typography>
 
                 <Typography sx={{ color: "rgba(255,255,255,0.7)", fontStyle: "italic", textAlign: "center", fontSize: "0.85rem", lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
-                  Experienced business and technology leader with expertise spanning cybersecurity, enterprise operations, and strategic business growth. Provides global industry insights and operational direction to ensure ThaksaAi remains aligned with evolving workforce demands.
+                  Experienced business and technology leader with expertise spanning cybersecurity, enterprise operations, and strategic business growth. Provides global industry insights and operational direction to ensure THAKSA.AI remains aligned with evolving workforce demands.
                 </Typography>
 
                 <Box sx={{ width: "100%", mt: 2, mb: 3, borderTop: "1px solid rgba(0,0,0,0.05)", pt: 3 }}>
