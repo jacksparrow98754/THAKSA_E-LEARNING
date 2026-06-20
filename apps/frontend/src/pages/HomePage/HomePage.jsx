@@ -15,11 +15,9 @@ export default function HomePage() {
     >
       <HeroSection />
       <VisualProofSection />
-      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 }, px: { xs: 2, md: 3 } }}>
-        <FounderSection />
-        <LeadershipTeamSection />
-        <TestimonialsSection />
-      </Container>
+      <FounderSection />
+      <LeadershipTeamSection />
+      <TestimonialsSection />
     </Box>
   );
 }
