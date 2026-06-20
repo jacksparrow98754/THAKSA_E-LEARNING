@@ -7,6 +7,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
+/* eslint-disable-next-line no-unused-vars */
 import { motion, AnimatePresence } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";

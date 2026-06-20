@@ -1,6 +1,7 @@
 import { Box, Container } from "@mui/material";
 import HeroSection from "./sections/HeroSection";
-import VisualProofSection from "./sections/VisualProofSection";
+import TrustEcosystemSection from "./sections/TrustEcosystemSection";
+import ProgramsSection from "./sections/ProgramsSection";
 import FeaturesSection from "./sections/FeaturesSection";
 import TestimonialsSection from "./sections/TestimonialsSection";
 import FounderSection from "./sections/FounderSection";
@@ -15,7 +16,8 @@ export default function HomePage() {
       }}
     >
       <HeroSection />
-      <VisualProofSection />
+      <TrustEcosystemSection />
+      <ProgramsSection />
       <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 }, px: { xs: 2, md: 3 } }}>
         <FeaturesSection />
         <FounderSection />
