@@ -163,7 +163,7 @@ export default function LeadershipTeamSection() {
         {/* Executive Cards Grid */}
         <Grid container spacing={{ xs: 4, md: 6 }} justifyContent="center">
           {/* Executive Card 01 */}
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -225,7 +225,7 @@ export default function LeadershipTeamSection() {
           </Grid>
 
           {/* Executive Card 02 */}
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial="hidden"
               whileInView="visible"

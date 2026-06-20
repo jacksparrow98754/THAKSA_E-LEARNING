@@ -36,6 +36,7 @@ export default function StorytellingComponent() {
         transition: "all 0.8s ease 0.3s",
         display: "flex",
         flexDirection: "column",
+        height: "100%",
       }}
     >
       {/* Decorative Dashboard Header (macOS window style) */}

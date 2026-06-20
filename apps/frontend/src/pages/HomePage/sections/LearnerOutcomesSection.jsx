@@ -118,7 +118,7 @@ export default function LearnerOutcomesSection() {
           <Box ref={metricsRef}>
             <Grid container spacing={3} justifyContent="center">
               {METRICS.map((metric, index) => (
-                <Grid item size={{ xs: 6, md: 2.4 }} key={index}>
+                <Grid size={{ xs: 6, md: 2.4 }} key={index}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={metricsInView ? { opacity: 1, y: 0 } : {}}
@@ -171,7 +171,7 @@ export default function LearnerOutcomesSection() {
           {/* Outcome Cards Grid */}
           <Grid container spacing={3}>
             {OUTCOME_CARDS.map((card, index) => (
-              <Grid item size={{ xs: 12, md: card.size }} key={index}>
+              <Grid size={{ xs: 12, md: card.size }} key={index}>
                 <MotionPaper
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
