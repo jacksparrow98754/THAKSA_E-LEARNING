@@ -62,7 +62,7 @@ export default function AdminLayout() {
           fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
         }}
       >
-        ThaksaAi Admin
+        THAKSA.AI Admin
       </Typography>
 
       <List sx={{ p: 0 }}>

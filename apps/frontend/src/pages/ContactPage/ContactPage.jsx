@@ -176,7 +176,7 @@ export default function ContactPage() {
                   </Typography>
                   <Button
                     component="a"
-                    href="https://wa.me/919494808669?text=Hi%20ThaksaAi%2C%20I%20need%20training%20guidance."
+                    href="https://wa.me/919494808669?text=Hi%20THAKSA.AI%2C%20I%20need%20training%20guidance."
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="contained"

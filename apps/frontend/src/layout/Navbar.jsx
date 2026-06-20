@@ -143,7 +143,7 @@ export default function Navbar() {
             <Box
               component="img"
               src={brandLogo}
-              alt="ThaksaAi Logo"
+              alt="THAKSA.AI Logo"
               sx={{
                 width: { xs: 36, md: 42 },
                 height: { xs: 36, md: 42 },
@@ -165,7 +165,7 @@ export default function Navbar() {
                 WebkitTextFillColor: isHomePage && !scrolled ? "initial" : "transparent",
               }}
             >
-              THAKSAai
+              THAKSA.AI
             </Typography>
           </Box>
 
@@ -325,7 +325,7 @@ export default function Navbar() {
               <Box
                 component="img"
                 src={brandLogo}
-                alt="ThaksaAi Logo"
+                alt="THAKSA.AI Logo"
                 sx={{
                   width: 36,
                   height: 36,
@@ -342,7 +342,7 @@ export default function Navbar() {
                   fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 }}
               >
-                THAKSAai
+                THAKSA.AI
               </Typography>
             </Box>
             <IconButton
