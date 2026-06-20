@@ -11,22 +11,32 @@ const TESTIMONIALS = [
   {
     name: "Mohammed Azhar",
     role: "Computer Science Student",
-    review: "The workshops helped me understand how technology is actually used in companies. The practical sessions were far more valuable than regular classroom learning."
+    review: "The AWS Cloud and DevOps workshop helped me understand how modern applications are deployed and managed in real-world environments. Concepts like EC2, S3, CI/CD pipelines, Docker, and cloud infrastructure became much easier to understand through the practical demonstrations. As a student, this gave me valuable exposure to industry technologies that are rarely covered in traditional academics."
   },
   {
     name: "K. Rahul",
     role: "Final Year Student",
-    review: "The CRT sessions improved my aptitude and communication skills significantly. I became much more confident while attending interviews."
+    review: "The Machine Learning sessions provided a strong foundation in data-driven problem solving. The trainers explained complex concepts such as model training, feature engineering, and predictive analytics in a simple and practical manner. Working on hands-on examples helped me gain confidence in applying machine learning techniques to real-world scenarios."
   },
   {
     name: "Sheikh Zubair",
     role: "Aspiring Software Engineer",
-    review: "Mentorship sessions gave me clarity on what skills I should focus on. The guidance helped me build a clear learning roadmap."
+    review: "As a first-year student, I was amazed by how AI tools can improve productivity, learning, and creativity. The Prompt Engineering workshop taught us how to communicate effectively with AI systems and use them for research, coding, content creation, and problem-solving. This session completely changed the way I look at technology and future careers."
   },
   {
     name: "Pavan Kumar",
     role: "Workshop Participant",
     review: "The learning environment feels professional and structured. Every session had practical value and actionable takeaways."
+  },
+  {
+    name: "Mohammed Farooq",
+    role: "Engineering student",
+    review: "Before attending the workshop, cloud computing and DevOps seemed complicated. The trainers broke down every concept with real-world examples and practical use cases. Learning about cloud deployment, automation, and modern development workflows gave me a much clearer understanding of how technology teams operate in the industry."
+  },
+  {
+    name: "Ayesha Fathima",
+    role: "Computer Science student",
+    review: "The AI and Machine Learning program was highly engaging and future-focused. From understanding AI tools to exploring machine learning applications, every session was designed to build practical knowledge. The hands-on approach made learning enjoyable and motivated me to pursue advanced skills in AI technologies."
   }
 ];
 
