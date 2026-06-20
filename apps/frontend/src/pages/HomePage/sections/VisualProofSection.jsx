@@ -218,7 +218,7 @@ export default function VisualProofSection() {
 
             <Grid container spacing={4} justifyContent="center">
               {stats.map((stat, index) => (
-                <Grid item xs={6} sm={3} key={index}>
+                <Grid size={{ xs: 6, sm: 3 }} key={index}>
                   <Stack alignItems="center" spacing={1}>
                     <Typography
                       variant="h3"

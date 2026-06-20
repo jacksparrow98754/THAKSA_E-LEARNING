@@ -260,7 +260,7 @@ export default function HeroSection() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        pt: { xs: 6, sm: 8, md: 9 },
+        pt: { xs: "90px", sm: "104px", md: "112px" },
         pb: { xs: 5, md: 9 },
       }}
     >
@@ -329,7 +329,7 @@ export default function HeroSection() {
               }}
             >
               <AutoAwesomeRoundedIcon sx={{ fontSize: 14, color: "#a5b4fc" }} />
-              <Typography sx={{ fontSize: "14px", color: "#cbd5e1", letterSpacing: "0.02em" }}>
+              <Typography sx={{ fontSize: "clamp(0.75rem, 1.8vw, 0.95rem)", color: "#cbd5e1", letterSpacing: "0.02em" }}>
                 1000+ Students Trained • 40+ Workshops Conducted
               </Typography>
             </Box>
@@ -344,7 +344,7 @@ export default function HeroSection() {
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.1s",
                 fontWeight: 800,
-                fontSize: { xs: "34px", sm: "38px", md: "48px", lg: "64px" },
+                fontSize: "clamp(2.2rem, 6vw, 4rem)",
                 lineHeight: 1.05,
                 display: "-webkit-box",
                 WebkitLineClamp: 3,
@@ -370,7 +370,7 @@ export default function HeroSection() {
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.2s",
-                fontSize: { xs: "16px", lg: "18px" },
+                fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
               }}
             >
               Industry-led workshops, Campus Recruitment Training (CRT), mentorship, and project-based learning designed to help students become job-ready with confidence.
@@ -399,7 +399,7 @@ export default function HeroSection() {
                   color: "#fff",
                   fontWeight: 600,
                   px: 4,
-                  width: { xs: "100%", sm: "auto" },
+                  width: { xs: "100%", sm: "220px" },
                   textTransform: "none",
                   fontSize: "16px",
                   "&:hover": {
@@ -423,7 +423,7 @@ export default function HeroSection() {
                   color: "#fff",
                   fontWeight: 600,
                   px: 4,
-                  width: { xs: "100%", sm: "auto" },
+                  width: { xs: "100%", sm: "220px" },
                   textTransform: "none",
                   fontSize: "16px",
                   background: "rgba(255, 255, 255, 0.05)",
@@ -460,7 +460,7 @@ export default function HeroSection() {
                     <Typography sx={{ fontSize: "24px", fontWeight: 700, color: "#fff", lineHeight: 1.2, mb: 0.5 }}>
                       {item.value}
                     </Typography>
-                    <Typography sx={{ fontSize: "12px", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: { xs: "center", lg: "left" } }}>
+                    <Typography sx={{ fontSize: "clamp(0.85rem, 2vw, 1rem)", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: { xs: "center", lg: "left" } }}>
                       {item.label}
                     </Typography>
                   </Grid>

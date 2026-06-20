@@ -101,52 +101,15 @@ export default function LearnerOutcomesSection() {
             </motion.div>
           </Box>
 
-          {/* Testimonial Carousel Container */}
-          <Box sx={{ position: "relative" }}>
-            <Box
-              ref={scrollRef}
-              sx={{
-                display: "flex",
-                overflowX: "auto",
-                scrollSnapType: "x mandatory",
-                scrollbarWidth: "none", // Firefox
-                "&::-webkit-scrollbar": { display: "none" }, // Safari/Chrome
-                gap: { xs: 2, md: 3 },
-                pb: 2, // Space for shadow
-                mx: { xs: -2, sm: 0 }, // Negative margin on mobile for edge-to-edge scrolling
-                px: { xs: 2, sm: 0 },
-              }}
-            >
-              {TESTIMONIALS.map((testimonial, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    flex: {
-                      xs: "0 0 100%", // 1 card on mobile
-                      sm: "0 0 calc(50% - 12px)", // 2 cards on tablet
-                      md: "0 0 calc(33.333% - 16px)" // 3 cards on desktop
-                    },
-                    scrollSnapAlign: "center",
-                    display: "flex",
-                  }}
-                >
-                  <Paper
-                    elevation={0}
-                    sx={{
-                      p: "32px",
-                      borderRadius: "24px",
-                      background: "rgba(15, 23, 42, 0.7)",
-                      border: "1px solid rgba(255, 255, 255, 0.08)",
-                      backdropFilter: "blur(20px)",
-                      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-                      display: "flex",
-                      flexDirection: "column",
-                      width: "100%",
-                      transition: "transform 0.2s ease-in-out",
-                      "&:hover": {
-                        transform: "scale(1.02)",
-                      }
-                    }}
+          {/* Metrics Bar */}
+          <Box ref={metricsRef}>
+            <Grid container spacing={3} justifyContent="center">
+              {METRICS.map((metric, index) => (
+                <Grid size={{ xs: 6, md: 2.4 }} key={index}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={metricsInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     {/* Top Row: Quote Icon & Stars */}
                     <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
@@ -202,41 +165,82 @@ export default function LearnerOutcomesSection() {
               ))}
             </Box>
 
-            {/* Navigation Controls */}
-            <Stack
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-              sx={{ mt: 4 }}
-            >
-              <IconButton
-                onClick={() => scroll("left")}
-                sx={{
-                  background: "rgba(255, 255, 255, 0.05)",
-                  color: "white",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  "&:hover": {
-                    background: "rgba(255, 255, 255, 0.1)",
-                  },
-                }}
-              >
-                <ArrowBackIosNewIcon fontSize="small" />
-              </IconButton>
-              <IconButton
-                onClick={() => scroll("right")}
-                sx={{
-                  background: "rgba(255, 255, 255, 0.05)",
-                  color: "white",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  "&:hover": {
-                    background: "rgba(255, 255, 255, 0.1)",
-                  },
-                }}
-              >
-                <ArrowForwardIosIcon fontSize="small" />
-              </IconButton>
-            </Stack>
-          </Box>
+          {/* Outcome Cards Grid */}
+          <Grid container spacing={3}>
+            {OUTCOME_CARDS.map((card, index) => (
+              <Grid size={{ xs: 12, md: card.size }} key={index}>
+                <MotionPaper
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  elevation={0}
+                  sx={{
+                    p: { xs: 4, md: 5 },
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    background: "rgba(255, 255, 255, 0.03)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    borderRadius: "24px",
+                    position: "relative",
+                    overflow: "hidden",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: "4px",
+                      background: "linear-gradient(90deg, rgba(59, 130, 246, 0.5), rgba(147, 51, 234, 0.5))",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                    },
+                    "&:hover::before": {
+                      opacity: 1,
+                    },
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "rgba(255, 255, 255, 0.5)",
+                      fontSize: "0.875rem",
+                      fontWeight: 600,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                      mb: 2,
+                    }}
+                  >
+                    {card.type}
+                  </Typography>
+                  <Typography
+                    variant="h3"
+                    sx={{
+                      color: "white",
+                      fontSize: { xs: "1.5rem", md: "1.75rem" },
+                      fontWeight: 700,
+                      mb: 3,
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {card.headline}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "rgba(255, 255, 255, 0.7)",
+                      fontSize: "1rem",
+                      lineHeight: 1.7,
+                      mt: "auto",
+                    }}
+                  >
+                    {card.story}
+                  </Typography>
+                </MotionPaper>
+              </Grid>
+            ))}
+          </Grid>
 
           {/* Trust Booster */}
           <Box sx={{ textAlign: "center" }}>
