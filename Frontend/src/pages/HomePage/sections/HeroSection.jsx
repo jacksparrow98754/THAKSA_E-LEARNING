@@ -260,8 +260,8 @@ export default function HeroSection() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        pt: { xs: 10, md: 15 },
-        pb: { xs: 10, md: 15 },
+        pt: { xs: 10, sm: 12, md: 15 },
+        pb: { xs: 8, md: 15 },
       }}
     >
       {/* Background Video */}
@@ -283,12 +283,22 @@ export default function HeroSection() {
         <source src="/VID-20260619-WA0002.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark overlay for readability (target ~20% video visibility) */}
+      {/* Dark overlay for readability (target ~15-20% video visibility) */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(180deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.75) 50%, rgba(15,23,42,0.65) 100%)",
+          background: "rgba(15, 23, 42, 0.85)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
+      {/* Radial Gradient Overlay for focus */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          background: "radial-gradient(circle at center, transparent 0%, rgba(15, 23, 42, 0.8) 100%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
@@ -306,8 +316,8 @@ export default function HeroSection() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 1,
-                bgcolor: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                bgcolor: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: "24px",
                 px: 2,
                 py: 0.75,
@@ -318,9 +328,9 @@ export default function HeroSection() {
                 backdropFilter: "blur(12px)",
               }}
             >
-              <AutoAwesomeRoundedIcon sx={{ fontSize: 16, color: "#a5b4fc" }} />
-              <Typography sx={{  fontSize: "0.75rem", color: "#cbd5e1", letterSpacing: "0.02em" }}>
-                THAKSAai Career Planet — From Campus to Career
+              <AutoAwesomeRoundedIcon sx={{ fontSize: 14, color: "#a5b4fc" }} />
+              <Typography sx={{ fontSize: "14px", color: "#cbd5e1", letterSpacing: "0.02em" }}>
+                1000+ Students Trained • 40+ Workshops Conducted
               </Typography>
             </Box>
 
@@ -333,52 +343,38 @@ export default function HeroSection() {
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.1s",
+                fontWeight: 800,
+                fontSize: { xs: "34px", sm: "38px", md: "48px", lg: "64px" },
+                lineHeight: 1.05,
+                display: "-webkit-box",
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
               }}
             >
-              Build Skills Companies <br />
-              <Box
-                component="span"
-                sx={{
-                  color: "#a5b4fc",
-                  position: "relative",
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: "8%",
-                    left: 0,
-                    right: 0,
-                    height: "8%",
-                    background: "rgba(165,180,252,0.15)",
-                    borderRadius: "2px",
-                    zIndex: -1,
-                  }
-                }}
-              >
-                Actually Hire For
-              </Box>
+              Learn Industry Skills.{" "}
+              <Box component="span" sx={{ color: "#a5b4fc" }}>
+                Build Real Projects.
+              </Box>{" "}
+              Launch Your Career.
             </Typography>
 
             {/* Sub-headline / Description */}
             <Typography
               sx={{
-
                 color: "#94a3b8",
-                maxWidth: 540, mx: { xs: "auto", lg: 0 },
-                lineHeight: 1.6,
-                mb: 6,
+                maxWidth: "650px",
+                mx: { xs: "auto", lg: 0 },
+                lineHeight: 1.7,
+                mb: { xs: 4, md: 6 },
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.2s",
-
+                fontSize: { xs: "16px", lg: "18px" },
               }}
             >
-              Transform your career trajectory with our industry-led Campus Recruitment Training (CRT), hands-on workshops, and premium placement support.
+              Industry-led workshops, Campus Recruitment Training (CRT), mentorship, and project-based learning designed to help students become job-ready with confidence.
             </Typography>
-
-            {/* Mobile Storytelling Placement */}
-            <Box sx={{ display: { xs: 'block', lg: 'none' }, mb: 6, textAlign: 'left' }}>
-              <StorytellingComponent />
-            </Box>
 
             {/* CTAs */}
             <Stack
@@ -386,46 +382,95 @@ export default function HeroSection() {
               spacing={2}
               justifyContent={{ xs: "center", lg: "flex-start" }}
               sx={{
-                mb: { xs: 4, md: 6 },
+                mb: { xs: 6, md: 8 },
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.3s",
               }}
             >
-              <Button variant="contained" color="primary" size="large" onClick={() => navigate("/workshops")} aria-label="Explore Workshops" sx={{ width: { xs: "100%", sm: "auto" } }}>
+              <Button
+                variant="contained"
+                onClick={() => navigate("/workshops")}
+                aria-label="Explore Workshops"
+                sx={{
+                  height: "52px",
+                  borderRadius: "14px",
+                  bgcolor: "#6366F1",
+                  color: "#fff",
+                  fontWeight: 600,
+                  px: 4,
+                  width: { xs: "100%", sm: "auto" },
+                  textTransform: "none",
+                  fontSize: "16px",
+                  "&:hover": {
+                    bgcolor: "#4f46e5",
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 8px 20px rgba(99, 102, 241, 0.4)",
+                  },
+                  transition: "all 0.2s ease-in-out",
+                }}
+              >
                 Explore Workshops
               </Button>
-              <Button variant="outlined" color="primary" size="large" onClick={() => navigate("/contact")} aria-label="Contact Us" sx={{ width: { xs: "100%", sm: "auto" } }}>
+              <Button
+                variant="outlined"
+                onClick={() => navigate("/contact")}
+                aria-label="Contact Us"
+                sx={{
+                  height: "52px",
+                  borderRadius: "14px",
+                  borderColor: "rgba(255, 255, 255, 0.3)",
+                  color: "#fff",
+                  fontWeight: 600,
+                  px: 4,
+                  width: { xs: "100%", sm: "auto" },
+                  textTransform: "none",
+                  fontSize: "16px",
+                  background: "rgba(255, 255, 255, 0.05)",
+                  backdropFilter: "blur(10px)",
+                  "&:hover": {
+                    borderColor: "#fff",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    transform: "translateY(-2px)",
+                  },
+                  transition: "all 0.2s ease-in-out",
+                }}
+              >
                 Contact Us
               </Button>
             </Stack>
 
-            {/* Trust Indicators */}
+            {/* Trust Indicators (Metrics) */}
             <Box
               sx={{
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.4s",
+                mb: { xs: 6, lg: 0 },
               }}
             >
-              <Typography sx={{ fontSize: "0.85rem",  color: "#94a3b8", mb: 3, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                Core Pillars
-              </Typography>
-              <Grid container spacing={2} justifyContent={{ xs: "center", lg: "flex-start" }}>
+              <Grid container spacing={3} justifyContent={{ xs: "center", lg: "flex-start" }}>
                 {[
-                  { text: "Campus Recruitment Training", icon: <AutoAwesomeRoundedIcon sx={{ fontSize: 18 }} /> },
-                  { text: "Industry Workshops", icon: <GroupsRoundedIcon sx={{ fontSize: 18 }} /> },
-                  { text: "Interview Preparation", icon: <HandshakeRoundedIcon sx={{ fontSize: 18 }} /> },
-                  { text: "Career Readiness", icon: <BusinessCenterRoundedIcon sx={{ fontSize: 18 }} /> }
+                  { value: "1000+", label: "Students Trained" },
+                  { value: "40+", label: "Workshops Conducted" },
+                  { value: "50+", label: "CRT Programs" },
+                  { value: "500+", label: "Mentorship Sessions" }
                 ].map((item, idx) => (
-                  <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx} sx={{ display: "flex", justifyContent: "center" }}>
-                    <Stack direction="row" alignItems="center" spacing={1} sx={{ color: "#e2e8f0" }}>
-                      <Box sx={{ display: "flex", color: "#818cf8" }}>{item.icon}</Box>
-                      <Typography sx={{ fontSize: "0.85rem",  lineHeight: 1.2 }}>{item.text}</Typography>
-                    </Stack>
+                  <Grid size={{ xs: 6, sm: 6, md: 3 }} key={idx} sx={{ display: "flex", flexDirection: "column", alignItems: { xs: "center", lg: "flex-start" } }}>
+                    <Typography sx={{ fontSize: "24px", fontWeight: 700, color: "#fff", lineHeight: 1.2, mb: 0.5 }}>
+                      {item.value}
+                    </Typography>
+                    <Typography sx={{ fontSize: "12px", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.05em", textAlign: { xs: "center", lg: "left" } }}>
+                      {item.label}
+                    </Typography>
                   </Grid>
                 ))}
               </Grid>
+            </Box>
+
+            {/* Mobile Storytelling Placement (Moved below metrics) */}
+            <Box sx={{ display: { xs: 'block', lg: 'none' }, mt: 2, textAlign: 'left', width: "100%", maxWidth: "400px", mx: "auto" }}>
+              <StorytellingComponent />
             </Box>
           </Grid>
 
