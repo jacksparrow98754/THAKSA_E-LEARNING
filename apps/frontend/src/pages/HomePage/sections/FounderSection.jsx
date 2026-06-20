@@ -7,7 +7,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-/* eslint-disable-next-line no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
@@ -58,7 +58,7 @@ const AnimatedMetric = ({ end, suffix, label }) => {
 
   return (
     <Box ref={ref}>
-      <Typography sx={{ color: "#0f172a", fontWeight: 800, fontSize: "1.75rem", mb: -0.5 }}>
+      <Typography sx={{ color: "#ffffff", fontWeight: 800, fontSize: "1.75rem", mb: -0.5 }}>
         {inView ? <CountUp end={end} duration={2.5} /> : "0"}
         {suffix}
       </Typography>
@@ -77,7 +77,7 @@ export default function FounderSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % ceoImages.length);
-    }, 4000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -100,7 +100,7 @@ export default function FounderSection() {
         variant="h2"
         sx={{
           fontWeight: 800,
-          color: "#0f172a",
+          color: "#ffffff",
           mb: 1.5,
           fontSize: { xs: "36px", md: "48px", lg: "56px" },
           lineHeight: 1.1,
@@ -161,7 +161,7 @@ export default function FounderSection() {
   );
 
   return (
-    <Box sx={{ bgcolor: "#ffffff", overflow: "hidden", position: "relative" }}>
+    <Box sx={{ bgcolor: "#0B1120", overflow: "hidden", position: "relative" }}>
       <Grid container sx={{ minHeight: { md: "85vh" } }}>
 
         {/* LEFT COLUMN */}

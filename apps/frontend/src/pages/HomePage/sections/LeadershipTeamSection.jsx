@@ -24,9 +24,10 @@ const staggerContainer = {
 const GlassCard = ({ children, sx }) => (
   <Box
     sx={{
-      background: "#ffffff",
+        background: "rgba(255,255,255,0.04)",
+        backdropFilter: "blur(20px)",
       borderRadius: "16px",
-      border: "none",
+        border: "1px solid rgba(255,255,255,0.08)",
       boxShadow: "0 10px 30px -10px rgba(15, 23, 42, 0.08)",
       transition: "transform 0.4s ease, box-shadow 0.4s ease",
       "&:hover": {
@@ -73,7 +74,7 @@ export default function LeadershipTeamSection() {
       sx={{
         py: { xs: 10, md: 16 },
         position: "relative",
-        bgcolor: "#e2e8f0", // Slightly darker gray background to match the template
+        bgcolor: "#0B1120",
         overflow: "hidden",
       }}
     >
@@ -133,7 +134,7 @@ export default function LeadershipTeamSection() {
                 variant="h2"
                 sx={{
                   fontWeight: 600,
-                  color: "#0f172a",
+          color: "#ffffff",
                   mb: 3,
                   fontFamily: "'Sora', sans-serif",
                   fontSize: { xs: "2.5rem", md: "3.5rem" },
@@ -190,11 +191,11 @@ export default function LeadershipTeamSection() {
                    </Box>
                 </Box>
 
-                <Typography variant="h5" sx={{ color: "#1e293b", fontWeight: 500, mb: 2, fontFamily: "'Sora', sans-serif" }}>
+                <Typography variant="h5" sx={{ color: "#ffffff", fontWeight: 500, mb: 2, fontFamily: "'Sora', sans-serif" }}>
                   P. Sadavisha
                 </Typography>
 
-                <Typography sx={{ color: "#0f172a", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
+                <Typography sx={{ color: "#ffffff", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
                   Business Dev Associate
                 </Typography>
 
@@ -202,12 +203,12 @@ export default function LeadershipTeamSection() {
                   Building Industry Connections For Student Growth
                 </Typography>
 
-                <Typography sx={{ color: "#64748b", fontStyle: "italic", textAlign: "center", fontSize: "0.85rem", lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
+                <Typography sx={{ color: "rgba(255,255,255,0.7)", fontStyle: "italic", textAlign: "center", fontSize: "0.85rem", lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
                   Focused on strengthening industry partnerships, student outreach initiatives, workshop coordination, and opportunity creation. Plays a key role in connecting learners with meaningful career pathways and professional development opportunities.
                 </Typography>
 
                 <Box sx={{ width: "100%", mt: 2, mb: 3, borderTop: "1px solid rgba(0,0,0,0.05)", pt: 3 }}>
-                  <Typography sx={{ color: "#0f172a", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mb: 2, textAlign: "left" }}>
+                  <Typography sx={{ color: "#ffffff", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mb: 2, textAlign: "left" }}>
                     Expertise Areas:
                   </Typography>
                   <Stack direction="row" flexWrap="wrap" gap={1}>
@@ -219,17 +220,6 @@ export default function LeadershipTeamSection() {
                   </Stack>
                 </Box>
 
-                <Stack direction="row" spacing={1} mt="auto">
-                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
-                      <LinkedInIcon fontSize="small" />
-                   </IconButton>
-                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
-                      <TwitterIcon fontSize="small" />
-                   </IconButton>
-                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
-                      <EmailIcon fontSize="small" />
-                   </IconButton>
-                </Stack>
               </GlassCard>
             </motion.div>
           </Grid>
@@ -263,11 +253,11 @@ export default function LeadershipTeamSection() {
                    </Box>
                 </Box>
 
-                <Typography variant="h5" sx={{ color: "#1e293b", fontWeight: 500, mb: 2, fontFamily: "'Sora', sans-serif" }}>
+                <Typography variant="h5" sx={{ color: "#ffffff", fontWeight: 500, mb: 2, fontFamily: "'Sora', sans-serif" }}>
                   Dr. Madhukar Reddy
                 </Typography>
 
-                <Typography sx={{ color: "#0f172a", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
+                <Typography sx={{ color: "#ffffff", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", mb: 2 }}>
                   Head of Business Operations • California, USA
                 </Typography>
 
@@ -275,12 +265,12 @@ export default function LeadershipTeamSection() {
                   Driving Global Industry Perspective And Strategic Growth
                 </Typography>
 
-                <Typography sx={{ color: "#64748b", fontStyle: "italic", textAlign: "center", fontSize: "0.85rem", lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
+                <Typography sx={{ color: "rgba(255,255,255,0.7)", fontStyle: "italic", textAlign: "center", fontSize: "0.85rem", lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
                   Experienced business and technology leader with expertise spanning cybersecurity, enterprise operations, and strategic business growth. Provides global industry insights and operational direction to ensure ThaksaAi remains aligned with evolving workforce demands.
                 </Typography>
 
                 <Box sx={{ width: "100%", mt: 2, mb: 3, borderTop: "1px solid rgba(0,0,0,0.05)", pt: 3 }}>
-                  <Typography sx={{ color: "#0f172a", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mb: 2, textAlign: "left" }}>
+                  <Typography sx={{ color: "#ffffff", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mb: 2, textAlign: "left" }}>
                     Professional Highlights:
                   </Typography>
                   <Stack direction="row" flexWrap="wrap" gap={1}>
@@ -290,7 +280,7 @@ export default function LeadershipTeamSection() {
                       </Box>
                     ))}
                   </Stack>
-                  <Typography sx={{ color: "#0f172a", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mt: 3, mb: 2, textAlign: "left" }}>
+                  <Typography sx={{ color: "#ffffff", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", mt: 3, mb: 2, textAlign: "left" }}>
                     Former Experience:
                   </Typography>
                   <Stack direction="row" flexWrap="wrap" gap={1}>
@@ -302,17 +292,6 @@ export default function LeadershipTeamSection() {
                   </Stack>
                 </Box>
 
-                <Stack direction="row" spacing={1} mt="auto">
-                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
-                      <LinkedInIcon fontSize="small" />
-                   </IconButton>
-                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
-                      <TwitterIcon fontSize="small" />
-                   </IconButton>
-                   <IconButton size="small" sx={{ color: "#0f172a", "&:hover": { color: "#6366f1" } }}>
-                      <EmailIcon fontSize="small" />
-                   </IconButton>
-                </Stack>
               </GlassCard>
             </motion.div>
           </Grid>
@@ -323,9 +302,9 @@ export default function LeadershipTeamSection() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeInUp}>
              <Box
                 sx={{
-                  background: "rgba(255,255,255,0.7)",
+                  background: "rgba(255,255,255,0.04)",
                   backdropFilter: "blur(10px)",
-                  border: "1px solid rgba(255,255,255,0.3)",
+                  border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "24px",
                   py: 4,
                   px: { xs: 3, md: 6 },
@@ -339,7 +318,7 @@ export default function LeadershipTeamSection() {
                    {["Industry Mentors", "Business Leaders", "Technology Experts", "Career Coaches", "Workshop Facilitators", "CRT Specialists"].map((badge) => (
                       <Box key={badge} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                          <Box sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#6366f1" }} />
-                         <Typography sx={{ color: "#1e293b", fontWeight: 600, fontSize: { xs: "0.9rem", md: "1rem" } }}>
+                         <Typography sx={{ color: "#ffffff", fontWeight: 600, fontSize: { xs: "0.9rem", md: "1rem" } }}>
                             {badge}
                          </Typography>
                       </Box>
