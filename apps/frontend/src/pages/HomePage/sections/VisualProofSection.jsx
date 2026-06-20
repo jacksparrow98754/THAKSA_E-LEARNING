@@ -77,7 +77,7 @@ const MarqueeRow = ({ images, direction, duration, title }) => {
               width: { xs: 240, md: 360 },
               height: { xs: 160, md: 240 },
               mx: { xs: 1, md: 2 },
-              borderRadius: "20px",
+              borderRadius: "24px",
               overflow: "hidden",
               position: "relative",
               boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
@@ -88,7 +88,7 @@ const MarqueeRow = ({ images, direction, duration, title }) => {
               border: "1px solid rgba(255,255,255,0.08)",
               p: 1,
               "&:hover": {
-                transform: "scale(1.05)",
+                transform: "scale(1.03)",
                 zIndex: 10,
                 opacity: "1 !important",
                 boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
@@ -104,7 +104,7 @@ const MarqueeRow = ({ images, direction, duration, title }) => {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                borderRadius: "16px",
+                borderRadius: "24px",
               }}
             />
           </Box>
@@ -125,7 +125,7 @@ export default function VisualProofSection() {
       py: { xs: 8, md: 12 },
       overflow: "hidden",
       position: "relative",
-      background: "linear-gradient(180deg, #0B1120 0%, #111827 50%, #0F172A 100%)",
+      background: "linear-gradient(180deg, #071224 0%, #0B1120 50%, #111827 100%)",
       color: "white"
     }}>
       {/* Visual Depth Lights/Gradients */}
@@ -149,7 +149,7 @@ export default function VisualProofSection() {
           left: 0,
           width: { xs: "50px", md: "150px" },
           height: "100%",
-          background: "linear-gradient(to right, #0B1120 0%, transparent 100%)",
+          background: "linear-gradient(to right, #071224 0%, transparent 100%)",
           zIndex: 5,
           pointerEvents: "none",
         }}
@@ -161,7 +161,7 @@ export default function VisualProofSection() {
           right: 0,
           width: { xs: "50px", md: "150px" },
           height: "100%",
-          background: "linear-gradient(to left, #0F172A 0%, transparent 100%)",
+          background: "linear-gradient(to left, #071224 0%, transparent 100%)",
           zIndex: 5,
           pointerEvents: "none",
         }}
@@ -189,13 +189,12 @@ export default function VisualProofSection() {
           color="rgba(255,255,255,0.75)"
           sx={{ maxWidth: "700px", mx: "auto", fontWeight: 400 }}
         >
-          See how students participate in workshops, CRT programs, mentorship sessions, and
-          practical learning experiences designed to build career-ready skills.
+          Explore real workshops, CRT sessions, mentorship programs, and hands-on learning experiences that prepare students for industry careers.
         </Typography>
       </Container>
 
       <Box sx={{ position: "relative", zIndex: 1 }}>
-        <MarqueeRow images={workshopImages} direction="left-to-right" duration={60} title="Industry Workshops" />
+        <MarqueeRow images={workshopImages} direction="left-to-right" duration={70} title="Industry Workshops" />
 
         {/* Center Trust Panel */}
         <Container maxWidth="lg" sx={{ my: { xs: 6, md: 8 }, position: "relative", zIndex: 10 }} ref={ref}>
@@ -243,7 +242,7 @@ export default function VisualProofSection() {
           </Box>
         </Container>
 
-        <MarqueeRow images={crtImages} direction="right-to-left" duration={70} title="CRT Training Sessions" />
+        <MarqueeRow images={crtImages} direction="right-to-left" duration={80} title="CRT Training Sessions" />
       </Box>
     </Box>
   );
