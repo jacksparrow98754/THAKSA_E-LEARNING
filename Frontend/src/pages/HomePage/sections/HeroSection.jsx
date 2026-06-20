@@ -260,8 +260,8 @@ export default function HeroSection() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        pt: { xs: 10, sm: 12, md: 15 },
-        pb: { xs: 8, md: 15 },
+        pt: { xs: 6, sm: 8, md: 9 },
+        pb: { xs: 5, md: 9 },
       }}
     >
       {/* Background Video */}

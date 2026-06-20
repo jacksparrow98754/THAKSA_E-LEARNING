@@ -195,7 +195,7 @@ export default function VisualProofSection() {
       </Container>
 
       <Box sx={{ position: "relative", zIndex: 1 }}>
-        <MarqueeRow images={workshopImages} direction="left-to-right" duration={22} title="Industry Workshops" />
+        <MarqueeRow images={workshopImages} direction="left-to-right" duration={60} title="Industry Workshops" />
 
         {/* Center Trust Panel */}
         <Container maxWidth="lg" sx={{ my: { xs: 6, md: 8 }, position: "relative", zIndex: 10 }} ref={ref}>
@@ -243,7 +243,7 @@ export default function VisualProofSection() {
           </Box>
         </Container>
 
-        <MarqueeRow images={crtImages} direction="right-to-left" duration={25} title="CRT Training Sessions" />
+        <MarqueeRow images={crtImages} direction="right-to-left" duration={70} title="CRT Training Sessions" />
       </Box>
     </Box>
   );
