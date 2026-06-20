@@ -1,5 +1,4 @@
 import { Box, Container, Typography, IconButton, Stack, Paper } from "@mui/material";
-import { motion } from "framer-motion";
 import { useRef } from "react";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -34,8 +33,8 @@ export default function LearnerOutcomesSection() {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const { clientWidth, scrollLeft } = scrollRef.current;
-      const scrollAmount = clientWidth; // Scroll by one full view width
+      const { scrollLeft } = scrollRef.current;
+      const scrollAmount = 374;
       scrollRef.current.scrollTo({
         left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
         behavior: "smooth"
@@ -55,61 +54,112 @@ export default function LearnerOutcomesSection() {
       <Container maxWidth="lg">
         <Stack spacing={{ xs: 6, md: 8 }}>
           {/* Header Section */}
-          <Box sx={{ textAlign: "center", maxWidth: "800px", mx: "auto" }}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Typography
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'flex-end' }, gap: 4 }}>
+            <Box sx={{ maxWidth: "600px" }}>
+              <div
+              >
+                <Typography
+                  sx={{
+                    color: "#60A5FA",
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    mb: 2,
+                  }}
+                >
+                  TESTIMONIALS
+                </Typography>
+                <Typography
+                  variant="h2"
+                  sx={{
+                    color: "white",
+
+                    fontWeight: 800,
+                    lineHeight: 1.1,
+                    mb: 3,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  Trusted by Students Across Programs
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "rgba(255, 255, 255, 0.7)",
+                    fontSize: { xs: "1.1rem", md: "1.25rem" },
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Experiences shared by learners who participated in workshops, mentorship programs, and career readiness training.
+                </Typography>
+              </div>
+            </Box>
+
+            {/* Navigation Controls */}
+            <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <IconButton
+                onClick={() => scroll("left")}
                 sx={{
-                  color: "#60A5FA",
-                  fontSize: "0.875rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  mb: 2,
+                  color: 'white',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  '&:hover': { background: 'rgba(255,255,255,0.1)' }
                 }}
               >
-                TESTIMONIALS
-              </Typography>
-              <Typography
-                variant="h2"
+                <ArrowBackIosNewIcon fontSize="small" />
+              </IconButton>
+              <IconButton
+                onClick={() => scroll("right")}
                 sx={{
-                  color: "white",
-                  fontSize: { xs: "2.5rem", md: "3.5rem" },
-                  fontWeight: 800,
-                  lineHeight: 1.1,
-                  mb: 3,
-                  letterSpacing: "-0.02em",
+                  color: 'white',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  '&:hover': { background: 'rgba(255,255,255,0.1)' }
                 }}
               >
-                Trusted by Students Across Workshops & CRT Programs
-              </Typography>
-              <Typography
-                sx={{
-                  color: "rgba(255, 255, 255, 0.7)",
-                  fontSize: { xs: "1.1rem", md: "1.25rem" },
-                  lineHeight: 1.6,
-                  maxWidth: "700px",
-                  mx: "auto",
-                }}
-              >
-                Experiences shared by learners who participated in workshops, mentorship programs, and career readiness training.
-              </Typography>
-            </motion.div>
+                <ArrowForwardIosIcon fontSize="small" />
+              </IconButton>
+            </Stack>
           </Box>
 
-          {/* Metrics Bar */}
-          <Box ref={metricsRef}>
-            <Grid container spacing={3} justifyContent="center">
-              {METRICS.map((metric, index) => (
-                <Grid size={{ xs: 6, md: 2.4 }} key={index}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={metricsInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+          {/* Testimonials Carousel */}
+          <Box
+            ref={scrollRef}
+            sx={{
+              display: 'flex',
+              gap: 3,
+              overflowX: 'auto',
+              scrollSnapType: 'x mandatory',
+              scrollbarWidth: 'none', // Firefox
+              '&::-webkit-scrollbar': { display: 'none' }, // Chrome
+              pb: 2, // padding for shadow/hover effects
+            }}
+          >
+            {TESTIMONIALS.map((testimonial, index) => (
+              <Box
+                key={index}
+                sx={{
+                  minWidth: { xs: "85vw", sm: "350px" },
+                  scrollSnapAlign: "start",
+                }}
+              >
+                <div
+                  style={{ height: '100%' }}
+                >
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      p: 4,
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      background: "rgba(255, 255, 255, 0.04)",
+                      backdropFilter: "blur(20px)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
+                      borderRadius: "24px",
+                      transition: "transform 0.3s ease",
+                      "&:hover": {
+                        transform: "scale(1.03)",
+                      }
+                    }}
                   >
                     {/* Top Row: Quote Icon & Stars */}
                     <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
@@ -129,11 +179,6 @@ export default function LearnerOutcomesSection() {
                         lineHeight: 1.6,
                         mb: 4,
                         flexGrow: 1,
-                        display: "-webkit-box",
-                        WebkitLineClamp: 4,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
                       }}
                     >
                       "{testimonial.review}"
@@ -144,12 +189,12 @@ export default function LearnerOutcomesSection() {
                       <Typography
                         sx={{
                           color: "white",
-                          fontSize: "18px",
+                          fontSize: "1.1rem",
                           fontWeight: 600,
                           mb: 0.5,
                         }}
                       >
-                        — {testimonial.name}
+                        {testimonial.name}
                       </Typography>
                       <Typography
                         sx={{
@@ -161,94 +206,36 @@ export default function LearnerOutcomesSection() {
                       </Typography>
                     </Box>
                   </Paper>
-                </Box>
-              ))}
-            </Box>
-
-          {/* Outcome Cards Grid */}
-          <Grid container spacing={3}>
-            {OUTCOME_CARDS.map((card, index) => (
-              <Grid size={{ xs: 12, md: card.size }} key={index}>
-                <MotionPaper
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  elevation={0}
-                  sx={{
-                    p: { xs: 4, md: 5 },
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    background: "rgba(255, 255, 255, 0.03)",
-                    backdropFilter: "blur(20px)",
-                    border: "1px solid rgba(255, 255, 255, 0.08)",
-                    borderRadius: "24px",
-                    position: "relative",
-                    overflow: "hidden",
-                    "&::before": {
-                      content: '""',
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: "4px",
-                      background: "linear-gradient(90deg, rgba(59, 130, 246, 0.5), rgba(147, 51, 234, 0.5))",
-                      opacity: 0,
-                      transition: "opacity 0.3s ease",
-                    },
-                    "&:hover::before": {
-                      opacity: 1,
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      color: "rgba(255, 255, 255, 0.5)",
-                      fontSize: "0.875rem",
-                      fontWeight: 600,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                      mb: 2,
-                    }}
-                  >
-                    {card.type}
-                  </Typography>
-                  <Typography
-                    variant="h3"
-                    sx={{
-                      color: "white",
-                      fontSize: { xs: "1.5rem", md: "1.75rem" },
-                      fontWeight: 700,
-                      mb: 3,
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {card.headline}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "rgba(255, 255, 255, 0.7)",
-                      fontSize: "1rem",
-                      lineHeight: 1.7,
-                      mt: "auto",
-                    }}
-                  >
-                    {card.story}
-                  </Typography>
-                </MotionPaper>
-              </Grid>
+                </div>
+              </Box>
             ))}
-          </Grid>
+          </Box>
+
+          {/* Mobile Navigation Controls */}
+          <Stack direction="row" spacing={2} justifyContent="center" sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              onClick={() => scroll("left")}
+              sx={{
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.2)',
+              }}
+            >
+              <ArrowBackIosNewIcon fontSize="small" />
+            </IconButton>
+            <IconButton
+              onClick={() => scroll("right")}
+              sx={{
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.2)',
+              }}
+            >
+              <ArrowForwardIosIcon fontSize="small" />
+            </IconButton>
+          </Stack>
 
           {/* Trust Booster */}
-          <Box sx={{ textAlign: "center" }}>
-             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+          <Box sx={{ textAlign: "center", mt: 4 }}>
+             <div
             >
               <Stack direction="row" spacing={1} justifyContent="center" alignItems="center" mb={1}>
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -261,7 +248,7 @@ export default function LearnerOutcomesSection() {
               <Typography sx={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "0.9rem" }}>
                 Based on workshop, mentorship, and CRT participant feedback.
               </Typography>
-            </motion.div>
+            </div>
           </Box>
 
         </Stack>

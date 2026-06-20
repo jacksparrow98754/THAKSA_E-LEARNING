@@ -158,7 +158,7 @@ export default function Navbar() {
                 fontWeight: 800,
                 fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.45rem" },
                 letterSpacing: "-0.03em",
-                fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+
                 color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
                 background: isHomePage && !scrolled ? "none" : "linear-gradient(90deg, #0f172a 0%, #334155 100%)",
                 WebkitBackgroundClip: isHomePage && !scrolled ? "none" : "text",
@@ -339,7 +339,7 @@ export default function Navbar() {
                   fontWeight: 800,
                   fontSize: { xs: "1.1rem", sm: "1.3rem" },
                   color: "#0f172a",
-                  fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+
                 }}
               >
                 THAKSAai

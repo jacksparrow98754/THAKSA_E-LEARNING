@@ -102,7 +102,7 @@ export default function ContactPage() {
             sx={{
               fontWeight: 900,
               color: "#0f172a",
-              fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+
               fontSize: { xs: "1.9rem", md: "2.5rem" },
             }}
           >

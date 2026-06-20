@@ -86,7 +86,7 @@ export default function TrustEcosystemSection() {
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "30px", md: "42px" },
+
               fontWeight: 700,
               color: "#F8FAFC",
               mb: 3,
