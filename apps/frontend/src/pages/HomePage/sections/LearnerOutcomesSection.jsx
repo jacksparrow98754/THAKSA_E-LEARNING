@@ -148,7 +148,7 @@ export default function LearnerOutcomesSection() {
                   '&:hover': { background: 'rgba(255,255,255,0.1)' }
                 }}
               >
-                <ArrowBackIosNewIcon fontSize="small" />
+                <ArrowBackIosNewRoundedIcon fontSize="small" />
               </IconButton>
               <IconButton
                 onClick={() => scroll("right")}
@@ -158,7 +158,7 @@ export default function LearnerOutcomesSection() {
                   '&:hover': { background: 'rgba(255,255,255,0.1)' }
                 }}
               >
-                <ArrowForwardIosIcon fontSize="small" />
+                <ArrowForwardIosRoundedIcon fontSize="small" />
               </IconButton>
             </Stack>
           </Box>
