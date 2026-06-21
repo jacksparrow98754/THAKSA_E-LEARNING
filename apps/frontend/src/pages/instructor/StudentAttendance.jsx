@@ -59,12 +59,12 @@ export default function StudentAttendance() {
     }, [showToast]);
 
     useEffect(() => {
-        loadBatches().catch(console.error);
+        loadBatches();
     }, [loadBatches]);
 
     useEffect(() => {
         if (selectedBatchId) {
-            loadAttendance(selectedBatchId).catch(console.error);
+            loadAttendance(selectedBatchId);
         } else {
             setAttendanceData([]);
         }

@@ -82,12 +82,12 @@ export default function ManageCourseContent() {
     }, [showToast]);
 
     useEffect(() => {
-        loadCourses().catch(console.error);
+        loadCourses();
     }, [loadCourses]);
 
     useEffect(() => {
         if (selectedCourseId) {
-            loadModules(selectedCourseId).catch(console.error);
+            loadModules(selectedCourseId);
         } else {
             setModules([]);
             setLessons({});
@@ -125,7 +125,7 @@ export default function ManageCourseContent() {
                 showToast("Module updated successfully", "success");
             }
             handleCloseModuleDialog();
-            await loadModules(selectedCourseId).catch(console.error);
+            await loadModules(selectedCourseId);
         } catch (err) {
             showToast(err?.response?.data?.message || "Failed to save module", "error");
         }
@@ -139,7 +139,7 @@ export default function ManageCourseContent() {
         try {
             await deleteInstructorModule(moduleId);
             showToast("Module deleted successfully", "success");
-            await loadModules(selectedCourseId).catch(console.error);
+            await loadModules(selectedCourseId);
         } catch (err) {
             showToast(err?.response?.data?.message || "Failed to delete module", "error");
         }
@@ -188,7 +188,7 @@ export default function ManageCourseContent() {
                 showToast("Lesson updated successfully", "success");
             }
             handleCloseLessonDialog();
-            await loadModules(selectedCourseId).catch(console.error);
+            await loadModules(selectedCourseId);
         } catch (err) {
             showToast(err?.response?.data?.message || "Failed to save lesson", "error");
         }
@@ -202,7 +202,7 @@ export default function ManageCourseContent() {
         try {
             await deleteInstructorLesson(lessonId);
             showToast("Lesson deleted successfully", "success");
-            await loadModules(selectedCourseId).catch(console.error);
+            await loadModules(selectedCourseId);
         } catch (err) {
             showToast(err?.response?.data?.message || "Failed to delete lesson", "error");
         }

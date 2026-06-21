@@ -78,7 +78,8 @@ export default function CourseLearning() {
   }, [courseId, currentLesson, showToast]);
 
   useEffect(() => {
-    loadContent().catch(console.error);
+    loadContent();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [courseId]);
 
   const handleMarkComplete = async (lessonId) => {

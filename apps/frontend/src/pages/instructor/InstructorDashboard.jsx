@@ -55,7 +55,7 @@ export default function InstructorDashboard() {
   }, []);
 
   useEffect(() => {
-    fetchStats().catch(console.error);
+    fetchStats();
     const intervalId = setInterval(() => fetchStats(true), 20000);
     const onFocus = () => fetchStats(true);
     window.addEventListener("focus", onFocus);

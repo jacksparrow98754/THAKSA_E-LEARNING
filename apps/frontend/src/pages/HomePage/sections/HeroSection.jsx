@@ -351,7 +351,7 @@ export default function HeroSection() {
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.1s",
                 fontWeight: 800,
-
+                fontSize: "clamp(2.2rem, 6vw, 4rem)",
                 lineHeight: 1.05,
                 display: "-webkit-box",
                 WebkitLineClamp: 3,
@@ -377,7 +377,7 @@ export default function HeroSection() {
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",
                 transition: "all 0.6s ease 0.2s",
-
+                fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
               }}
             >
               Industry-led workshops, Campus Recruitment Training (CRT), mentorship, and project-based learning designed to help students become job-ready with confidence.
@@ -509,7 +509,7 @@ export default function HeroSection() {
               mb: 3,
             }}
           >
-            ⚡ OUR LEARNING ECOSYSTEM
+            ⚡ Explore Our Programmes
           </Typography>
           <Grid
             container

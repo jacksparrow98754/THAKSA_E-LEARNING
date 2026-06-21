@@ -109,7 +109,7 @@ export default function PlacementsPage() {
                 fontSize: { xs: "2.1rem", md: "3.4rem" },
                 color: "#0f172a",
                 lineHeight: 1.1,
-
+                fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
               }}
             >
               Placements
@@ -186,7 +186,7 @@ export default function PlacementsPage() {
                   fontWeight: 900,
                   fontSize: { xs: "1.8rem", md: "2.5rem" },
                   color: "#0f172a",
-
+                  fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
                 }}
               >
                 Ready to Start?

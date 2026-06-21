@@ -51,14 +51,14 @@ export default function ViewAttendance() {
   };
 
   useEffect(() => {
-    fetchAttendance().catch(console.error);
+    fetchAttendance();
   }, []);
 
   const handleMarkAttendance = async (sessionId) => {
     setMarking(sessionId);
     try {
       await markSessionAttendance(sessionId);
-      await fetchAttendance().catch(console.error);
+      await fetchAttendance();
     } catch (err) {
       console.error("Failed to mark attendance", err);
     } finally {

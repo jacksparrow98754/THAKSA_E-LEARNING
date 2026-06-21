@@ -118,7 +118,6 @@ export default function Footer() {
               >
                 <Box
                   component="img"
-                  loading="lazy"
                   src={logo}
                   alt="THAKSA.AI Logo"
                   sx={{
