@@ -115,7 +115,7 @@ export default function Navbar() {
         position={isFixedNav ? "fixed" : "static"}
         elevation={0}
         sx={{
-          bgcolor: scrolled ? "rgba(5, 10, 25, 0.85)" : "transparent",
+          bgcolor: scrolled ? "rgba(5, 10, 25, 0.85)" : (isWorkshopPage ? "#020817" : "transparent"),
           backdropFilter: scrolled ? "blur(20px)" : "blur(10px)",
           borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
           transition: "all 300ms ease",
