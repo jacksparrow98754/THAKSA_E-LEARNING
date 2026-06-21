@@ -42,52 +42,29 @@ function FooterLink({ label, to }) {
   );
 }
 
-function ContactCard({ icon, primary, secondary, tertiary, href }) {
+function ContactRow({ icon, primary, secondary, href }) {
   const content = (
     <Box
       sx={{
-        background: "white",
-        border: "1px solid #E2E8F0",
-        borderRadius: "18px",
-        p: 2,
         display: "flex",
         alignItems: "flex-start",
-        gap: 2,
-        transition: "all 0.3s ease",
+        gap: 1.5,
+        transition: "all 0.2s ease",
         "&:hover": {
-          boxShadow: "0px 10px 25px rgba(15, 23, 42, 0.05)",
-          transform: "translateY(-2px)",
-          borderColor: "#cbd5e1",
+          transform: href ? "translateX(4px)" : "none",
         }
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: 40,
-          height: 40,
-          borderRadius: "12px",
-          background: "linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%)",
-          color: "#6366F1",
-          flexShrink: 0,
-        }}
-      >
+      <Box sx={{ color: "#64748B", mt: "2px" }}>
         {icon}
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
-        <Typography sx={{ fontSize: "15px", fontWeight: 600, color: "#0F172A", lineHeight: 1.2 }}>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <Typography sx={{ fontSize: "15px", fontWeight: 500, color: "#475569", transition: "color 0.2s ease" }}>
           {primary}
         </Typography>
         {secondary && (
-          <Typography sx={{ fontSize: "14px", color: "#64748B", lineHeight: 1.4 }}>
+          <Typography sx={{ fontSize: "13px", color: "#94A3B8", mt: 0.5 }}>
             {secondary}
-          </Typography>
-        )}
-        {tertiary && (
-          <Typography sx={{ fontSize: "14px", color: "#64748B", lineHeight: 1.4 }}>
-            {tertiary}
           </Typography>
         )}
       </Box>
@@ -95,7 +72,7 @@ function ContactCard({ icon, primary, secondary, tertiary, href }) {
   );
 
   return href ? (
-    <MuiLink href={href} underline="none" sx={{ display: "block" }}>
+    <MuiLink href={href} underline="none" sx={{ display: "block", "&:hover .MuiTypography-root": { color: "#0F172A" } }}>
       {content}
     </MuiLink>
   ) : (
@@ -120,7 +97,7 @@ export default function Footer() {
           position: "relative",
           bgcolor: "#F8FAFC",
           overflow: "hidden",
-          pb: { xs: 4, md: 6 },
+          pb: { xs: 2, md: 4 },
         }}
       >
         {/* Subtle radial gradients & light glass highlights */}
@@ -140,7 +117,7 @@ export default function Footer() {
           <Grid container spacing={{ xs: 6, md: 4 }}>
             {/* Column 1: Brand Info */}
             <Grid size={{ xs: 12, md: 4 }}>
-              <Stack spacing={4}>
+              <Stack spacing={4} sx={{ maxWidth: "420px" }}>
                 <Box>
                   <Box
                     component={RouterLink}
@@ -190,44 +167,28 @@ export default function Footer() {
                     </Stack>
                   </Box>
 
-                  {/* Micro Brand Positioning */}
-                  <Box sx={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    padding: "6px 12px",
-                    background: "rgba(99, 102, 241, 0.04)",
-                    border: "1px solid rgba(99, 102, 241, 0.15)",
-                    borderRadius: "20px",
-                    mb: 3
-                  }}>
-                    <Typography sx={{ fontSize: "13px", fontWeight: 500, color: "#475569" }}>
-                      Powered by Industry Mentorship & Practical Learning
-                    </Typography>
-                  </Box>
-
                   <Typography sx={{
                     fontFamily: "'Inter', sans-serif",
                     fontSize: "15px",
                     lineHeight: 1.8,
                     color: "#64748B",
-                    maxWidth: "320px"
                   }}>
-                    Empowering students through Campus Recruitment Training, industry workshops, career development programs, and placement readiness initiatives.
+                    Industry-led workshops, CRT programs, and career readiness experiences for engineering students.
                   </Typography>
                 </Box>
 
                 <Stack direction="row" spacing={2}>
                   {[
                     { Icon: LinkedInIcon, href: "#" },
-                    { Icon: TwitterIcon, href: "#" },
-                    { Icon: InstagramIcon, href: "#" }
+                    { Icon: InstagramIcon, href: "#" },
+                    { Icon: EmailRoundedIcon, href: "mailto:thaksaai@gmail.com" }
                   ].map((item, idx) => (
                     <IconButton
                       key={idx}
                       component="a"
                       href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={item.href.startsWith("mailto") ? "_self" : "_blank"}
+                      rel={item.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                       sx={{
                         width: 44,
                         height: 44,
@@ -239,8 +200,9 @@ export default function Footer() {
                         "&:hover": {
                           bgcolor: "white",
                           color: "#A855F7",
-                          borderColor: "#A855F7",
-                          boxShadow: "0 0 12px rgba(168, 85, 247, 0.2)",
+                          borderColor: "rgba(99,102,241,0.3)",
+                          background: "linear-gradient(135deg, rgba(99,102,241,0.08), rgba(59,130,246,0.06), rgba(16,185,129,0.04))",
+                          boxShadow: "0 4px 12px rgba(168, 85, 247, 0.15)",
                           transform: "translateY(-3px)"
                         }
                       }}
@@ -307,60 +269,79 @@ export default function Footer() {
                 }}>
                   Get in Touch
                 </Typography>
-                <Stack spacing={2}>
-                  <ContactCard
-                    icon={<EmailRoundedIcon />}
+                <Stack spacing={2.5}>
+                  <ContactRow
+                    icon={<EmailRoundedIcon fontSize="small" />}
                     primary="thaksaai@gmail.com"
                     href="mailto:thaksaai@gmail.com"
                   />
-                  <ContactCard
-                    icon={<PhoneRoundedIcon />}
+                  <ContactRow
+                    icon={<PhoneRoundedIcon fontSize="small" />}
                     primary="+91 94948 08669"
                     href="tel:+919494808669"
                   />
-                  <ContactCard
-                    icon={<LocationOnRoundedIcon />}
-                    primary="Hyderabad, Telangana"
+                  <ContactRow
+                    icon={<LocationOnRoundedIcon fontSize="small" />}
+                    primary="Gachibowli, Hyderabad"
                     secondary="Gachibowli Technology District"
-                    tertiary="Near Gachibowli Flyover"
-                    href="https://maps.google.com/?q=Gachibowli+Flyover,+Hyderabad"
                   />
                 </Stack>
               </Stack>
             </Grid>
           </Grid>
 
-          {/* Bottom Bar */}
+          {/* Credibility Bar */}
           <Box
             sx={{
-              mt: { xs: 8, md: 10 },
+              mt: { xs: 4, md: 6 },
               pt: 4,
               borderTop: "1px solid rgba(15,23,42,0.08)",
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               alignItems: "center",
-              flexDirection: { xs: "column", md: "row" },
-              gap: { xs: 3, md: 0 },
+            }}
+          >
+            <Typography sx={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "12px",
+              fontWeight: 600,
+              color: "#94A3B8",
+              textTransform: "uppercase",
+              letterSpacing: "0.15em",
+              textAlign: "center"
+            }}>
+              Industry Workshops • CRT Programs • Career Readiness
+            </Typography>
+          </Box>
+
+          {/* Bottom Bar */}
+          <Box
+            sx={{
+              mt: 4,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              gap: 2,
             }}
           >
             <Stack
-              direction={{ xs: "column", md: "row" }}
-              spacing={{ xs: 1, md: 3 }}
+              direction="column"
+              spacing={0.5}
               alignItems="center"
             >
-              <Typography sx={{ color: "#64748B", fontSize: "14px", fontWeight: 500, fontFamily: "'Inter', sans-serif" }}>
+              <Typography sx={{ color: "#0F172A", fontSize: "14px", fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
                 © 2026 THAKSA.AI
               </Typography>
-              <Box sx={{ display: { xs: "none", md: "block" }, width: "4px", height: "4px", borderRadius: "50%", bgcolor: "#CBD5E1" }} />
-              <Typography sx={{ color: "#64748B", fontSize: "14px", fontWeight: 500, fontFamily: "'Inter', sans-serif" }}>
+              <Typography sx={{ color: "#64748B", fontSize: "14px", fontWeight: 400, fontFamily: "'Inter', sans-serif" }}>
                 Built for Career Transformation
               </Typography>
             </Stack>
 
-            <Stack direction="row" spacing={4} alignItems="center">
+            <Stack direction="row" spacing={3} alignItems="center">
               <MuiLink href="#" underline="none" sx={{
-                color: "#64748B",
-                fontSize: "14px",
+                color: "#94A3B8",
+                fontSize: "13px",
                 fontWeight: 500,
                 fontFamily: "'Inter', sans-serif",
                 transition: "color 0.2s ease",
@@ -369,8 +350,8 @@ export default function Footer() {
                 Privacy Policy
               </MuiLink>
               <MuiLink href="#" underline="none" sx={{
-                color: "#64748B",
-                fontSize: "14px",
+                color: "#94A3B8",
+                fontSize: "13px",
                 fontWeight: 500,
                 fontFamily: "'Inter', sans-serif",
                 transition: "color 0.2s ease",

@@ -1,17 +1,10 @@
-import { Box, Container, Typography, Stack, Grid } from "@mui/material";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
-import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
-import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
-import MenuBookRoundedIcon from "@mui/icons-material/MenuBookRounded";
-import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
-import LightbulbRoundedIcon from "@mui/icons-material/LightbulbRounded";
+import { Box, Container, Typography, Chip } from "@mui/material";
 
-const METRICS = [
-  { value: "1000+", label: "Students Trained", icon: <PeopleAltRoundedIcon fontSize="small" /> },
-  { value: "50+", label: "Career Programs", icon: <MenuBookRoundedIcon fontSize="small" /> },
-  { value: "40+", label: "Workshops Conducted", icon: <EventAvailableRoundedIcon fontSize="small" /> },
-  { value: "500+", label: "Mentorship Sessions", icon: <LightbulbRoundedIcon fontSize="small" /> },
+const CHIPS = [
+  "📍 Gachibowli, Hyderabad",
+  "🏢 Jyothi Imperial",
+  "🎓 Career Learning Hub",
+  "🕒 Workshops & CRT Programs",
 ];
 
 export default function LearningHubSection() {
@@ -32,194 +25,135 @@ export default function LearningHubSection() {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "120%",
-          height: "120%",
-          background: "radial-gradient(circle, rgba(30, 58, 138, 0.15) 0%, rgba(2, 6, 23, 0) 70%)",
+          width: "100%",
+          height: "100%",
+          background: "radial-gradient(circle, rgba(30, 58, 138, 0.08) 0%, rgba(2, 6, 23, 0) 70%)",
           pointerEvents: "none",
           zIndex: 0,
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-        <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
-          {/* Left Content Column */}
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Stack spacing={4}>
-              <Box>
-                <Typography
-                  variant="overline"
-                  sx={{
-                    color: "#94a3b8",
-                    letterSpacing: "0.1em",
-                    fontWeight: 600,
-                    display: "block",
-                    mb: 2,
-                  }}
-                >
-                  HYDERABAD LEARNING HUB
-                </Typography>
-                <Typography
-                  variant="h2"
-                  sx={{
-                    color: "#f8fafc",
-                    mb: 3,
-                    fontWeight: 700,
-                    fontSize: { xs: "2rem", md: "2.5rem" },
-                    lineHeight: 1.2,
-                  }}
-                >
-                  Building Career-Ready Talent Through Practical Learning
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: "#94a3b8",
-                    fontSize: "1.1rem",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  Located in Hyderabad's technology corridor, THAKSA.AI connects students with industry mentors, practical workshops, CRT programs, and career readiness pathways designed to prepare learners for modern industry expectations.
-                </Typography>
-              </Box>
+      <Container maxWidth="md" sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+        <Typography
+          variant="overline"
+          sx={{
+            color: "#94a3b8",
+            letterSpacing: "0.1em",
+            fontWeight: 600,
+            display: "block",
+            mb: 2,
+          }}
+        >
+          📍 HYDERABAD LEARNING HUB
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "#f8fafc",
+            mb: 3,
+            fontWeight: 700,
+            fontSize: { xs: "2rem", md: "2.5rem" },
+            lineHeight: 1.2,
+          }}
+        >
+          Visit Our Learning Hub
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "#94a3b8",
+            fontSize: "1.1rem",
+            lineHeight: 1.6,
+            mb: 6,
+            maxWidth: "800px",
+            mx: "auto"
+          }}
+        >
+          Located in Hyderabad's technology corridor, THAKSA.AI provides practical learning experiences, industry mentorship, career readiness programs, and professional guidance for aspiring students.
+        </Typography>
 
-              {/* Trust Metrics */}
-              <Grid container spacing={2}>
-                {METRICS.map((metric, index) => (
-                  <Grid size={{ xs: 6 }} key={index}>
-                    <Box
-                      sx={{
-                        p: 2.5,
-                        borderRadius: "16px",
-                        bgcolor: "rgba(255, 255, 255, 0.02)",
-                        border: "1px solid rgba(255, 255, 255, 0.05)",
-                        backdropFilter: "blur(10px)",
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: 1.5,
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          width: 32,
-                          height: 32,
-                          borderRadius: "8px",
-                          bgcolor: "rgba(255, 255, 255, 0.05)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          color: "#94a3b8",
-                        }}
-                      >
-                        {metric.icon}
-                      </Box>
-                      <Box>
-                        <Typography
-                          variant="h4"
-                          sx={{ color: "#f8fafc", fontWeight: 700, mb: 0.5, fontSize: "1.25rem" }}
-                        >
-                          {metric.value}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{ color: "#64748b", fontWeight: 500 }}
-                        >
-                          {metric.label}
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </Grid>
-                ))}
-              </Grid>
-            </Stack>
-          </Grid>
-
-          {/* Right Location Card Column */}
-          <Grid size={{ xs: 12, md: 6 }}>
+        <Box
+          sx={{
+            p: { xs: 2, md: 3 },
+            borderRadius: "24px",
+            bgcolor: "rgba(255, 255, 255, 0.02)",
+            border: "1px solid rgba(255, 255, 255, 0.05)",
+            backdropFilter: "blur(20px)",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 0 40px rgba(0, 0, 0, 0.2)",
+            mb: 4
+          }}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "-10%",
+              left: "-10%",
+              width: "120%",
+              height: "120%",
+              background: "radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 60%)",
+              pointerEvents: "none",
+            }}
+          />
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              paddingTop: { xs: "100%", sm: "56.25%" }, // Aspect ratio
+              borderRadius: "16px",
+              overflow: "hidden",
+              border: "1px solid rgba(255, 255, 255, 0.05)",
+            }}
+          >
             <Box
+              component="iframe"
+              src="https://maps.google.com/maps?q=Jyothi%20Imperial,%20Gachibowli,%20Hyderabad&t=m&z=15&output=embed"
               sx={{
-                p: { xs: 4, md: 6 },
-                borderRadius: "24px",
-                bgcolor: "rgba(255, 255, 255, 0.02)",
-                border: "1px solid rgba(255, 255, 255, 0.05)",
-                backdropFilter: "blur(20px)",
-                position: "relative",
-                overflow: "hidden",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: 0,
+                filter: "invert(90%) hue-rotate(180deg) contrast(80%)",
               }}
-            >
-              {/* Subtle top-right glow for the card */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  top: "-20%",
-                  right: "-20%",
-                  width: "60%",
-                  height: "60%",
-                  background: "radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%)",
-                  pointerEvents: "none",
-                }}
-              />
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </Box>
+        </Box>
 
-              <Stack spacing={4} sx={{ position: "relative", zIndex: 1 }}>
-                <Box
-                  sx={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: "12px",
-                    bgcolor: "rgba(255, 255, 255, 0.05)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#f8fafc",
-                  }}
-                >
-                  <LocationOnRoundedIcon />
-                </Box>
-
-                <Box>
-                  <Typography variant="h5" sx={{ color: "#f8fafc", fontWeight: 600, mb: 1 }}>
-                    Hyderabad, Telangana
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: "#94a3b8" }}>
-                    Gachibowli Technology District
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: "#94a3b8" }}>
-                    Near Gachibowli Flyover
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    pt: 3,
-                    borderTop: "1px solid rgba(255, 255, 255, 0.05)",
-                  }}
-                >
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: "#64748b",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1,
-                      fontWeight: 500,
-                    }}
-                  >
-                    <Box
-                      component="span"
-                      sx={{
-                        width: 6,
-                        height: 6,
-                        borderRadius: "50%",
-                        bgcolor: "#10b981", // Subtle green dot for "active" presence
-                      }}
-                    />
-                    Professional Learning Environment
-                  </Typography>
-                </Box>
-              </Stack>
-            </Box>
-          </Grid>
-        </Grid>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 2,
+            justifyContent: "center",
+            mt: 4
+          }}
+        >
+          {CHIPS.map((chip, index) => (
+            <Chip
+              key={index}
+              label={chip}
+              sx={{
+                bgcolor: "rgba(255, 255, 255, 0.03)",
+                color: "#e2e8f0",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+                backdropFilter: "blur(10px)",
+                fontSize: "0.9rem",
+                px: 1,
+                py: 2.5,
+                borderRadius: "12px",
+                "&:hover": {
+                  bgcolor: "rgba(255, 255, 255, 0.06)",
+                }
+              }}
+            />
+          ))}
+        </Box>
       </Container>
     </Box>
   );
