@@ -1,22 +1,20 @@
-import { Box, Container, Grid, Link as MuiLink, Stack, Typography, IconButton } from "@mui/material";
+import { Box, Container, Typography, Stack, IconButton, Link as MuiLink } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import { Link as RouterLink } from "react-router-dom";
-import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
-import PhoneRoundedIcon from '@mui/icons-material/PhoneRounded';
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 
 const quickLinks = [
   { label: "Home", to: "/" },
-  { label: "Workshops", to: "/workshops" },
-  { label: "CRT Training", to: "/training" },
-  { label: "Contact", to: "/contact" },
+  { label: "About Us", to: "/about" },
 ];
 
 const programs = [
-  { label: "Courses", to: "/courses" },
-  { label: "Batches", to: "/batches" },
+  { label: "CRT Training", to: "/crt" },
+  { label: "Workshops", to: "/workshops" },
 ];
 
 function FooterLink({ label, to }) {
@@ -26,13 +24,13 @@ function FooterLink({ label, to }) {
       to={to}
       underline="none"
       sx={{
-        color: "#64748B",
+        color: "#94A3B8",
         fontSize: "14px",
         fontWeight: 500,
         transition: "all 0.2s ease",
         display: "inline-block",
         "&:hover": {
-          color: "#0F172A",
+          color: "#F8FAFC",
           transform: "translateX(2px)"
         },
       }}
@@ -44,58 +42,90 @@ function FooterLink({ label, to }) {
 
 function ContactRow({ icon, primary, secondary, href }) {
   const content = (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "flex-start",
-        gap: 1.5,
-        transition: "all 0.2s ease",
-        "&:hover": {
-          transform: href ? "translateX(2px)" : "none",
-        }
-      }}
-    >
-      <Box sx={{ color: "#94A3B8", mt: "2px", "& svg": { fontSize: "18px" } }}>
+    <Stack direction="row" spacing={2} alignItems="flex-start">
+      <Box sx={{
+        color: "#94A3B8",
+        mt: 0.5
+      }}>
         {icon}
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Typography sx={{ fontSize: "14px", fontWeight: 500, color: "#64748B", transition: "color 0.2s ease" }}>
+      <Box>
+        <Typography sx={{
+          color: "#F8FAFC",
+          fontSize: "14px",
+          fontWeight: 600,
+          fontFamily: "'Inter', sans-serif"
+        }}>
           {primary}
         </Typography>
         {secondary && (
-          <Typography sx={{ fontSize: "12px", color: "#94A3B8", mt: 0.25 }}>
+          <Typography sx={{
+            color: "#94A3B8",
+            fontSize: "13px",
+            fontFamily: "'Inter', sans-serif",
+            mt: 0.25
+          }}>
             {secondary}
           </Typography>
         )}
       </Box>
-    </Box>
+    </Stack>
   );
 
-  return href ? (
-    <MuiLink href={href} underline="none" sx={{ display: "block", "&:hover .MuiTypography-root": { color: "#0F172A" } }}>
+  if (href) {
+    return (
+      <Box
+        component="a"
+        href={href}
+        sx={{
+          textDecoration: "none",
+          display: "block",
+          p: 2,
+          bgcolor: "rgba(255,255,255,0.02)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: "18px",
+          transition: "all 0.2s ease",
+          "&:hover": {
+            borderColor: "rgba(99,102,241,0.3)",
+            bgcolor: "rgba(255,255,255,0.04)",
+            boxShadow: "0 4px 12px rgba(168, 85, 247, 0.08)",
+            transform: "translateY(-2px)"
+          }
+        }}
+      >
+        {content}
+      </Box>
+    );
+  }
+
+  return (
+    <Box sx={{
+      p: 2,
+      bgcolor: "rgba(255,255,255,0.02)",
+      border: "1px solid rgba(255,255,255,0.08)",
+      borderRadius: "18px"
+    }}>
       {content}
-    </MuiLink>
-  ) : (
-    content
+    </Box>
   );
 }
 
 export default function Footer() {
   return (
     <Box component="footer" sx={{ fontFamily: "'Inter', sans-serif" }}>
-      {/* Dark-to-Light Gradient Bridge */}
+      {/* Dark-to-Light Gradient Bridge -> Changed to Darker Gradient */}
       <Box
         sx={{
           width: "100%",
           height: { xs: "100px", md: "120px" },
-          background: "linear-gradient(180deg, #020B2D 0%, #64748B 50%, #F8FAFC 100%)",
+          background: "linear-gradient(180deg, #020617 0%, #0F172A 30%, #1E293B 100%)",
         }}
       />
 
       <Box
         sx={{
           position: "relative",
-          bgcolor: "#F8FAFC",
+          bgcolor: "#1E293B",
           overflow: "hidden",
           pb: { xs: 4, md: 6 },
         }}
@@ -109,7 +139,7 @@ export default function Footer() {
           width: "100%",
           maxWidth: "1000px",
           height: "500px",
-          background: "radial-gradient(ellipse at top, rgba(255, 255, 255, 0.6), transparent 70%)",
+          background: "radial-gradient(ellipse at top, rgba(255, 255, 255, 0.05), transparent 70%)",
           pointerEvents: "none",
         }} />
 
@@ -140,14 +170,14 @@ export default function Footer() {
                         height: 40,
                         borderRadius: "10px",
                         objectFit: "cover",
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
                       }}
                     />
                     <Stack spacing={0.25}>
                       <Typography sx={{
                         fontFamily: "'Inter', sans-serif",
                         fontWeight: 800,
-                        color: "#0F172A",
+                        color: "#F8FAFC",
                         lineHeight: 1,
                         fontSize: { xs: "22px", md: "26px" }
                       }}>
@@ -159,7 +189,7 @@ export default function Footer() {
                         fontWeight: 600,
                         letterSpacing: "0.12em",
                         textTransform: "uppercase",
-                        color: "#64748B",
+                        color: "#94A3B8",
                         lineHeight: 1
                       }}>
                         Career Planet
@@ -171,7 +201,7 @@ export default function Footer() {
                     fontFamily: "'Inter', sans-serif",
                     fontSize: "14px",
                     lineHeight: 1.6,
-                    color: "#475569",
+                    color: "#94A3B8",
                   }}>
                     Industry-led workshops, CRT programs, and career readiness experiences for engineering students.
                   </Typography>
@@ -192,15 +222,15 @@ export default function Footer() {
                       sx={{
                         width: 40,
                         height: 40,
-                        bgcolor: "transparent",
-                        border: "1px solid #E2E8F0",
-                        color: "#64748B",
+                        bgcolor: "rgba(255,255,255,0.02)",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        color: "#94A3B8",
                         transition: "all 0.2s ease",
                         "&:hover": {
-                          color: "#0F172A",
-                          borderColor: "rgba(99,102,241,0.3)",
-                          background: "linear-gradient(135deg, rgba(99,102,241,0.06), rgba(59,130,246,0.04), rgba(16,185,129,0.02))",
-                          boxShadow: "0 4px 12px rgba(168, 85, 247, 0.08)",
+                          color: "#F8FAFC",
+                          borderColor: "rgba(99,102,241,0.5)",
+                          background: "linear-gradient(135deg, rgba(99,102,241,0.1), rgba(59,130,246,0.08), rgba(16,185,129,0.04))",
+                          boxShadow: "0 4px 12px rgba(168, 85, 247, 0.15)",
                           transform: "translateY(-2px)"
                         }
                       }}
@@ -221,7 +251,7 @@ export default function Footer() {
                   fontWeight: 700,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: "#0F172A"
+                  color: "#F8FAFC"
                 }}>
                   Platform
                 </Typography>
@@ -242,7 +272,7 @@ export default function Footer() {
                   fontWeight: 700,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: "#0F172A"
+                  color: "#F8FAFC"
                 }}>
                   Programs
                 </Typography>
@@ -263,7 +293,7 @@ export default function Footer() {
                   fontWeight: 700,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: "#0F172A"
+                  color: "#F8FAFC"
                 }}>
                   Get in Touch
                 </Typography>
@@ -293,7 +323,7 @@ export default function Footer() {
             sx={{
               mt: { xs: 4, md: 6 },
               pt: 3,
-              borderTop: "1px solid #E2E8F0",
+              borderTop: "1px solid rgba(255,255,255,0.08)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -328,10 +358,10 @@ export default function Footer() {
               spacing={0.5}
               alignItems="center"
             >
-              <Typography sx={{ color: "#0F172A", fontSize: "14px", fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
+              <Typography sx={{ color: "#F8FAFC", fontSize: "14px", fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
                 © 2026 THAKSA.AI
               </Typography>
-              <Typography sx={{ color: "#64748B", fontSize: "14px", fontWeight: 400, fontFamily: "'Inter', sans-serif" }}>
+              <Typography sx={{ color: "#94A3B8", fontSize: "14px", fontWeight: 400, fontFamily: "'Inter', sans-serif" }}>
                 Built for Career Transformation
               </Typography>
             </Stack>
@@ -343,7 +373,7 @@ export default function Footer() {
                 fontWeight: 500,
                 fontFamily: "'Inter', sans-serif",
                 transition: "color 0.2s ease",
-                "&:hover": { color: "#0F172A" }
+                "&:hover": { color: "#F8FAFC" }
               }}>
                 Privacy Policy
               </MuiLink>
@@ -353,7 +383,7 @@ export default function Footer() {
                 fontWeight: 500,
                 fontFamily: "'Inter', sans-serif",
                 transition: "color 0.2s ease",
-                "&:hover": { color: "#0F172A" }
+                "&:hover": { color: "#F8FAFC" }
               }}>
                 Terms of Service
               </MuiLink>
