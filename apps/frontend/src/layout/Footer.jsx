@@ -87,8 +87,8 @@ export default function Footer() {
       <Box
         sx={{
           width: "100%",
-          height: { xs: "100px", md: "120px" },
-          background: "linear-gradient(180deg, #020617 0%, #475569 50%, #F8FAFC 100%)",
+          height: { xs: "120px", md: "160px" }, mt: 0,
+          background: "linear-gradient(180deg, #020617 0%, #0F172A 30%, #F8FAFC 100%)",
         }}
       />
 
