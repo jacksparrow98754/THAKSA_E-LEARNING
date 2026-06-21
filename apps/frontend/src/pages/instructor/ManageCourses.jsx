@@ -54,7 +54,7 @@ export default function ManageCourses() {
   }, [showToast]);
 
   useEffect(() => {
-    loadCourses();
+    loadCourses().catch(console.error);
   }, [loadCourses]);
 
   const handleChange = (e) => {
@@ -80,7 +80,7 @@ export default function ManageCourses() {
       });
       showToast("Course created and sent for admin approval", "success");
       setFormData(initialForm);
-      await loadCourses();
+      await loadCourses().catch(console.error);
     } catch (requestError) {
       showToast(requestError?.response?.data?.message || "Failed to create course", "error");
     } finally {
@@ -94,7 +94,7 @@ export default function ManageCourses() {
     try {
       await toggleInstructorCourseActive(courseId, newStatus);
       showToast(`Course ${newStatus ? 'activated' : 'deactivated'} successfully`, "success");
-      await loadCourses();
+      await loadCourses().catch(console.error);
     } catch (requestError) {
       showToast(requestError?.response?.data?.message || "Failed to update course status", "error");
     }

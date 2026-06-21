@@ -97,50 +97,70 @@ export default function LearnerOutcomesSection() {
       <Container maxWidth="lg">
         <Stack spacing={{ xs: 6, md: 8 }}>
           {/* Header Section */}
-          <Box sx={{ textAlign: "center", maxWidth: "800px", mx: "auto" }}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Typography
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'flex-end' }, gap: 4 }}>
+            <Box sx={{ maxWidth: "600px" }}>
+              <div
+              >
+                <Typography
+                  sx={{
+                    color: "#60A5FA",
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    mb: 2,
+                  }}
+                >
+                  TESTIMONIALS
+                </Typography>
+                <Typography
+                  variant="h2"
+                  sx={{
+                    color: "white",
+
+                    fontWeight: 800,
+                    lineHeight: 1.1,
+                    mb: 3,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  Trusted by Students Across Programs
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "rgba(255, 255, 255, 0.7)",
+                    fontSize: { xs: "1.1rem", md: "1.25rem" },
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Experiences shared by learners who participated in workshops, mentorship programs, and career readiness training.
+                </Typography>
+              </div>
+            </Box>
+
+            {/* Navigation Controls */}
+            <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <IconButton
+                onClick={() => scroll("left")}
                 sx={{
-                  color: "#60A5FA",
-                  fontSize: "0.875rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  mb: 2,
+                  color: 'white',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  '&:hover': { background: 'rgba(255,255,255,0.1)' }
                 }}
               >
-                TESTIMONIALS
-              </Typography>
-              <Typography
-                variant="h2"
+                <ArrowBackIosNewIcon fontSize="small" />
+              </IconButton>
+              <IconButton
+                onClick={() => scroll("right")}
                 sx={{
-                  color: "white",
-                  fontSize: { xs: "2.5rem", md: "3.5rem" },
-                  fontWeight: 800,
-                  lineHeight: 1.1,
-                  mb: 3,
-                  letterSpacing: "-0.02em",
+                  color: 'white',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  '&:hover': { background: 'rgba(255,255,255,0.1)' }
                 }}
               >
-                Trusted by Students Across Workshops & CRT Programs
-              </Typography>
-              <Typography
-                sx={{
-                  color: "rgba(255, 255, 255, 0.7)",
-                  fontSize: { xs: "1.1rem", md: "1.25rem" },
-                  lineHeight: 1.6,
-                  maxWidth: "700px",
-                  mx: "auto",
-                }}
-              >
-                Experiences shared by learners who participated in workshops, mentorship programs, and career readiness training.
-              </Typography>
-            </motion.div>
+                <ArrowForwardIosIcon fontSize="small" />
+              </IconButton>
+            </Stack>
           </Box>
 
           {/* Testimonials Slider */}
@@ -286,12 +306,8 @@ export default function LearnerOutcomesSection() {
           </Box>
 
           {/* Trust Booster */}
-          <Box sx={{ textAlign: "center" }}>
-             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+          <Box sx={{ textAlign: "center", mt: 4 }}>
+             <div
             >
               <Stack direction="row" spacing={1} justifyContent="center" alignItems="center" mb={1}>
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -304,7 +320,7 @@ export default function LearnerOutcomesSection() {
               <Typography sx={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "0.9rem" }}>
                 Based on workshop, mentorship, and CRT participant feedback.
               </Typography>
-            </motion.div>
+            </div>
           </Box>
 
         </Stack>

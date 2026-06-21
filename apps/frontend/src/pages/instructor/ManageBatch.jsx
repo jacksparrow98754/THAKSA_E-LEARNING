@@ -129,7 +129,7 @@ export default function ManageBatch() {
   }, [showToast]);
 
   useEffect(() => {
-    loadData();
+    loadData().catch(console.error);
   }, [loadData]);
 
   const handleChange = (e) => {
@@ -166,7 +166,7 @@ export default function ManageBatch() {
       });
       showToast("Batch created successfully", "success");
       setBatchFormData(initialBatchForm);
-      await loadData();
+      await loadData().catch(console.error);
     } catch (requestError) {
       showToast(requestError?.response?.data?.message || "Failed to create batch", "error");
     } finally {
@@ -198,7 +198,7 @@ export default function ManageBatch() {
         "success"
       );
       setFormData(initialForm);
-      await loadData();
+      await loadData().catch(console.error);
     } catch (requestError) {
       showToast(requestError?.response?.data?.message || "Failed to create session", "error");
     } finally {
@@ -210,7 +210,7 @@ export default function ManageBatch() {
     try {
       await startInstructorSession(sessionId);
       showToast("Session started. Attendance is now open. Don't forget to verify student attendance!", "success");
-      await loadData();
+      await loadData().catch(console.error);
     } catch (requestError) {
       showToast(requestError?.response?.data?.message || "Failed to start session", "error");
     }
@@ -220,7 +220,7 @@ export default function ManageBatch() {
     try {
       await endInstructorSession(sessionId);
       showToast("Session ended", "success");
-      await loadData();
+      await loadData().catch(console.error);
     } catch (requestError) {
       showToast(requestError?.response?.data?.message || "Failed to end session", "error");
     }
@@ -230,7 +230,7 @@ export default function ManageBatch() {
     try {
       await cancelInstructorSession(sessionId);
       showToast("Session cancelled", "success");
-      await loadData();
+      await loadData().catch(console.error);
     } catch (requestError) {
       showToast(requestError?.response?.data?.message || "Failed to cancel session", "error");
     }

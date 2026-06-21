@@ -7,8 +7,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-// eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
@@ -102,7 +101,7 @@ export default function FounderSection() {
           fontWeight: 800,
           color: "#ffffff",
           mb: 1.5,
-          fontSize: { xs: "36px", md: "48px", lg: "56px" },
+
           lineHeight: 1.1,
           letterSpacing: "-0.02em"
         }}
@@ -124,7 +123,7 @@ export default function FounderSection() {
   const imageShowcase = (
     <Box sx={{ position: "relative", width: "100%", height: "100%", minHeight: { xs: "500px", md: "100%" } }}>
       <AnimatePresence mode="wait">
-        <motion.img
+        <img loading="lazy"
           key={currentIndex}
           src={ceoImages[currentIndex]}
           alt="Founder & CEO K. Tharunkrishna"
