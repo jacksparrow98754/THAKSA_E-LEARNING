@@ -4,7 +4,7 @@ import VisualProofSection from "./sections/VisualProofSection";
 import FounderSection from "./sections/FounderSection";
 import LeadershipTeamSection from "./sections/LeadershipTeamSection";
 import LearnerOutcomesSection from "./sections/LearnerOutcomesSection";
-import CtaSection from "./sections/CtaSection";
+import LearningHubSection from "./sections/LearningHubSection";
 
 export default function HomePage() {
   return (
@@ -19,7 +19,7 @@ export default function HomePage() {
       <FounderSection />
       <LeadershipTeamSection />
       <LearnerOutcomesSection />
-      <CtaSection />
+      <LearningHubSection />
     </Box>
   );
 }
