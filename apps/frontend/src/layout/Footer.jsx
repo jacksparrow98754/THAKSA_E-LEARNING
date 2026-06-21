@@ -26,14 +26,14 @@ function FooterLink({ label, to }) {
       to={to}
       underline="none"
       sx={{
-        color: "#475569",
-        fontSize: "16px",
+        color: "#64748B",
+        fontSize: "14px",
         fontWeight: 500,
-        transition: "all 0.3s ease",
+        transition: "all 0.2s ease",
         display: "inline-block",
         "&:hover": {
-          color: "#A855F7",
-          transform: "translateX(4px)"
+          color: "#0F172A",
+          transform: "translateX(2px)"
         },
       }}
     >
@@ -51,19 +51,19 @@ function ContactRow({ icon, primary, secondary, href }) {
         gap: 1.5,
         transition: "all 0.2s ease",
         "&:hover": {
-          transform: href ? "translateX(4px)" : "none",
+          transform: href ? "translateX(2px)" : "none",
         }
       }}
     >
-      <Box sx={{ color: "#64748B", mt: "2px" }}>
+      <Box sx={{ color: "#94A3B8", mt: "2px", "& svg": { fontSize: "18px" } }}>
         {icon}
       </Box>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Typography sx={{ fontSize: "15px", fontWeight: 500, color: "#475569", transition: "color 0.2s ease" }}>
+        <Typography sx={{ fontSize: "14px", fontWeight: 500, color: "#64748B", transition: "color 0.2s ease" }}>
           {primary}
         </Typography>
         {secondary && (
-          <Typography sx={{ fontSize: "13px", color: "#94A3B8", mt: 0.5 }}>
+          <Typography sx={{ fontSize: "12px", color: "#94A3B8", mt: 0.25 }}>
             {secondary}
           </Typography>
         )}
@@ -88,7 +88,7 @@ export default function Footer() {
         sx={{
           width: "100%",
           height: { xs: "100px", md: "120px" },
-          background: "linear-gradient(180deg, #020617 0%, #475569 50%, #F8FAFC 100%)",
+          background: "linear-gradient(180deg, #020B2D 0%, #64748B 50%, #F8FAFC 100%)",
         }}
       />
 
@@ -97,7 +97,7 @@ export default function Footer() {
           position: "relative",
           bgcolor: "#F8FAFC",
           overflow: "hidden",
-          pb: { xs: 2, md: 4 },
+          pb: { xs: 4, md: 6 },
         }}
       >
         {/* Subtle radial gradients & light glass highlights */}
@@ -113,11 +113,11 @@ export default function Footer() {
           pointerEvents: "none",
         }} />
 
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, pt: { xs: 2, md: 4 } }}>
-          <Grid container spacing={{ xs: 6, md: 4 }}>
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, pt: { xs: 2, md: 3 } }}>
+          <Grid container spacing={{ xs: 4, md: 3 }}>
             {/* Column 1: Brand Info */}
             <Grid size={{ xs: 12, md: 4 }}>
-              <Stack spacing={4} sx={{ maxWidth: "420px" }}>
+              <Stack spacing={3} sx={{ maxWidth: "420px" }}>
                 <Box>
                   <Box
                     component={RouterLink}
@@ -125,9 +125,9 @@ export default function Footer() {
                     sx={{
                       display: "inline-flex",
                       alignItems: "center",
-                      gap: 2,
+                      gap: 1.5,
                       textDecoration: "none",
-                      mb: 2
+                      mb: 1.5
                     }}
                   >
                     <Box
@@ -136,26 +136,26 @@ export default function Footer() {
                       src="/new-logo.png"
                       alt="THAKSA.AI Logo"
                       sx={{
-                        width: 52,
-                        height: 52,
-                        borderRadius: "14px",
+                        width: 40,
+                        height: 40,
+                        borderRadius: "10px",
                         objectFit: "cover",
-                        boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
                       }}
                     />
-                    <Stack spacing={0.5}>
+                    <Stack spacing={0.25}>
                       <Typography sx={{
                         fontFamily: "'Inter', sans-serif",
                         fontWeight: 800,
                         color: "#0F172A",
                         lineHeight: 1,
-                        fontSize: { xs: "28px", md: "34px" }
+                        fontSize: { xs: "22px", md: "26px" }
                       }}>
                         THAKSA.AI
                       </Typography>
                       <Typography sx={{
                         fontFamily: "'Inter', sans-serif",
-                        fontSize: "15px",
+                        fontSize: "12px",
                         fontWeight: 600,
                         letterSpacing: "0.12em",
                         textTransform: "uppercase",
@@ -169,9 +169,9 @@ export default function Footer() {
 
                   <Typography sx={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: "15px",
-                    lineHeight: 1.8,
-                    color: "#64748B",
+                    fontSize: "14px",
+                    lineHeight: 1.6,
+                    color: "#475569",
                   }}>
                     Industry-led workshops, CRT programs, and career readiness experiences for engineering students.
                   </Typography>
@@ -190,20 +190,18 @@ export default function Footer() {
                       target={item.href.startsWith("mailto") ? "_self" : "_blank"}
                       rel={item.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                       sx={{
-                        width: 44,
-                        height: 44,
-                        bgcolor: "white",
+                        width: 40,
+                        height: 40,
+                        bgcolor: "transparent",
                         border: "1px solid #E2E8F0",
-                        color: "#475569",
-                        boxShadow: "0 2px 8px rgba(15, 23, 42, 0.04)",
-                        transition: "all 0.3s ease",
+                        color: "#64748B",
+                        transition: "all 0.2s ease",
                         "&:hover": {
-                          bgcolor: "white",
-                          color: "#A855F7",
+                          color: "#0F172A",
                           borderColor: "rgba(99,102,241,0.3)",
-                          background: "linear-gradient(135deg, rgba(99,102,241,0.08), rgba(59,130,246,0.06), rgba(16,185,129,0.04))",
-                          boxShadow: "0 4px 12px rgba(168, 85, 247, 0.15)",
-                          transform: "translateY(-3px)"
+                          background: "linear-gradient(135deg, rgba(99,102,241,0.06), rgba(59,130,246,0.04), rgba(16,185,129,0.02))",
+                          boxShadow: "0 4px 12px rgba(168, 85, 247, 0.08)",
+                          transform: "translateY(-2px)"
                         }
                       }}
                     >
@@ -294,8 +292,8 @@ export default function Footer() {
           <Box
             sx={{
               mt: { xs: 4, md: 6 },
-              pt: 4,
-              borderTop: "1px solid rgba(15,23,42,0.08)",
+              pt: 3,
+              borderTop: "1px solid #E2E8F0",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -304,10 +302,10 @@ export default function Footer() {
             <Typography sx={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "12px",
-              fontWeight: 600,
+              fontWeight: 500,
               color: "#94A3B8",
               textTransform: "uppercase",
-              letterSpacing: "0.15em",
+              letterSpacing: "0.12em",
               textAlign: "center"
             }}>
               Industry Workshops • CRT Programs • Career Readiness
@@ -322,7 +320,7 @@ export default function Footer() {
               justifyContent: "center",
               alignItems: "center",
               flexDirection: "column",
-              gap: 2,
+              gap: 1.5,
             }}
           >
             <Stack
@@ -338,7 +336,7 @@ export default function Footer() {
               </Typography>
             </Stack>
 
-            <Stack direction="row" spacing={3} alignItems="center">
+            <Stack direction="row" spacing={3} alignItems="center" mt={1}>
               <MuiLink href="#" underline="none" sx={{
                 color: "#94A3B8",
                 fontSize: "13px",
