@@ -45,18 +45,25 @@ function FooterLink({ label, to }) {
 
 function ContactItem({ icon, text, href }) {
   const content = (
-    <Stack direction="row" spacing={1.5} alignItems="center" sx={{ color: "#64748b" }}>
+    <Stack direction="row" spacing={1.5} alignItems="flex-start" sx={{ color: "#64748b" }}>
       <Box sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         bgcolor: 'rgba(15,23,42,0.03)',
         p: 1,
-        borderRadius: 2
+        borderRadius: 2,
+        mt: 0.2,
       }}>
         {icon}
       </Box>
-      <Typography sx={{ fontSize: "0.95rem", fontWeight: 500 }}>{text}</Typography>
+      <Box>
+        {typeof text === "string" ? (
+          <Typography sx={{ fontSize: "0.95rem", fontWeight: 500 }}>{text}</Typography>
+        ) : (
+          text
+        )}
+      </Box>
     </Stack>
   );
 
@@ -113,7 +120,7 @@ export default function Footer() {
                   component="img"
                   loading="lazy"
                   src={logo}
-                  alt="ThaksaAi Logo"
+                  alt="THAKSA.AI Logo"
                   sx={{
                     width: 42,
                     height: 42,
@@ -124,7 +131,7 @@ export default function Footer() {
                 />
                 <Stack>
                   <Typography variant="h3" sx={{ fontWeight: 800, color: "#0F172A", lineHeight: 1.2 }}>
-                    THAKSAai
+                    THAKSA.AI
                   </Typography>
                   <Typography variant="subtitle2" sx={{ color: "#64748B" }}>
                     Career Planet
@@ -197,7 +204,20 @@ export default function Footer() {
                 />
                 <ContactItem
                   icon={<LocationOnRoundedIcon fontSize="small" />}
-                  text="Hyderabad, Telangana, India"
+                  text={
+                    <Stack spacing={0.5}>
+                      <Typography sx={{ fontSize: "0.95rem", fontWeight: 500, color: "#0F172A" }}>
+                        Hyderabad, Telangana
+                      </Typography>
+                      <Typography sx={{ fontSize: "0.85rem", color: "#64748b" }}>
+                        Gachibowli Technology District
+                      </Typography>
+                      <Typography sx={{ fontSize: "0.85rem", color: "#64748b" }}>
+                        Near Gachibowli Flyover
+                      </Typography>
+                    </Stack>
+                  }
+                  href="https://maps.google.com/?q=Gachibowli+Flyover,+Hyderabad"
                 />
               </Stack>
             </Stack>
@@ -217,7 +237,7 @@ export default function Footer() {
           }}
         >
           <Typography sx={{ color: "#64748b", fontSize: "0.9rem", fontWeight: 500 }}>
-            © {new Date().getFullYear()} THAKSAai. All rights reserved.
+            © {new Date().getFullYear()} THAKSA.AI. All rights reserved.
           </Typography>
           <Stack direction="row" spacing={3}>
             <MuiLink href="#" underline="none" sx={{ color: "#94a3b8", fontSize: "0.85rem", "&:hover": { color: "#0f172a" } }}>

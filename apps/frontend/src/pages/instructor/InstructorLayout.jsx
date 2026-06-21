@@ -68,7 +68,7 @@ export default function InstructorLayout() {
 
         }}
       >
-        ThaksaAi Instructor
+        THAKSA.AI Instructor
       </Typography>
 
       <List sx={{ p: 0 }}>

@@ -53,8 +53,8 @@ const process = [
 ];
 
 const testimonials = [
-    { name: "Sai Charan", role: "B.Tech Final Year, CSE | JNTU", text: "My AI-based attendance system built under ThaksaAi guidance scored 95/100 in the viva! The mentors helped me with everything from coding to documentation. Couldn't have done it without them.", rating: 5, avatar: "SC", color: "#6366f1" },
-    { name: "Lakshmi Devi", role: "B.Tech Final Year, ECE | Osmania", text: "The IoT smart home project I built with ThaksaAi's guidance won the Best Project award at our college fest! The step-by-step support was amazing. ThaksaAi team is incredibly dedicated.", rating: 5, avatar: "LD", color: "#d97706" },
+    { name: "Sai Charan", role: "B.Tech Final Year, CSE | JNTU", text: "My AI-based attendance system built under THAKSA.AI guidance scored 95/100 in the viva! The mentors helped me with everything from coding to documentation. Couldn't have done it without them.", rating: 5, avatar: "SC", color: "#6366f1" },
+    { name: "Lakshmi Devi", role: "B.Tech Final Year, ECE | Osmania", text: "The IoT smart home project I built with THAKSA.AI's guidance won the Best Project award at our college fest! The step-by-step support was amazing. THAKSA.AI team is incredibly dedicated.", rating: 5, avatar: "LD", color: "#d97706" },
 ];
 
 function WhatsAppFloat() {
@@ -63,7 +63,7 @@ function WhatsAppFloat() {
             <IconButton component="a" href="tel:+919494808669" sx={{ width: 50, height: 50, bgcolor: "#6366f1", color: "#fff", boxShadow: "0 8px 24px rgba(99,102,241,0.45)", "&:hover": { bgcolor: "#4f46e5", transform: "scale(1.12)" }, transition: "transform 0.2s" }}>
                 <PhoneRoundedIcon sx={{ fontSize: 22 }} />
             </IconButton>
-            <IconButton component="a" href="https://wa.me/919494808669?text=Hi%20ThaksaAi%2C%20I'm%20interested%20in%20Final%20Year%20Project%20guidance!" target="_blank" rel="noopener noreferrer" sx={{ width: 60, height: 60, bgcolor: "#25D366", color: "#fff", boxShadow: "0 8px 28px rgba(37,211,102,0.5)", "&:hover": { bgcolor: "#1ebe58", transform: "scale(1.12)" }, transition: "transform 0.2s" }}>
+            <IconButton component="a" href="https://wa.me/919494808669?text=Hi%20THAKSA.AI%2C%20I'm%20interested%20in%20Final%20Year%20Project%20guidance!" target="_blank" rel="noopener noreferrer" sx={{ width: 60, height: 60, bgcolor: "#25D366", color: "#fff", boxShadow: "0 8px 28px rgba(37,211,102,0.5)", "&:hover": { bgcolor: "#1ebe58", transform: "scale(1.12)" }, transition: "transform 0.2s" }}>
                 <WhatsAppIcon sx={{ fontSize: 30 }} />
             </IconButton>
         </Box>
@@ -89,7 +89,7 @@ export default function FinalYearProjectsPage() {
                             </Box>
                         </Typography>
                         <Typography sx={{ color: "#475569", fontSize: { xs: "1rem", md: "1.1rem" }, maxWidth: 560, mx: "auto", lineHeight: 1.75 }}>
-                            Don't just submit a project — build something that makes an impression. ThaksaAi guides you from idea to implementation to viva, creating projects that stand out to hiring managers and evaluators alike.
+                            Don't just submit a project — build something that makes an impression. THAKSA.AI guides you from idea to implementation to viva, creating projects that stand out to hiring managers and evaluators alike.
                         </Typography>
                     </RevealBox>
                 </Container>
@@ -226,9 +226,9 @@ export default function FinalYearProjectsPage() {
                             <Box component="span" sx={{ background: "linear-gradient(90deg,#fcd34d,#fb923c)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Project Journey</Box>
                         </Typography>
                         <Typography sx={{ color: "rgba(255,255,255,0.65)", mb: 4, lineHeight: 1.75 }}>
-                            Don't leave your final year project to the last minute. Contact ThaksaAi today and let's build something amazing together!
+                            Don't leave your final year project to the last minute. Contact THAKSA.AI today and let's build something amazing together!
                         </Typography>
-                        <Box component="a" href="https://wa.me/919494808669?text=Hi%20ThaksaAi%2C%20I%20need%20help%20with%20my%20Final%20Year%20Project!" target="_blank" rel="noopener noreferrer" sx={{ display: "inline-flex", alignItems: "center", gap: 1.5, bgcolor: "#25D366", color: "#fff", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", px: 4, py: 1.8, borderRadius: 3, boxShadow: "0 12px 28px rgba(37,211,102,0.4)", transition: "transform 0.2s, box-shadow 0.2s", "&:hover": { transform: "translateY(-3px)", boxShadow: "0 20px 40px rgba(37,211,102,0.5)" } }}>
+                        <Box component="a" href="https://wa.me/919494808669?text=Hi%20THAKSA.AI%2C%20I%20need%20help%20with%20my%20Final%20Year%20Project!" target="_blank" rel="noopener noreferrer" sx={{ display: "inline-flex", alignItems: "center", gap: 1.5, bgcolor: "#25D366", color: "#fff", fontWeight: 800, fontSize: "1.05rem", textDecoration: "none", px: 4, py: 1.8, borderRadius: 3, boxShadow: "0 12px 28px rgba(37,211,102,0.4)", transition: "transform 0.2s, box-shadow 0.2s", "&:hover": { transform: "translateY(-3px)", boxShadow: "0 20px 40px rgba(37,211,102,0.5)" } }}>
                             <WhatsAppIcon sx={{ fontSize: 24 }} /> Chat on WhatsApp
                         </Box>
                     </RevealBox>

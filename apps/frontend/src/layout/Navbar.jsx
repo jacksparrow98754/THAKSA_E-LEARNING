@@ -59,7 +59,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -115,17 +115,15 @@ export default function Navbar() {
         position={isFixedNav ? "fixed" : "static"}
         elevation={0}
         sx={{
-          bgcolor: isHomePage && !scrolled ? "transparent" : (scrolled || !isFixedNav ? "rgba(255, 255, 255, 0.85)" : "rgba(255, 255, 255, 0.98)"),
-          backdropFilter: isHomePage && !scrolled ? "none" : (scrolled || !isFixedNav ? "blur(12px) saturate(180%)" : "none"),
-          borderBottom: isHomePage && !scrolled ? "none" : "1px solid",
-          borderColor: isHomePage && !scrolled ? "transparent" : (scrolled || !isFixedNav ? "rgba(15, 23, 42, 0.08)" : "transparent"),
-          boxShadow: scrolled ? "0 4px 20px -2px rgba(15, 23, 42, 0.05)" : "none",
-          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          bgcolor: scrolled ? "rgba(5, 10, 25, 0.85)" : "transparent",
+          backdropFilter: scrolled ? "blur(20px)" : "blur(10px)",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
+          transition: "all 300ms ease",
           zIndex: 1100,
         }}
       >
       <Container maxWidth="lg">
-        <Toolbar disableGutters sx={{ minHeight: { xs: 70, md: 80 }, transition: "min-height 0.3s ease" }}>
+        <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 72 }, transition: "min-height 0.3s ease" }}>
           <Box
             component={RouterLink}
             to="/"
@@ -134,7 +132,7 @@ export default function Navbar() {
               alignItems: "center",
               gap: 1.5,
               textDecoration: "none",
-              color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
+              color: "#FFFFFF",
               "&:hover img": {
                 transform: "scale(1.05)",
               }
@@ -143,7 +141,7 @@ export default function Navbar() {
             <Box
               component="img"
               src={brandLogo}
-              alt="ThaksaAi Logo"
+              alt="THAKSA.AI Logo"
               sx={{
                 width: { xs: 36, md: 42 },
                 height: { xs: 36, md: 42 },
@@ -155,17 +153,14 @@ export default function Navbar() {
             />
             <Typography
               sx={{
-                fontWeight: 800,
+                fontWeight: 700,
                 fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.45rem" },
-                letterSpacing: "-0.03em",
-
-                color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
-                background: isHomePage && !scrolled ? "none" : "linear-gradient(90deg, #0f172a 0%, #334155 100%)",
-                WebkitBackgroundClip: isHomePage && !scrolled ? "none" : "text",
-                WebkitTextFillColor: isHomePage && !scrolled ? "initial" : "transparent",
+                letterSpacing: "-0.04em",
+                fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+                color: "#FFFFFF",
               }}
             >
-              THAKSAai
+              THAKSA.AI
             </Typography>
           </Box>
 
@@ -182,17 +177,17 @@ export default function Navbar() {
                 color="inherit"
                 disableRipple
                 sx={{
-                  color: isActive(item.to) ? (isHomePage && !scrolled ? "#ffffff" : "#0f172a") : (isHomePage && !scrolled ? "rgba(255,255,255,0.8)" : "#64748b"),
-                  fontWeight: isActive(item.to) ? 700 : 600,
-                  fontSize: "0.95rem",
+                  color: isActive(item.to) ? "#FFFFFF" : "rgba(255, 255, 255, 0.75)",
+                  fontWeight: 500,
+                  fontSize: "15px",
                   textTransform: "none",
                   px: 2,
                   py: 1,
                   borderRadius: "8px",
                   transition: "all 0.2s ease",
                   "&:hover": {
-                    color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
-                    bgcolor: isHomePage && !scrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(15, 23, 42, 0.04)",
+                    color: "#A78BFA",
+                    bgcolor: "rgba(255, 255, 255, 0.05)",
                   },
                 }}
               >
@@ -213,12 +208,14 @@ export default function Navbar() {
                   to="/login"
                   disableRipple
                   sx={{
-                    color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
-                    fontWeight: 600,
-                    fontSize: "0.95rem",
+                    color: "rgba(255, 255, 255, 0.75)",
+                    fontWeight: 500,
+                    fontSize: "15px",
                     textTransform: "none",
                     px: 2.5,
-                    "&:hover": { bgcolor: isHomePage && !scrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(15,23,42,0.04)", borderRadius: "8px" }
+                    borderRadius: "8px",
+                    transition: "all 0.2s ease",
+                    "&:hover": { color: "#FFFFFF", bgcolor: "rgba(255, 255, 255, 0.05)" }
                   }}
                 >
                   Login
@@ -229,20 +226,18 @@ export default function Navbar() {
                   variant="contained"
                   disableElevation
                   sx={{
-                    bgcolor: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
-                    color: isHomePage && !scrolled ? "#0f172a" : "white",
+                    bgcolor: "#FFFFFF",
+                    color: "#0F172A",
                     fontWeight: 600,
-                    fontSize: "0.95rem",
+                    fontSize: "15px",
                     textTransform: "none",
                     borderRadius: "8px",
                     px: 3,
                     py: 1,
-                    boxShadow: "0 4px 14px 0 rgba(15,23,42,0.15)",
                     transition: "all 0.2s ease",
                     "&:hover": {
-                      bgcolor: isHomePage && !scrolled ? "rgba(255, 255, 255, 0.9)" : "#1e293b",
+                      bgcolor: "rgba(255, 255, 255, 0.9)",
                       transform: "translateY(-1px)",
-                      boxShadow: "0 6px 20px rgba(15,23,42,0.2)"
                     }
                   }}
                 >
@@ -255,11 +250,13 @@ export default function Navbar() {
                   component={RouterLink}
                   to={dashboardPath}
                   sx={{
-                    color: isHomePage && !scrolled ? "#ffffff" : "#0f172a",
-                    fontWeight: 600,
-                    fontSize: "0.95rem",
+                    color: "rgba(255, 255, 255, 0.75)",
+                    fontWeight: 500,
+                    fontSize: "15px",
                     textTransform: "none",
-                    "&:hover": { bgcolor: isHomePage && !scrolled ? "rgba(255,255,255,0.1)" : "rgba(15,23,42,0.04)", borderRadius: "8px" }
+                    borderRadius: "8px",
+                    transition: "all 0.2s ease",
+                    "&:hover": { color: "#FFFFFF", bgcolor: "rgba(255,255,255,0.05)" }
                   }}
                 >
                   Dashboard
@@ -269,10 +266,12 @@ export default function Navbar() {
                   color="error"
                   variant="text"
                   sx={{
-                    fontSize: "0.95rem",
-                    fontWeight: 600,
+                    fontSize: "15px",
+                    fontWeight: 500,
                     textTransform: "none",
-                    "&:hover": { bgcolor: isHomePage && !scrolled ? "rgba(239,68,68,0.15)" : "rgba(239,68,68,0.04)", borderRadius: "8px" }
+                    borderRadius: "8px",
+                    transition: "all 0.2s ease",
+                    "&:hover": { bgcolor: "rgba(239,68,68,0.15)" }
                   }}
                 >
                   Logout
@@ -287,7 +286,17 @@ export default function Navbar() {
             sx={{
               ml: "auto",
               display: { xs: "inline-flex", md: "none" },
-              color: isHomePage && !scrolled ? "#ffffff" : "#0f172a"
+              color: "#ffffff",
+              width: "42px",
+              height: "42px",
+              borderRadius: "12px",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              transition: "all 0.2s ease",
+              "&:hover": {
+                background: "rgba(255,255,255,0.1)",
+                boxShadow: "0 0 10px rgba(255,255,255,0.1)",
+              }
             }}
           >
             <MenuRoundedIcon />
@@ -303,9 +312,9 @@ export default function Navbar() {
         PaperProps={{
           sx: {
             width: { xs: "100%", sm: 380 },
-            borderLeft: "1px solid rgba(15,23,42,0.08)",
-            bgcolor: "rgba(255,255,255,0.98)",
-            backdropFilter: "blur(16px)",
+            borderLeft: "1px solid rgba(255,255,255,0.08)",
+            bgcolor: "rgba(5,10,25,0.98)",
+            backdropFilter: "blur(30px)",
           }
         }}
       >
@@ -325,7 +334,7 @@ export default function Navbar() {
               <Box
                 component="img"
                 src={brandLogo}
-                alt="ThaksaAi Logo"
+                alt="THAKSA.AI Logo"
                 sx={{
                   width: 36,
                   height: 36,
@@ -336,20 +345,22 @@ export default function Navbar() {
               />
               <Typography
                 sx={{
-                  fontWeight: 800,
+                  fontWeight: 700,
                   fontSize: { xs: "1.1rem", sm: "1.3rem" },
-                  color: "#0f172a",
-
+                  color: "#FFFFFF",
+                  fontFamily: "'Sora', 'Plus Jakarta Sans', sans-serif",
+                  letterSpacing: "-0.04em",
                 }}
               >
-                THAKSAai
+                THAKSA.AI
               </Typography>
             </Box>
             <IconButton
               onClick={() => setMobileOpen(false)}
               sx={{
-                bgcolor: "rgba(15,23,42,0.04)",
-                "&:hover": { bgcolor: "rgba(15,23,42,0.08)" }
+                color: "rgba(255,255,255,0.75)",
+                bgcolor: "rgba(255,255,255,0.05)",
+                "&:hover": { bgcolor: "rgba(255,255,255,0.1)", color: "#FFFFFF" }
               }}
             >
               <CloseRoundedIcon />
@@ -367,9 +378,9 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   sx={{
                     justifyContent: "flex-start",
-                    color: active ? "#0f172a" : "#475569",
-                    bgcolor: active ? "rgba(15,23,42,0.04)" : "transparent",
-                    fontWeight: active ? 700 : 500,
+                    color: active ? "#FFFFFF" : "rgba(255,255,255,0.75)",
+                    bgcolor: active ? "rgba(255,255,255,0.05)" : "transparent",
+                    fontWeight: active ? 600 : 500,
                     fontSize: "1.1rem",
                     textTransform: "none",
                     py: 1.5,
@@ -377,8 +388,8 @@ export default function Navbar() {
                     borderRadius: "12px",
                     transition: "all 0.2s ease",
                     "&:hover": {
-                      bgcolor: "rgba(15,23,42,0.06)",
-                      color: "#0f172a",
+                      bgcolor: "rgba(255,255,255,0.05)",
+                      color: "#FFFFFF",
                       transform: "translateX(4px)"
                     },
                   }}
@@ -399,14 +410,15 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     fullWidth
                     sx={{
-                      color: "#0f172a",
-                      bgcolor: "rgba(15,23,42,0.04)",
+                      color: "rgba(255,255,255,0.9)",
+                      bgcolor: "rgba(255,255,255,0.05)",
                       fontSize: "1.05rem",
                       textTransform: "none",
                       py: 1.5,
                       borderRadius: "12px",
                       fontWeight: 600,
-                      "&:hover": { bgcolor: "rgba(15,23,42,0.08)" },
+                      transition: "all 0.2s ease",
+                      "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
                     }}
                   >
                     Login
@@ -419,15 +431,15 @@ export default function Navbar() {
                     disableElevation
                     onClick={() => setMobileOpen(false)}
                     sx={{
-                      bgcolor: "#0f172a",
-                      color: "white",
+                      bgcolor: "#FFFFFF",
+                      color: "#0F172A",
                       fontSize: "1.05rem",
                       textTransform: "none",
                       py: 1.5,
                       borderRadius: "12px",
                       fontWeight: 600,
-                      boxShadow: "0 4px 14px 0 rgba(15,23,42,0.15)",
-                      "&:hover": { bgcolor: "#1e293b" },
+                      transition: "all 0.2s ease",
+                      "&:hover": { bgcolor: "rgba(255,255,255,0.9)" },
                     }}
                   >
                     Start Learning
@@ -443,14 +455,15 @@ export default function Navbar() {
                     fullWidth
                     disableElevation
                     sx={{
-                      bgcolor: "#0f172a",
-                      color: "white",
+                      bgcolor: "rgba(255,255,255,0.05)",
+                      color: "#FFFFFF",
                       fontSize: "1.05rem",
                       textTransform: "none",
                       py: 1.5,
                       borderRadius: "12px",
                       fontWeight: 600,
-                      "&:hover": { bgcolor: "#1e293b" },
+                      transition: "all 0.2s ease",
+                      "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
                     }}
                   >
                     Dashboard
@@ -463,13 +476,14 @@ export default function Navbar() {
                       handleLogout();
                     }}
                     sx={{
-                      bgcolor: "rgba(239,68,68,0.04)",
+                      bgcolor: "rgba(239,68,68,0.1)",
                       fontSize: "1.05rem",
                       textTransform: "none",
                       py: 1.5,
                       borderRadius: "12px",
                       fontWeight: 600,
-                      "&:hover": { bgcolor: "rgba(239,68,68,0.08)" }
+                      transition: "all 0.2s ease",
+                      "&:hover": { bgcolor: "rgba(239,68,68,0.2)" }
                     }}
                   >
                     Logout
@@ -481,7 +495,7 @@ export default function Navbar() {
         </Box>
       </Drawer>
     </AppBar>
-      {isFixedNav && !isHomePage && <Toolbar sx={{ minHeight: { xs: 70, md: 80 } }} />}
+      {isFixedNav && !isHomePage && <Toolbar sx={{ minHeight: { xs: 64, md: 72 } }} />}
     </>
   );
 }

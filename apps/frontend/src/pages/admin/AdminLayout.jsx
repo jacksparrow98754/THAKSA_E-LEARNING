@@ -62,7 +62,7 @@ export default function AdminLayout() {
 
         }}
       >
-        ThaksaAi Admin
+        THAKSA.AI Admin
       </Typography>
 
       <List sx={{ p: 0 }}>

@@ -66,7 +66,7 @@ export default function DashboardLayout() {
 
         }}
       >
-        ThaksaAi
+        THAKSA.AI
       </Typography>
 
       <List sx={{ p: 0 }}>
