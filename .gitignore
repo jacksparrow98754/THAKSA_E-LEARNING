@@ -1,6 +1,5 @@
 node_modules/
 package-lock.json
-.env
 dist/
 .DS_Store
 PROJECT_AUDIT_AND_NEXT_STEPS.md
