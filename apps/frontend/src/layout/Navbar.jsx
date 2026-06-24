@@ -46,8 +46,7 @@ const placementsStickyNavItems = [
 const trainingPageNavItems = [
   { label: "Home", to: "/" },
   { label: "CRT Training", to: "/training" },
-  { label: "Courses", to: "/courses" },
-  { label: "Batches", to: "/batches" },
+  { label: "Courses & Batches", to: "/courses" },
   { label: "Contact", to: "/contact" },
 ];
 

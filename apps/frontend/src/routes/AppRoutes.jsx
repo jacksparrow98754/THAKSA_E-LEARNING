@@ -7,7 +7,6 @@ import RouteFallback from "./RouteFallback";
 import HomePage from "../pages/HomePage";
 import CoursesPage from "../pages/CoursesPage";
 import CourseDetail from "../pages/CourseDetail";
-import BatchesPage from "../pages/BatchesPage";
 import PricingPage from "../pages/PricingPage/index.js";
 import ContactPage from "../pages/ContactPage/index.js";
 import WorkshopPage from "../pages/WorkshopPage";
@@ -70,11 +69,9 @@ export default function AppRoutes() {
       <Route
         path="/courses"
         element={
-          <PublicOnlyRoute>
-            <PublicLayout>
-              <CoursesPage />
-            </PublicLayout>
-          </PublicOnlyRoute>
+          <PublicLayout>
+            <CoursesPage />
+          </PublicLayout>
         }
       />
       <Route
@@ -89,7 +86,7 @@ export default function AppRoutes() {
         path="/batches"
         element={
           <PublicLayout>
-            <BatchesPage />
+            <CoursesPage />
           </PublicLayout>
         }
       />
